@@ -11,13 +11,15 @@ import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUser } from 'redux/auth/auth-operations';
+import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(refreshUser())
+      .unwrap()
+      .then(() => dispatch(getUser()));
   }, [dispatch]);
 
   return (
