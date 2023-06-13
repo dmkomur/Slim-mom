@@ -11,8 +11,7 @@ import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import { useSelector } from 'react-redux';
+import { getUser } from 'redux/auth/auth-operations';
 
 export const App = () => {
   const dispatch = useDispatch();
