@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/auth-operations';
+
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
@@ -18,12 +21,14 @@ let schema = yup.object({
 });
 
 function Login() {
+  const dispatch = useDispatch();
   const startValue = {
     email: '',
     password: '',
   };
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
+    dispatch(logIn(values));
   };
   return (
     <>
@@ -35,7 +40,7 @@ function Login() {
         <Form>
           <lable htmlFor="email">Email</lable>
           <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
+          <ErrorMessage name="tremail" component="div" />
 
           <lable htmlFor="password">Password</lable>
           <Field type="password" name="password" />
