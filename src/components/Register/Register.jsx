@@ -1,4 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/auth-operations';
 import * as yup from 'yup';
 
 let schema = yup.object({
@@ -20,12 +22,14 @@ let schema = yup.object({
 });
 
 function Register() {
+  const dispatch = useDispatch();
   const startValue = {
     email: '',
     password: '',
     username: '',
   };
   const handleSubmit = (values, { resetForm }) => {
+    dispatch(register(values));
     resetForm();
   };
   return (
