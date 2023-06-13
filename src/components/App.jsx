@@ -11,12 +11,13 @@ import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshUser } from 'redux/auth/auth-operations';
+import { getUser, refreshUser } from 'redux/auth/auth-operations';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(refreshUser());
+    dispatch(getUser());
   }, [dispatch]);
 
   return (

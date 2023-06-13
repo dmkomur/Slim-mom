@@ -35,8 +35,8 @@ export const authSlice = createSlice({
       state.isRefreshing = true;
     });
     builder.addCase(refreshUser.fulfilled, (state, action) => {
-      state.accessToken = action.payload.accessToken;
-      state.refreshToken = action.payload.refreshToken;
+      state.accessToken = action.payload.newAccessToken;
+      state.refreshToken = action.payload.newRefreshToken;
       state.sid = action.payload.sid;
       state.isLoggedIn = true;
       state.isRefreshing = false;
