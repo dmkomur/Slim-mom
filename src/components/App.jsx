@@ -12,6 +12,7 @@ import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUser } from 'redux/auth/auth-operations';
+import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const App = () => {
       <Login></Login>
       <Register></Register>
       <Modal></Modal>
+      <CalculatorСalorieForm></CalculatorСalorieForm>
       <DiaryDateCalendar></DiaryDateCalendar>
       <DiaryAddProductForm></DiaryAddProductForm>
       <DiaryProductList></DiaryProductList>
