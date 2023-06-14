@@ -67,6 +67,7 @@ export const App = () => {
               element={
                 <PrivateRoute>
                   <DiaryDateCalendar />
+                  <DiaryProductList />
                 </PrivateRoute>
               }
             />
