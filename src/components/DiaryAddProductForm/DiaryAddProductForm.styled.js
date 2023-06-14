@@ -57,3 +57,23 @@ export const Button = styled.button`
   border: 0;
   border-radius: 50%;
 `;
+
+export const SuggestionsList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+`;
+
+export const SuggestionItem = styled.li`
+  padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
