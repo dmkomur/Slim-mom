@@ -18,6 +18,7 @@ import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
+import PageNotFound from './PageNotFound/PageNotFound';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-            {/* <Route path="*" element={<PageNotFound />} /> */}
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
       </Suspense>
