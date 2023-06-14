@@ -5,7 +5,7 @@ import Icon from 'components/Icon/Icon';
 import s from './LanguageBar.module.css';
 
 const LanguageBar = ({ big }) => {
-  const lang = useSelector(state => state.user.lang);
+  const lang = useSelector(state => state.auth.lang);
   const [currentLang, setCurrentLang] = useState(lang.lang);
   const [isShow, setIsShow] = useState(false);
   const dispatch = useDispatch();

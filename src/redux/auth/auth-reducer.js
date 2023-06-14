@@ -17,6 +17,7 @@ const initialState = {
   user: { userData: {} },
   isLoggedIn: false,
   isRefreshing: false,
+  lang: en,
 };
 
 export const authSlice = createSlice({
