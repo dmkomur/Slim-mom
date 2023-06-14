@@ -22,7 +22,9 @@ import { Layout } from './Layout/Layout';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(refreshUser())
+      .unwrap()
+      .then(() => dispatch(getUser()));
   }, [dispatch]);
 
   return (

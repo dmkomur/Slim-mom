@@ -82,3 +82,31 @@ export const getUser = createAsyncThunk('auth/user', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const dailyRate = createAsyncThunk(
+  'auth/dailyRate',
+  async (body, thunkAPI) => {
+    try {
+      const dailyrate = await instance.post('/daily-rate', body);
+      return dailyrate.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const dailyRateId = createAsyncThunk(
+  'auth/dailyRateId',
+
+  async (body, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const userId = state.auth.user.id;
+
+    try {
+      const dailyrate = await instance.post(`/daily-rate/${userId}`, body);
+      return dailyrate.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
