@@ -49,39 +49,3 @@ export const Wrap = styled.div`
   margin: 0 auto;
   padding: 0 20px;
 `;
-
-// .test {
-//     text-emphasis: none;
-// }
-
-export const Divider = styled.div`
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 137px;
-  overflow-x: clip;
-`;
-
-export const DividerBanana = styled.img`
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 22px;
-  border-radius: 25px;
-  padding: 14px 24px;
-  transform: rotate(35deg);
-  background-image: src('../../imgs/Banana.jpg');
-  position: absolute;
-`;
-
-export const DividerLeaves = styled.img`
-  src: '../../imgs/Fon.jpg';
-  transform: rotate(115deg);
-`;
-
-export const DivaderStrawberry = styled.img`
-  background-image: src('../../imgs/Strawberry-Big.jpg');
-  transform: rotate(115deg);
-`;
