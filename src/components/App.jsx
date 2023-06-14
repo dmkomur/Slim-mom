@@ -9,11 +9,14 @@ import Register from './Register/Register';
 import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 // import { Loader } from './components/Loader/Loader';
+// import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
+// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
+// import { Loader } from './components/Loader/Loader';
+import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
 
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
@@ -34,7 +37,7 @@ export const App = () => {
         {/* fallback={<Loader />}> */}
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<CalculatorСalorieForm />} />
+            <Route index element={<CalculatorCalorieForm />} />
             <Route
               path="registration"
               element={
@@ -55,7 +58,7 @@ export const App = () => {
               path="calculator"
               element={
                 <PrivateRoute>
-                  <CalculatorСalorieForm />
+                  <CalculatorCalorieForm />
                 </PrivateRoute>
               }
             />
@@ -76,6 +79,7 @@ export const App = () => {
               }
             />
             <Route path="*" element={<PageNotFound />} />
+
           </Route>
         </Routes>
       </Suspense>
