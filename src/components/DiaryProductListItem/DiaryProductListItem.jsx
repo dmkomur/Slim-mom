@@ -4,7 +4,7 @@ import { deleteProduct } from 'redux/day/day-operations';
 
 function DiaryProductListItem() {
   const eatenProducts = useSelector(state => state.day.eatenProducts);
-  const dayId = useSelector(state => state.day.daySummary.id);
+  const dayId = useSelector(state => state.day.id);
   const dispatch = useDispatch();
 
   const handleDeleteFood = eatenProductId => {
