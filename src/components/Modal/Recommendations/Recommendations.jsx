@@ -1,4 +1,5 @@
 import {
+  Box,
   StyledButton,
   Title,
   ProductsList,
@@ -10,35 +11,54 @@ import {
   CaloriesWrapper,
   Recommend,
 } from './recommendations.styled';
+import { nanoid } from 'nanoid';
+import { getDaily, getIsLoggedIn } from '../../../redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Recommendations() {
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const products = useSelector(getDaily);
+  const navigate = useNavigate();
+
+  console.log(products);
+
+  const handleStartLoseWeight = () => {
+    return isLoggedIn ? navigate('/diary') : navigate('/login');
+  };
+  console.log(isLoggedIn);
+
+  // useEffect(() => {
+  //   IsLoggedIn && dispatch(dailyRateId(userId));
+  // }, [dispatch, IsLoggedIn]);
+
+  // useEffect(() => {
+  //   IsLoggedIn && dispatch(dailyRate(userId));
+  // }, [dispatch, IsLoggedIn]);
   return (
-    <div>
+    <Box>
       <Title>Your recommended daily calorie intake is</Title>
       <CaloriesWrapper>
         <Calories>
-          2800<Kkal>kkal</Kkal>
+          {Math.trunc(products.dailyRate)}
+          <Kkal> kkal</Kkal>
         </Calories>
       </CaloriesWrapper>
       <Recommend>
         <Caption>Foods you should not eat</Caption>
         <ProductsList>
-          <ProductItem>
-            <Product>1. Flour products</Product>
-          </ProductItem>
-          <ProductItem>
-            <Product>2. Milk</Product>
-          </ProductItem>
-          <ProductItem>
-            <Product>3. Red meat</Product>
-          </ProductItem>
-          <ProductItem>
-            <Product>4. Smoked meats</Product>
-          </ProductItem>
+          {products.notAllowedProducts.map(product => (
+            <ProductItem key={nanoid()}>
+              <Product>{product}</Product>
+            </ProductItem>
+          ))}
         </ProductsList>
       </Recommend>
-      <StyledButton>Start losing weight</StyledButton>
-    </div>
+
+      <StyledButton type="button" onClick={handleStartLoseWeight}>
+        Start losing weight
+      </StyledButton>
+    </Box>
   );
 }
 

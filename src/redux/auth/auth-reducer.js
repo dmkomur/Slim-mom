@@ -13,7 +13,7 @@ const initialState = {
   refreshToken: null,
   sid: null,
   todaySummary: {},
-  user: { userData: {} },
+  user:  { userData: { dailyRate: null, notAllowedProducts: [] } },
   isLoggedIn: false,
   isRefreshing: false,
 };
