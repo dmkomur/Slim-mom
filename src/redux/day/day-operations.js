@@ -18,6 +18,7 @@ export const deleteProduct = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const product = await instance.delete('/day', body);
+      console.log(product);
       return product.data;
     } catch (error) {
       return rejectWithValue(error.message);
