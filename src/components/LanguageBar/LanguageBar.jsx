@@ -1,8 +1,50 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { languageSelection } from 'redux/auth/auth-reducer';
-import Icon from 'components/Icon/Icon';
-import s from './LanguageBar.module.css';
+import Icon from '../Icon/Icon';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  position: relative;
+  margin-left: -5px;
+  @media screen and (min-width: 768px) {
+  .container {
+    margin-left: 10px;
+  }
+}
+`;
+const Button = styled.button`
+  border: none;
+  background-color: transparent;
+`;
+const IconStyled = styled(Icon)`
+  pointer-events: none;
+  cursor: pointer;
+`;
+const List = styled.ul`
+  position: absolute;
+  left: -70px;
+  top: 20px;
+  padding: 3px;
+  font-size: 10px;
+  text-transform: none;
+  box-shadow: 0 0 5px #9b9faa;
+`;
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #ffffff;
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+
+  &:hover {
+    background-color: #fc842d;
+  }
+`;
+
 
 const LanguageBar = ({ big }) => {
   const lang = useSelector(state => state.auth.lang);
@@ -46,43 +88,39 @@ const LanguageBar = ({ big }) => {
   };
 
   return (
-    <div className={s.container}>
-      <button
-        className={s.btn}
+    <Container>
+      <Button
         name="btn"
         type="button"
         onClick={showSelection}
       >
-        <Icon
-          className={s.icon}
+        <IconStyled
           icon={currentLang}
           width={big ? 48 : 24}
           height={big ? 32 : 16}
         />
-      </button>
+      </Button>
       {isShow && (
-        <ul className={s.list} style={big && { top: 36 }}>
-          <li className={s.item} data-key="ua" onClick={selectLanguage}>
-            <Icon
-              className={s.icon}
+        <List style={big && { top: 36 }}>
+          <ListItem data-key="ua" onClick={selectLanguage}>
+            <IconStyled
               icon="ua"
               width={big ? 48 : 24}
               height={big ? 32 : 16}
             />
             &nbsp;Українська
-          </li>
-          <li className={s.item} data-key="en" onClick={selectLanguage}>
-            <Icon
-              className={s.icon}
+          </ListItem>
+          <ListItem data-key="en" onClick={selectLanguage}>
+            <IconStyled
               icon="en"
               width={big ? 48 : 24}
               height={big ? 32 : 16}
             />
             &nbsp;English
-          </li>
-        </ul>
+          </ListItem>
+        </List>
       )}
-    </div>
+    </Container>
   );
 };
 
