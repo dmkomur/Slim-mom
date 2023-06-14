@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import { authSlice } from './auth/auth-reducer';
 import storage from 'redux-persist/lib/storage';
-import { modalSlice } from './modal/modal-recuder';
+import { modalSlice } from './modal/modal-reducer';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
