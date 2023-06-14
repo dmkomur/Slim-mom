@@ -5,26 +5,15 @@ import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 import { dailyRate, dailyRateId } from '../../redux/auth/auth-operations';
 import { toggleModal } from '../../redux/modal/modal-reducer.js';
 import { getIsModalOpen } from '../../redux/modal/modal-selectors';
+import { createPortal } from 'react-dom';
+import Modal from 'components/Modal/Modal';
 
 let schema = yup.object({
-  weight: yup
-    .number()
-    .min(20)
-    .max(500),
-  height: yup
-    .number()
-    .min(100)
-    .max(250),
-  age: yup
-    .number()
-    .min(18)
-    .max(110),
-  desiredWeight: yup
-    .number()
-    .min(100)
-    .max(500),
-  bloodType: yup
-    .number()
+  weight: yup.number().min(20).max(500),
+  height: yup.number().min(100).max(250),
+  age: yup.number().min(18).max(110),
+  desiredWeight: yup.number().min(100).max(500),
+  bloodType: yup.number(),
 });
 
 function CalculatorCalorieForm() {
@@ -33,20 +22,22 @@ function CalculatorCalorieForm() {
   const isModalOpen = useSelector(getIsModalOpen);
 
   const startValue = {
-    weight: 0,
-    height: 0,
-    age: 0,
-    desiredWeight: 0,
-    bloodType: 1,
+    weight: null,
+    height: null,
+    age: null,
+    desiredWeight: null,
+    bloodType: null,
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    !isLoggedIn
+      ? dispatch(dailyRate(values))
+          .unwrap()
+          .then(() => dispatch(toggleModal(!isModalOpen)))
+      : dispatch(dailyRateId(values))
+          .unwrap()
+          .then(() => dispatch(toggleModal(!isModalOpen)));
 
-    !isLoggedIn ?
-      dispatch(dailyRate(values)).unwrap().then(() => dispatch(toggleModal(!isModalOpen))) :
-      dispatch(dailyRateId(values)).unwrap().then(() => dispatch(toggleModal(!isModalOpen)));
-    
     resetForm();
   };
 
@@ -60,23 +51,13 @@ function CalculatorCalorieForm() {
       >
         {({ values }) => (
           <Form>
-            <Field
-              type="number"
-              name="height"
-              placeholder="Height *" />
+            <Field type="number" name="height" placeholder="Height *" />
             <ErrorMessage name="height" component="div" />
 
-            <Field
-              type="number"
-              name="age"
-              placeholder="Age *" />
+            <Field type="number" name="age" placeholder="Age *" />
             <ErrorMessage name="age" component="div" />
 
-            <Field
-              type="number"
-              name="weight"
-              placeholder="Current weight *"
-            />
+            <Field type="number" name="weight" placeholder="Current weight *" />
             <ErrorMessage name="weight" component="div" />
 
             <Field
@@ -126,8 +107,10 @@ function CalculatorCalorieForm() {
             <ErrorMessage name="bloodType" component="div" />
 
             <button type="submit">Start losing weight</button>
-          </Form>)}
+          </Form>
+        )}
       </Formik>
+      {isModalOpen && createPortal(<Modal />, document.body)}
     </>
   );
 }
