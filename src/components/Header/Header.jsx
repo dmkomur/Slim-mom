@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
+import LanguageBar from 'components/LanguageBar/LanguageBar';
 
 function Header() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function Header() {
       <button onClick={() => dispatch(logOut())} type="button">
         Sign out
       </button>
+      <LanguageBar />
     </div>
   );
 }
