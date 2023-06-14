@@ -79,7 +79,6 @@ export const App = () => {
               }
             />
             <Route path="*" element={<PageNotFound />} />
-
           </Route>
         </Routes>
       </Suspense>

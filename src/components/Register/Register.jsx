@@ -1,6 +1,8 @@
 import { Formik, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/auth-operations';
+import { register, logIn } from 'redux/auth/auth-operations';
+import 'react-toastify/dist/ReactToastify.css';
+
 import * as yup from 'yup';
 import {
   StyledInputAuth,
@@ -8,6 +10,7 @@ import {
   StyledBtnAuthAccent,
   StyledHeaderAuth,
 } from '../Login/Login.styled';
+import { toast, ToastContainer } from 'react-toastify';
 
 let schema = yup.object({
   username: yup.string().required('Please enter a name').min(3).max(32),
@@ -34,9 +37,16 @@ function Register() {
     password: '',
     username: '',
   };
+  const notify = msg => {
+    toast.error(msg);
+  };
+
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
-    resetForm();
+    const { email, password } = values;
+    dispatch(register(values))
+      .unwrap()
+      .then(() => dispatch(logIn({ email, password })))
+      .then(() => resetForm());
   };
   return (
     <>
@@ -48,21 +58,31 @@ function Register() {
       >
         <StyledFormAuth>
           <StyledInputAuth type="text" name="username" placeholder="Name *" />
-          <ErrorMessage name="username" component="div" />
+          <ErrorMessage name="username">{m => notify(m)}</ErrorMessage>
 
           <StyledInputAuth type="email" name="email" placeholder="Email *" />
-          <ErrorMessage name="email" component="div" />
-
+          <ErrorMessage name="email">{m => notify(m)}</ErrorMessage>
           <StyledInputAuth
             type="password"
             name="password"
             placeholder="Password *"
           />
-          <ErrorMessage name="password" component="div" />
-
+          <ErrorMessage name="password">{m => notify(m)}</ErrorMessage>
           <StyledBtnAuthAccent type="submit">Register</StyledBtnAuthAccent>
         </StyledFormAuth>
       </Formik>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
