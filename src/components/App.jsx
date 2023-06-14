@@ -8,7 +8,6 @@ import Header from './Header/Header';
 import DiaryAddProductForm from './DiaryAddProductForm/DiaryAddProductForm';
 import DiaryProductList from './DiaryProductList/DiaryProductList';
 import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
