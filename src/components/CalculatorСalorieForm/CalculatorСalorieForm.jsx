@@ -1,20 +1,20 @@
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 import { dailyRate, dailyRateId } from '../../redux/auth/auth-operations';
-// import { Modal } from '../Modal';
+import { toggleModal } from '../../redux/modal/modal-reducer.js';
+import { getIsModalOpen } from '../../redux/modal/modal-selectors';
 
 let schema = yup.object({
   weight: yup
     .number()
     .min(20)
-    .max(200),
+    .max(500),
   height: yup
     .number()
     .min(100)
-    .max(210),
+    .max(250),
   age: yup
     .number()
     .min(18)
@@ -22,7 +22,7 @@ let schema = yup.object({
   desiredWeight: yup
     .number()
     .min(100)
-    .max(210),
+    .max(500),
   bloodType: yup
     .number()
 });
@@ -30,8 +30,8 @@ let schema = yup.object({
 function CalculatorCalorieForm() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
+  const isModalOpen = useSelector(getIsModalOpen);
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const startValue = {
     weight: 0,
     height: 0,
@@ -42,16 +42,13 @@ function CalculatorCalorieForm() {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+
+    !isLoggedIn ?
+      dispatch(dailyRate(values)).unwrap().then(() => dispatch(toggleModal(!isModalOpen))) :
+      dispatch(dailyRateId(values)).unwrap().then(() => dispatch(toggleModal(!isModalOpen)));
+    
     resetForm();
-
-    !isLoggedIn ? dispatch(dailyRate(values)) : dispatch(dailyRateId(values))
-
-    // openModal();
   };
-
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
 
   return (
     <>
@@ -129,8 +126,6 @@ function CalculatorCalorieForm() {
             <ErrorMessage name="bloodType" component="div" />
 
             <button type="submit">Start losing weight</button>
-
-            {/* {{isModalOpen && <Modal />}} */}
           </Form>)}
       </Formik>
     </>
