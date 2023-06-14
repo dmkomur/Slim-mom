@@ -23,20 +23,20 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-        languageSelection: (state, action) => {
-            switch (action.payload) {
-                case 'ua':
-                    state.lang = ua;
-                    break;
-                case 'en':
-                    state.lang = en;
-                    break;
-                default:
-                    state.lang = ua;
-            }
-        },
+    languageSelection: (state, action) => {
+      switch (action.payload) {
+        case 'ua':
+          state.lang = ua;
+          break;
+        case 'en':
+          state.lang = en;
+          break;
+        default:
+          state.lang = ua;
+      }
     },
-   extraReducers: builder => {
+  },
+  extraReducers: builder => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
@@ -83,3 +83,5 @@ export const authSlice = createSlice({
     });
   },
 });
+
+export const { languageSelection } = authSlice.actions;
