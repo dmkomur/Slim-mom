@@ -67,6 +67,7 @@ export const App = () => {
               element={
                 <PrivateRoute>
                   <DiaryDateCalendar />
+                  <DiaryProductList />
                 </PrivateRoute>
               }
             />
@@ -79,7 +80,6 @@ export const App = () => {
               }
             />
             <Route path="*" element={<PageNotFound />} />
-
           </Route>
         </Routes>
       </Suspense>
