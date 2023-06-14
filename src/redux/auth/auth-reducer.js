@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, refreshUser } from './auth-operations';
+import { logIn, logOut, refreshUser, getUser } from './auth-operations';
 
 const initialState = {
   accessToken: null,
@@ -43,6 +43,9 @@ export const authSlice = createSlice({
     });
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
+    });
+    builder.addCase(getUser.fulfilled, (state, action) => {
+      state.user = action.payload;
     });
   },
 });

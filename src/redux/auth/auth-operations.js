@@ -77,6 +77,7 @@ export const getUser = createAsyncThunk('auth/user', async (_, thunkAPI) => {
     // If there is a token, add it to the HTTP header and perform the request
     setToken(persistedToken);
     const user = await instance.get('/user');
+    console.log(user.data);
     return user.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

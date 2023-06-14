@@ -11,8 +11,8 @@ import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import { Loader } from './components/Loader/Loader';
 
 import { useDispatch } from 'react-redux';
-import { Suspense, useEffect } from 'react';
-import { getUser } from 'redux/auth/auth-operations';
+import { useEffect } from 'react';
+import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -23,7 +23,9 @@ import PageNotFound from './PageNotFound/PageNotFound';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(refreshUser())
+      .unwrap()
+      .then(() => dispatch(getUser()));
   }, [dispatch]);
 
   return (
