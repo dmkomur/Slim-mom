@@ -1,5 +1,5 @@
-function DiaryAddProductForm() {
-  return <div>DiaryAddProductForm</div>;
+function CalculatorСalorieForm() {
+  return <div>CalculatorСalorieForm</div>;
 }
 
-export default DiaryAddProductForm;
+export default CalculatorСalorieForm;
