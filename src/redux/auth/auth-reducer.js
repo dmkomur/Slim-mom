@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ua, en } from 'localization';
 import {
   logIn,
   logOut,
@@ -16,11 +17,26 @@ const initialState = {
   user: { userData: {} },
   isLoggedIn: false,
   isRefreshing: false,
+  lang: en,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    languageSelection: (state, action) => {
+      switch (action.payload) {
+        case 'ua':
+          state.lang = ua;
+          break;
+        case 'en':
+          state.lang = en;
+          break;
+        default:
+          state.lang = ua;
+      }
+    },
+  },
   extraReducers: builder => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.accessToken = action.payload.accessToken;
@@ -68,3 +84,5 @@ export const authSlice = createSlice({
     });
   },
 });
+
+export const { languageSelection } = authSlice.actions;

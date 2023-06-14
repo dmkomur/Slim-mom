@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 export const PublicRoute = ({ children, restricted }) => {
   const { isLoggedIn } = useAuth();
   const shouldRedirect = restricted && isLoggedIn;
-  return !shouldRedirect ? children : <Navigate to="/" />;
+  return !shouldRedirect ? children : <Navigate to="/calculator" />;
 };
 
 PublicRoute.propTypes = {

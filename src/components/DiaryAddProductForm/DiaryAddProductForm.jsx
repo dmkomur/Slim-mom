@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-function CalculatorСalorieForm() {
-  return <div>CalculatorСalorieForm</div>;
-=======
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
@@ -52,7 +49,7 @@ function DiaryAddProductForm() {
     setIdProduct(test[0]._id);
     setSuggestedProducts([]);
   };
-
+  
   return (
     <div>
       <css.Form action="" onSubmit={onSubmit}>
@@ -95,7 +92,7 @@ function DiaryAddProductForm() {
       </css.Form>
     </div>
   );
->>>>>>> Stashed changes
+
 }
 
-export default CalculatorСalorieForm;
+export default DiaryAddProductForm;

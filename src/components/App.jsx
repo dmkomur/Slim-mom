@@ -22,6 +22,7 @@ import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
 import PageNotFound from './PageNotFound/PageNotFound';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -80,7 +81,6 @@ export const App = () => {
               }
             />
             <Route path="*" element={<PageNotFound />} />
-
           </Route>
         </Routes>
       </Suspense>

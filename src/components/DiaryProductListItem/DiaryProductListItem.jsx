@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-function DiaryProductListItem() {
-  return <div>DiaryProductListItem</div>;
-=======
+
 import { useSelector, useDispatch } from 'react-redux';
 import * as css from './DiaryProductListItem.styled';
 import { deleteProduct } from 'redux/day/day-operations';
@@ -39,7 +36,7 @@ function DiaryProductListItem() {
     ))}
   </>
 );
->>>>>>> Stashed changes
+
 }
 
 export default DiaryProductListItem;
