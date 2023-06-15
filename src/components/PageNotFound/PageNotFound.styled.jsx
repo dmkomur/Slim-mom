@@ -15,32 +15,23 @@ export const PageNotFd = styled.div`
     color: ${({ theme }) => theme.colors.button};
     font-size: 34px;
     line-height: 140%;
-    /* --x-shadow: 0;
-    --y-shadow: 0;
-    --x: 50%;
-    --y: 50%; */
-    /* text-shadow: 2px 8px ${({ theme }) => theme.colors.shadowButton}; */
     text-shadow: 2px 8px ${({ theme }) => theme.colors.borderInput};
 
-    /* && hover {
-      transition: all 0.2s ease;
-      text-shadow: var(--x-shadow) var(--y-shadow) 10px
-        ${({ theme }) => theme.colors.shadowButton};
-    } */
     @media screen and (min-width: 768px) {
       font-size: 20px;
+      max-width: 767px;
+      width: 100%;
     }
 
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 320px) {
       font-size: 150px;
-      /* max-width: 672px;
-      height: 572px; */
+      max-width: 320px;
+      width: 100%;
     }
   }
   p {
     color: ${({ theme }) => theme.colors.button};
     text-shadow: 2px 8px ${({ theme }) => theme.colors.borderInput};
-    /* text-shadow: 2px 8px ${({ theme }) => theme.colors.shadowButton}; */
 
     font-size: 24px;
     line-height: 140%;
