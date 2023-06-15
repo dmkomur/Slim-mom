@@ -49,6 +49,13 @@ import LiniaTabletWebp2x from 'img/linia-tablet@2x-min.webp';
 
 export const GlobalStylePublic = createGlobalStyle`
 body{
+  ${'' /* color: ${({ theme }) => theme.colors.secondText};
+  font-family: 'Verdana', -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  line-height: 1.21; */}
+
   @media screen and (max-width: 320px) {
     background-image: none;
     background-color: #FFFFFF;
@@ -88,6 +95,54 @@ body{
     background-size: 746px 846px, 370px 370px, 773px 552px, 602px 816px;
     background-position: 300px 20px, 900px 506px , 640px -180px, 678px 34px;
   } 
+    /* WebP formats */
+
+  @supports (image-set: url(${MainLeafTabletWebp1x }) format('webp')) {
+  
+    @media screen and (min-width: 768px) {
+      background-image: image-set(
+        url(${MainLeafTabletWebp1x }) 1x,
+        url(${MainLeafTabletWebp2x }) 2x
+      ),
+      image-set(
+        url(${MainStrawberryTabletpWebpf1x}) 1x,
+        url(${MainStrawberryTabletpWebpf2x}) 2x
+      ),
+      image-set(
+        url(${MainBananTabletWebp1x}) 1x,
+        url(${MainBananTabletWebp2x}) 2x
+      ),
+      image-set(
+        url(${LiniaTabletWebp1x}) 1x,
+        url(${LiniaTabletWebp2x}) 2x
+      );
+      background-repeat: no-repeat;
+      background-size: 740px 842px, 350px 350px, 740px 527px, 553px 750px;
+      background-position: 20px 400px, 410px 460px, 250px 520px 220px 300px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: image-set(
+        url(${MainLeafDesktopWebp1x }) 1x,
+        url(${MainLeafDesktopWebp2x }) 2x
+      ),
+      image-set(
+        url(${StrawberryDesktopWebp1x}) 1x,
+        url(${StrawberryDesktopWebp2x}) 2x
+      ),
+      image-set(
+        url(${MainBananTabletWebp1x}) 1x,
+        url(${MainBananTabletWebp2x}) 2x
+      ),
+      image-set(
+        url(${LiniaDesktopWebp1x}) 1x,
+        url(${LiniaDesktopWebp2x}) 2x
+      );
+      background-repeat: no-repeat;
+      background-size: 746px 846px, 370px 370px, 773px 552px, 602px 816px;
+      background-position: 300px 20px, 900px 506px, 640px -180px, 678px 34px;
+    }
+   }
 
   /* AVIF formats */
 
@@ -138,52 +193,4 @@ body{
     }
   }
 
-  /* WebP formats */
-
-  @supports (image-set: url(${MainLeafTabletWebp1x }) format('webp')) {
-  
-    @media screen and (min-width: 768px) {
-      background-image: image-set(
-        url(${MainLeafTabletWebp1x }) 1x,
-        url(${MainLeafTabletWebp2x }) 2x
-      ),
-      image-set(
-        url(${MainStrawberryTabletpWebpf1x}) 1x,
-        url(${MainStrawberryTabletpWebpf2x}) 2x
-      ),
-      image-set(
-        url(${MainBananTabletWebp1x}) 1x,
-        url(${MainBananTabletWebp2x}) 2x
-      ),
-      image-set(
-        url(${LiniaTabletWebp1x}) 1x,
-        url(${LiniaTabletWebp2x}) 2x
-      );
-      background-repeat: no-repeat;
-      background-size: 740px 842px, 350px 350px, 740px 527px, 553px 750px;
-      background-position: 20px 400px, 410px 460px, 250px 520px 220px 300px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      background-image: image-set(
-        url(${MainLeafDesktopWebp1x }) 1x,
-        url(${MainLeafDesktopWebp2x }) 2x
-      ),
-      image-set(
-        url(${StrawberryDesktopWebp1x}) 1x,
-        url(${StrawberryDesktopWebp2x}) 2x
-      ),
-      image-set(
-        url(${MainBananTabletWebp1x}) 1x,
-        url(${MainBananTabletWebp2x}) 2x
-      ),
-      image-set(
-        url(${LiniaDesktopWebp1x}) 1x,
-        url(${LiniaDesktopWebp2x}) 2x
-      );
-      background-repeat: no-repeat;
-      background-size: 746px 846px, 370px 370px, 773px 552px, 602px 816px;
-      background-position: 300px 20px, 900px 506px, 640px -180px, 678px 34px;
-    }
-   }
 }`
