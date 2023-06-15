@@ -1,34 +1,38 @@
 import React from 'react';
-import { PageNotFd } from './PageNotFound.styled';
+import {
+  PageNotFd,
+  StyledHeader,
+  StyledLine,
+  StyledText,
+} from './PageNotFound.styled';
+import { createRoot } from 'react-dom/client';
+import strawberry from 'img/Strawberry-desktop@2x-min.png';
 
-// const title = document.querySelector('h1');
-// // light
-// document.onmousemove = function (e) {
-//   let x = e.pageX - window.innerWidth / 2;
-//   let y = e.pageY - window.innerHeight / 2;
-
-//   title.style.setProperty('--x', x + 'px');
-//   title.style.setProperty('--y', y + 'px');
-// };
-// // shadow
-// title.onmousemove = function (e) {
-//   let x = e.pageX - window.innerWidth / 2;
-//   let y = e.pageY - window.innerHeight / 2;
-//   let rad = Math.atan2(y, x).toFixed(2);
-//   let length = Math.round(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) / 10);
-//   let x_shadow = Math.round(length * Math.cos(rad));
-//   let y_shadow = Math.round(length * Math.sin(rad));
-//   title.style.setProperty('--x-shadow', -x_shadow + 'px');
-//   title.style.setProperty('--y-shadow', -y_shadow + 'px');
-// };
-
-const PageNotFound = () => {
+const root = createRoot(document.getElementById('root'));
+function PageNotFound() {
   return (
     <PageNotFd>
-      <h1>404</h1>
-      <p>Page not found...</p>
+      <StyledHeader>
+        <li>4</li>
+        <li>
+          <span>
+            <img src={strawberry} alt="strawberry" width="150"></img>
+          </span>
+        </li>
+        <li>4</li>
+      </StyledHeader>
+      <StyledLine>Page not found...</StyledLine>
+      <div class="container">
+        <p class="text">
+          <StyledText>
+            Sorry, the page you're looking for cannot be accessed
+          </StyledText>
+        </p>
+      </div>
     </PageNotFd>
   );
-};
+}
+
+root.render(<PageNotFound />);
 
 export default PageNotFound;
