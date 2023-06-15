@@ -1,6 +1,8 @@
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import {
-  Box,
-  StyledButton,
+  Wrapper,
   Title,
   ProductsList,
   Calories,
@@ -11,33 +13,24 @@ import {
   CaloriesWrapper,
   Recommend,
 } from './recommendations.styled';
-import { nanoid } from 'nanoid';
 import { getDaily, getIsLoggedIn } from '../../../redux/auth/auth-selectors';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { StyledBtnAuthAccent } from 'components/Login/Login.styled';
 
 function Recommendations() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const products = useSelector(getDaily);
   const navigate = useNavigate();
 
-  console.log(products);
-
   const handleStartLoseWeight = () => {
     return isLoggedIn ? navigate('/diary') : navigate('/login');
   };
-  console.log(isLoggedIn);
 
-  // useEffect(() => {
-  //   IsLoggedIn && dispatch(dailyRateId(userId));
-  // }, [dispatch, IsLoggedIn]);
-
-  // useEffect(() => {
-  //   IsLoggedIn && dispatch(dailyRate(userId));
-  // }, [dispatch, IsLoggedIn]);
   return (
-    <Box>
-      <Title>Your recommended daily calorie intake is</Title>
+    <Wrapper>
+      <Title>
+        Your recommended daily <br />
+        calorie intake is
+      </Title>
       <CaloriesWrapper>
         <Calories>
           {Math.trunc(products.dailyRate)}
@@ -47,18 +40,24 @@ function Recommendations() {
       <Recommend>
         <Caption>Foods you should not eat</Caption>
         <ProductsList>
-          {products.notAllowedProducts.map(product => (
+          {products.notAllowedProducts.map((product, idx) => (
             <ProductItem key={nanoid()}>
-              <Product>{product}</Product>
+              <Product>
+                {idx + 1}. {product}
+              </Product>
             </ProductItem>
           ))}
         </ProductsList>
       </Recommend>
 
-      <StyledButton type="button" onClick={handleStartLoseWeight}>
+      <StyledBtnAuthAccent
+        style={{ margin: '0 auto' }}
+        type="button"
+        onClick={handleStartLoseWeight}
+      >
         Start losing weight
-      </StyledButton>
-    </Box>
+      </StyledBtnAuthAccent>
+    </Wrapper>
   );
 }
 

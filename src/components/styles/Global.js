@@ -8,5 +8,5 @@ body {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.04em;
-  line-height: 1.21;
+  line-height: 1.21;}
 `;

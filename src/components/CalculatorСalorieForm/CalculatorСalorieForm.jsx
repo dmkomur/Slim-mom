@@ -1,32 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
-import { dailyRate, dailyRateId } from '../../redux/auth/auth-operations';
+import { getIsLoggedIn, getUserData } from '../../redux/auth/auth-selectors';
+import {
+  dailyRate,
+  dailyRateId,
+  getUser,
+} from '../../redux/auth/auth-operations';
 import { toggleModal } from '../../redux/modal/modal-reducer.js';
 import { getIsModalOpen } from '../../redux/modal/modal-selectors';
 import { createPortal } from 'react-dom';
 import Modal from 'components/Modal/Modal';
+import { calcData } from 'redux/calculator/calculator-reducer';
+import { getCalcData } from 'redux/calculator/calculator-selectors';
 
 let schema = yup.object({
   weight: yup.number().min(20).max(500),
   height: yup.number().min(100).max(250),
-  age: yup.number().min(18).max(110),
+  age: yup.number().min(18).max(100),
   desiredWeight: yup.number().min(20).max(500),
   bloodType: yup.number(),
 });
 
 function CalculatorCalorieForm() {
+  const userData = useSelector(getUserData);
+  const userCalcData = useSelector(getCalcData);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const isModalOpen = useSelector(getIsModalOpen);
 
   const startValue = {
-    weight: null,
-    height: null,
-    age: null,
-    desiredWeight: null,
-    bloodType: null,
+    weight: userData.weight || userCalcData.weight,
+    height: userData.height || userCalcData.height,
+    age: userData.age || userCalcData.age,
+    desiredWeight: userData.desiredWeight || userCalcData.desiredWeight,
+    bloodType: userData.bloodType || userCalcData.bloodType,
   };
 
   const handleSubmit = (values, { resetForm }) => {
@@ -41,12 +49,14 @@ function CalculatorCalorieForm() {
     !isLoggedIn
       ? dispatch(dailyRate(body))
           .unwrap()
+          .then(() => dispatch(getUser()))
+          .then(() => dispatch(calcData(body)))
           .then(() => dispatch(toggleModal(!isModalOpen)))
       : dispatch(dailyRateId(body))
           .unwrap()
+          .then(() => dispatch(getUser()))
+          .then(() => dispatch(calcData(body)))
           .then(() => dispatch(toggleModal(!isModalOpen)));
-
-    resetForm();
   };
 
   return (
@@ -65,7 +75,7 @@ function CalculatorCalorieForm() {
             <Field type="number" name="age" placeholder="Age *" />
             <ErrorMessage name="age" component="div" />
 
-            <Field type="number" name="weight" placeholder="Current weight *" />
+            <Field type="number" name="weight" placeholder="Weight *" />
             <ErrorMessage name="weight" component="div" />
 
             <Field
@@ -81,7 +91,7 @@ function CalculatorCalorieForm() {
                 id="bloodType1"
                 defaultChecked={values.bloodType === 1}
                 name="bloodType"
-                value={Number(1)}
+                value="1"
               />
               <label htmlFor="bloodType1">1</label>
 
@@ -90,7 +100,7 @@ function CalculatorCalorieForm() {
                 id="bloodType2"
                 defaultChecked={values.bloodType === 2}
                 name="bloodType"
-                value={Number(2)}
+                value="2"
               />
               <label htmlFor="bloodType2">2</label>
 
@@ -99,7 +109,7 @@ function CalculatorCalorieForm() {
                 id="bloodType3"
                 defaultChecked={values.bloodType === 3}
                 name="bloodType"
-                value={Number(3)}
+                value="3"
               />
               <label htmlFor="bloodType3">3</label>
 
@@ -108,7 +118,7 @@ function CalculatorCalorieForm() {
                 id="bloodType4"
                 defaultChecked={values.bloodType === 4}
                 name="bloodType"
-                value={Number(4)}
+                value="4"
               />
               <label htmlFor="bloodType4">4</label>
             </Field>

@@ -14,7 +14,7 @@ const initialState = {
   refreshToken: null,
   sid: null,
   todaySummary: {},
-  user:  { userData: { dailyRate: null, notAllowedProducts: [] } },
+  user: { userData: { dailyRate: null, notAllowedProducts: [] } },
   isLoggedIn: false,
   isRefreshing: false,
   lang: en,
@@ -51,7 +51,7 @@ export const authSlice = createSlice({
       state.refreshToken = null;
       state.sid = null;
       state.todaySummary = {};
-      state.user = {};
+      state.user = { userData: { dailyRate: null, notAllowedProducts: [] } };
       state.isLoggedIn = false;
     });
     builder.addCase(refreshUser.pending, state => {
@@ -62,13 +62,13 @@ export const authSlice = createSlice({
       state.refreshToken = action.payload.newRefreshToken;
       state.sid = action.payload.sid;
       state.isLoggedIn = true;
-      state.isRefreshing = false;
     });
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
     });
     builder.addCase(getUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.isRefreshing = false;
     });
     builder.addCase(dailyRate.fulfilled, (state, action) => {
       state.user.userData.dailyRate = action.payload.dailyRate;
