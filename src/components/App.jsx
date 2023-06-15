@@ -15,25 +15,62 @@ import DiaryProductList from './DiaryProductList/DiaryProductList';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
 
 import { useDispatch } from 'react-redux';
-import { Suspense, useEffect } from 'react';
+
+  import { ThemeProvider } from 'styled-components';
+import { light, dark } from './styles/Theme.styled';
+import { GlobalStyles } from './styles/Global';
+import { Suspense, useEffect, useState } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
 import PageNotFound from './PageNotFound/PageNotFound';
+import {
+  ThemeContainer,
+  Checkbox,
+  Ball,
+} from './styles/ThemeSwitching.styled.js';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    const currentTheme = JSON.parse(localStorage.getItem('current-theme'));
+    if (currentTheme) {
+      return setSelectedTheme(currentTheme);
+    }
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
   }, [dispatch]);
 
+  const [selectedTheme, setSelectedTheme] = useState(light);
+
+  const HandleThemeChange = theme => {
+    if (theme === dark) {
+      setSelectedTheme(light);
+      localStorage.setItem('current-theme', JSON.stringify(light));
+    } else {
+      setSelectedTheme(dark);
+      localStorage.setItem('current-theme', JSON.stringify(dark));
+    }
+  };
+
   return (
     <>
+
+                  <ThemeProvider theme={selectedTheme}>
+                            <GlobalStyles />
+        <ThemeContainer>
+          <Checkbox
+            type="checkbox"
+            onChange={() => {
+              HandleThemeChange(selectedTheme);
+            }}
+          />
+          <Ball></Ball>
+        </ThemeContainer>
       <Suspense>
         {/* fallback={<Loader />}> */}
         <Routes>
@@ -84,6 +121,7 @@ export const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      </ThemeProvider>
       {/* <Header></Header>
       <Navigation></Navigation>
       <UserInfo></UserInfo>
