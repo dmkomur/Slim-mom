@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
@@ -12,13 +11,44 @@ function DiaryAddProductForm() {
   const [suggestedProducts, setSuggestedProducts] = useState([]);
   const [productId, setIdProduct] = useState('');
   const date = '2023-06-14';
-
+  const inputRef = useRef(null);
+  const suggestionsListRef = useRef(null);
 
   useEffect(() => {
-    dispatch(dayInfo({date}))
+    dispatch(dayInfo({ date }));
   }, [dispatch]);
 
-  const onSubmit = (e) => {
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.keyCode === 27) {
+        setSuggestedProducts([]);
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        suggestionsListRef.current &&
+        !suggestionsListRef.current.contains(event.target) &&
+        !inputRef.current.contains(event.target)
+      ) {
+        setSuggestedProducts([]);
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  const onSubmit = e => {
     e.preventDefault();
     const body = {
       date,
@@ -26,15 +56,19 @@ function DiaryAddProductForm() {
       weight,
     };
 
-    dispatch(postProduct(body));
-    dispatch(dayInfo({date}))
-
-    setProductName('');
-    setWeight('');
-    setSuggestedProducts([]);
+    dispatch(postProduct(body))
+      .then(() => {
+        dispatch(dayInfo({ date }));
+        setProductName('');
+        setWeight('');
+        setSuggestedProducts([]);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
-  const handleProductNameChange = async (e) => {
+  const handleProductNameChange = async e => {
     const query = e.target.value;
     setProductName(query);
     const suggestions = await productSearch(query);
@@ -42,26 +76,27 @@ function DiaryAddProductForm() {
     setSuggestedProducts(suggestions);
   };
 
-  const handleProductSelect = async (product) => {
+  const handleProductSelect = async product => {
     setProductName(product.title.ua);
     productSearch(product.title.ua);
-    const test =  await productSearch(product.title.ua);
+    const test = await productSearch(product.title.ua);
     setIdProduct(test[0]._id);
     setSuggestedProducts([]);
   };
-  
+
   return (
     <div>
       <css.Form action="" onSubmit={onSubmit}>
         <css.InputProdName
           type="text"
           placeholder="Enter product name"
-          value={productName || ''}
+          value={productName}
           onChange={handleProductNameChange}
+          ref={inputRef}
         />
-        {suggestedProducts.length > 0 && (
-          <css.SuggestionsList>
-            {suggestedProducts.map((product) => (
+        {suggestedProducts && suggestedProducts.length > 0 && (
+          <css.SuggestionsList ref={suggestionsListRef}>
+            {suggestedProducts.map(product => (
               <css.SuggestionItem
                 key={product.id}
                 onClick={() => handleProductSelect(product)}
@@ -75,7 +110,7 @@ function DiaryAddProductForm() {
           type="text"
           placeholder="Grams"
           value={weight}
-          onChange={(e) => setWeight(e.target.value)}
+          onChange={e => setWeight(e.target.value)}
         />
         <css.Button type="submit">
           <svg
@@ -92,7 +127,6 @@ function DiaryAddProductForm() {
       </css.Form>
     </div>
   );
-
 }
 
 export default DiaryAddProductForm;
