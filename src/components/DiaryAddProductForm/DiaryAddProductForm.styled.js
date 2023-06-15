@@ -5,6 +5,7 @@ export const Form = styled.form`
   display: flex;
   align-items: flex-end;
   margin-bottom: 60px;
+  position: relative;
 `;
 
 export const InputProdName = styled.input`
@@ -67,6 +68,21 @@ export const SuggestionsList = styled.ul`
   border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
+
+  position: absolute;
+  width: auto;
+  min-width: 100%;
+  max-width: 240px;
+  z-index: 10;
+  top: 100%;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f0f1f3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #264061;
+  }
 `;
 
 export const SuggestionItem = styled.li`

@@ -1,22 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
 import * as css from './DiaryProductListItem.styled';
-import { deleteProduct } from 'redux/day/day-operations';
+import { dayInfo, deleteProduct } from 'redux/day/day-operations';
 
 function DiaryProductListItem() {
   const eatenProducts = useSelector(state => state.day.eatenProducts);
   const dayId = useSelector(state => state.day.id);
   const dispatch = useDispatch();
+  const date = '2023-06-14';
 
   const handleDeleteFood = eatenProductId => {
     const body = {
-      dayId: dayId,
-      eatenProductId: eatenProductId,
+      dayId,
+      eatenProductId,
     };
-    dispatch(deleteProduct(body));
-    console.log(body);
+    dispatch(deleteProduct(body))
+      .then(() => {
+        dispatch(dayInfo({ date }));
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
-  // console.log(eatenProducts);
+  if (!eatenProducts) {
+    return null;
+  }
+
   return (
     <>
       {eatenProducts.map(eaten => (
