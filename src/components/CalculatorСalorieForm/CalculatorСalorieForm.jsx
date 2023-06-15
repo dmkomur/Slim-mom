@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import {
-  getDaily,
-  getIsLoggedIn,
-  getUserData,
-} from '../../redux/auth/auth-selectors';
+import { getIsLoggedIn, getUserData } from '../../redux/auth/auth-selectors';
 import {
   dailyRate,
   dailyRateId,
@@ -72,67 +68,64 @@ function CalculatorCalorieForm() {
         initialValues={startValue}
       >
         {({ values }) => (
-          console.log(values),
-          (
-            <Form>
-              <Field type="number" name="height" placeholder="Height *" />
-              <ErrorMessage name="height" component="div" />
+          <Form>
+            <Field type="number" name="height" placeholder="Height *" />
+            <ErrorMessage name="height" component="div" />
 
-              <Field type="number" name="age" placeholder="Age *" />
-              <ErrorMessage name="age" component="div" />
+            <Field type="number" name="age" placeholder="Age *" />
+            <ErrorMessage name="age" component="div" />
 
-              <Field type="number" name="weight" placeholder="Weight *" />
-              <ErrorMessage name="weight" component="div" />
+            <Field type="number" name="weight" placeholder="Weight *" />
+            <ErrorMessage name="weight" component="div" />
 
-              <Field
-                type="number"
-                name="desiredWeight"
-                placeholder="Desired weight *"
+            <Field
+              type="number"
+              name="desiredWeight"
+              placeholder="Desired weight *"
+            />
+            <ErrorMessage name="desiredWeight" component="div" />
+
+            <Field component="div" name="bloodType">
+              <input
+                type="radio"
+                id="bloodType1"
+                defaultChecked={values.bloodType === 1}
+                name="bloodType"
+                value="1"
               />
-              <ErrorMessage name="desiredWeight" component="div" />
+              <label htmlFor="bloodType1">1</label>
 
-              <Field component="div" name="bloodType">
-                <input
-                  type="radio"
-                  id="bloodType1"
-                  defaultChecked={values.bloodType === 1}
-                  name="bloodType"
-                  value="1"
-                />
-                <label htmlFor="bloodType1">1</label>
+              <input
+                type="radio"
+                id="bloodType2"
+                defaultChecked={values.bloodType === 2}
+                name="bloodType"
+                value="2"
+              />
+              <label htmlFor="bloodType2">2</label>
 
-                <input
-                  type="radio"
-                  id="bloodType2"
-                  defaultChecked={values.bloodType === 2}
-                  name="bloodType"
-                  value="2"
-                />
-                <label htmlFor="bloodType2">2</label>
+              <input
+                type="radio"
+                id="bloodType3"
+                defaultChecked={values.bloodType === 3}
+                name="bloodType"
+                value="3"
+              />
+              <label htmlFor="bloodType3">3</label>
 
-                <input
-                  type="radio"
-                  id="bloodType3"
-                  defaultChecked={values.bloodType === 3}
-                  name="bloodType"
-                  value="3"
-                />
-                <label htmlFor="bloodType3">3</label>
+              <input
+                type="radio"
+                id="bloodType4"
+                defaultChecked={values.bloodType === 4}
+                name="bloodType"
+                value="4"
+              />
+              <label htmlFor="bloodType4">4</label>
+            </Field>
+            <ErrorMessage name="bloodType" component="div" />
 
-                <input
-                  type="radio"
-                  id="bloodType4"
-                  defaultChecked={values.bloodType === 4}
-                  name="bloodType"
-                  value="4"
-                />
-                <label htmlFor="bloodType4">4</label>
-              </Field>
-              <ErrorMessage name="bloodType" component="div" />
-
-              <button type="submit">Start losing weight</button>
-            </Form>
-          )
+            <button type="submit">Start losing weight</button>
+          </Form>
         )}
       </Formik>
       {isModalOpen && createPortal(<Modal />, document.body)}
