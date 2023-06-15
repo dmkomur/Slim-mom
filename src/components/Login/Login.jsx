@@ -5,9 +5,14 @@ import {
   StyledFormAuth,
   StyledBtnAuthAccent,
   StyledHeaderAuth,
+  StyledWrapInputAuth,
+  StyledLabelAuth,
+  StyledErrorAuth,
 } from './Login.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import 'react-toastify/dist/ReactToastify.css';
+import { IoMdAlert } from 'react-icons/io';
 
 let schema = yup.object({
   password: yup
@@ -26,6 +31,7 @@ function Login() {
     email: '',
     password: '',
   };
+
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
     dispatch(logIn(values));
@@ -39,16 +45,30 @@ function Login() {
         initialValues={startValue}
       >
         <StyledFormAuth>
-          <StyledInputAuth type="email" name="email" placeholder="Email *" />
-          <ErrorMessage name="tremail" component="div" />
-
-          <StyledInputAuth
-            type="password"
-            name="password"
-            placeholder="Password *"
-          />
-          <ErrorMessage name="password" component="div" />
-
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="email" name="email" placeholder=" " />
+            <StyledLabelAuth>Email *</StyledLabelAuth>
+            <ErrorMessage name="email">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="password" name="password" placeholder=" " />
+            <StyledLabelAuth>Password *</StyledLabelAuth>
+            <ErrorMessage name="password">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
           <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
         </StyledFormAuth>
       </Formik>

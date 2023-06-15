@@ -1,13 +1,19 @@
 import { Formik, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/auth-operations';
+import { register, logIn } from 'redux/auth/auth-operations';
+import 'react-toastify/dist/ReactToastify.css';
+
 import * as yup from 'yup';
 import {
   StyledInputAuth,
   StyledFormAuth,
   StyledBtnAuthAccent,
   StyledHeaderAuth,
+  StyledWrapInputAuth,
+  StyledLabelAuth,
+  StyledErrorAuth,
 } from '../Login/Login.styled';
+import { IoMdAlert } from 'react-icons/io';
 
 let schema = yup.object({
   username: yup.string().required('Please enter a name').min(3).max(32),
@@ -34,9 +40,13 @@ function Register() {
     password: '',
     username: '',
   };
+
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
-    resetForm();
+    const { email, password } = values;
+    dispatch(register(values))
+      .unwrap()
+      .then(() => dispatch(logIn({ email, password })))
+      .then(() => resetForm());
   };
   return (
     <>
@@ -47,18 +57,45 @@ function Register() {
         initialValues={startValue}
       >
         <StyledFormAuth>
-          <StyledInputAuth type="text" name="username" placeholder="Name *" />
-          <ErrorMessage name="username" component="div" />
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="text" name="username" placeholder=" " />
+            <StyledLabelAuth>Name *</StyledLabelAuth>
+            <ErrorMessage name="username">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
 
-          <StyledInputAuth type="email" name="email" placeholder="Email *" />
-          <ErrorMessage name="email" component="div" />
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="email" name="email" placeholder=" " />
+            <StyledLabelAuth>Email *</StyledLabelAuth>
+            <ErrorMessage name="email">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
 
-          <StyledInputAuth
-            type="password"
-            name="password"
-            placeholder="Password *"
-          />
-          <ErrorMessage name="password" component="div" />
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="password" name="password" placeholder=" " />
+            <StyledLabelAuth>Password *</StyledLabelAuth>
+
+            <ErrorMessage name="password">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
 
           <StyledBtnAuthAccent type="submit">Register</StyledBtnAuthAccent>
         </StyledFormAuth>

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Overlay, ModalContainer } from './modal.styled';
+import { Overlay, ModalContainer, CloseModal, CloseIcon } from './modal.styled';
 import Recommendations from './Recommendations/Recommendations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,12 +35,12 @@ function Modal() {
   return ReactDOM.createPortal(
     <Overlay onClick={handleOnBackdropClick}>
       <ModalContainer>
-        <button
+        <CloseModal
           onClick={() => dispatch(toggleModal(!isModalOpen))}
           type="button"
         >
-          x
-        </button>
+          <CloseIcon />
+        </CloseModal>
         <Recommendations />
       </ModalContainer>
     </Overlay>,
