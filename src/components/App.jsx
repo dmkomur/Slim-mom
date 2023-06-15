@@ -16,7 +16,7 @@ import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieFo
 
 import { useDispatch } from 'react-redux';
 
-  import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { light, dark } from './styles/Theme.styled';
 import { GlobalStyles } from './styles/Global';
 import { Suspense, useEffect, useState } from 'react';
@@ -32,6 +32,8 @@ import {
   Ball,
 } from './styles/ThemeSwitching.styled.js';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
+import { getIsRefreshing } from 'redux/auth/auth-selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -46,7 +48,7 @@ export const App = () => {
   }, [dispatch]);
 
   const [selectedTheme, setSelectedTheme] = useState(light);
-
+  const isRefreshing = useSelector(getIsRefreshing);
   const HandleThemeChange = theme => {
     if (theme === dark) {
       setSelectedTheme(light);
@@ -57,11 +59,12 @@ export const App = () => {
     }
   };
 
-  return (
+  return isRefreshing ? (
+    <b>Refresing user...</b>
+  ) : (
     <>
-
-                  <ThemeProvider theme={selectedTheme}>
-                            <GlobalStyles />
+      <ThemeProvider theme={selectedTheme}>
+        <GlobalStyles />
         <ThemeContainer>
           <Checkbox
             type="checkbox"
@@ -71,56 +74,55 @@ export const App = () => {
           />
           <Ball></Ball>
         </ThemeContainer>
-      <Suspense>
-        {/* fallback={<Loader />}> */}
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<CalculatorCalorieForm />} />
-            <Route
-              path="registration"
-              element={
-                <PublicRoute>
-                  <Register />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <PublicRoute restricted>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="calculator"
-              element={
-                <PrivateRoute>
-                  <CalculatorCalorieForm />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="diary"
-              element={
-                <PrivateRoute>
-                  <DiaryDateCalendar />
-                  <DiaryProductList />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="menu"
-              element={
-                <PrivateRoute>
-                  <DiaryProductList />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-        </Routes>
-      </Suspense>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<CalculatorCalorieForm />} />
+              <Route
+                path="registration"
+                element={
+                  <PublicRoute>
+                    <Register />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="calculator"
+                element={
+                  <PrivateRoute>
+                    <CalculatorCalorieForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="diary"
+                element={
+                  <PrivateRoute>
+                    <DiaryDateCalendar />
+                    <DiaryProductList />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="menu"
+                element={
+                  <PrivateRoute>
+                    <DiaryProductList />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </ThemeProvider>
       {/* <Header></Header>
       <Navigation></Navigation>
