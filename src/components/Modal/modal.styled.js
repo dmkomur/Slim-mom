@@ -28,17 +28,17 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
   @media screen and (max-width: 767px) {
     max-width: 320px;
-    height: 598px;
+    
   }
 
   @media screen and (min-width: 768px) {
     padding: 20px;
     max-width: 672px;
-    height: 572px;
+   
   }
   @media screen and (min-width: 1280px) {
     max-width: 672px;
-    height: 574px;
+    
   }
 `;
 
@@ -48,7 +48,10 @@ export const CloseModal = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    display:block;
+    padding: 0;
+    border: 0;
+
+    display: block;
     -webkit-box-align: center;
     position: absolute;
     top: 20px;
@@ -58,10 +61,7 @@ export const CloseModal = styled.button`
     background: #ffffff;
   }
 `;
-export const CloseIcon=styled(AiOutlineClose)`
-
-width: 20px;
-height:20px;
-
-
-`
+export const CloseIcon = styled(AiOutlineClose)`
+  width: 20px;
+  height: 20px;
+`;

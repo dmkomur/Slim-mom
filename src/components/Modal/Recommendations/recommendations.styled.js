@@ -89,9 +89,17 @@ export const ProductsList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 112px;
   width: 100%;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f0f1f3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #264061;
+  }
 `;
 
 export const ProductItem = styled.li`

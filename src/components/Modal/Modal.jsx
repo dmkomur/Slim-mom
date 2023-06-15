@@ -1,11 +1,10 @@
 import ReactDOM from 'react-dom';
-import { Overlay, ModalContainer, CloseModal,CloseIcon } from './modal.styled';
+import { Overlay, ModalContainer, CloseModal, CloseIcon } from './modal.styled';
 import Recommendations from './Recommendations/Recommendations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal } from 'redux/modal/modal-reducer';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
-// import { AiOutlineClose } from 'react-icons/ai';
 
 const modalDiv = document.querySelector('#modal');
 function Modal() {
@@ -40,8 +39,7 @@ function Modal() {
           onClick={() => dispatch(toggleModal(!isModalOpen))}
           type="button"
         >
-        <CloseIcon/>
-          {/* <AiOutlineClose style={{ width: '20px', height: '20px' , margin:"0 auto"}} /> */}
+          <CloseIcon />
         </CloseModal>
         <Recommendations />
       </ModalContainer>
