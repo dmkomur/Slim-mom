@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
-import { Overlay, ModalContainer, CloseModal, CloseIcon } from './modal.styled';
-import Recommendations from './Recommendations/Recommendations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Overlay, ModalContainer, CloseModal, CloseIcon } from './modal.styled';
+import Recommendations from './Recommendations/Recommendations';
 import { toggleModal } from 'redux/modal/modal-reducer';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
 

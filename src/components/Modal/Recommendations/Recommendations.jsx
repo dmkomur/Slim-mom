@@ -1,4 +1,8 @@
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import {
+  Wrapper,
   Title,
   ProductsList,
   Calories,
@@ -9,10 +13,7 @@ import {
   CaloriesWrapper,
   Recommend,
 } from './recommendations.styled';
-import { nanoid } from 'nanoid';
 import { getDaily, getIsLoggedIn } from '../../../redux/auth/auth-selectors';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { StyledBtnAuthAccent } from 'components/Login/Login.styled';
 
 function Recommendations() {
@@ -23,8 +24,9 @@ function Recommendations() {
   const handleStartLoseWeight = () => {
     return isLoggedIn ? navigate('/diary') : navigate('/login');
   };
+
   return (
-    <div>
+    <Wrapper>
       <Title>
         Your recommended daily <br />
         calorie intake is
@@ -55,7 +57,7 @@ function Recommendations() {
       >
         Start losing weight
       </StyledBtnAuthAccent>
-    </div>
+    </Wrapper>
   );
 }
 

@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import { breakpoints } from '../styles/breakpoints';
 
-export const Container = styled.div`
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 100%;
-`;
+const { mobile, tablet, desktop } = breakpoints;
+
 export const Overlay = styled.div`
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(33, 33, 33, 0.12);
+  /* background: rgba(33, 33, 33, 0.12); */
+  background: ${({ theme }) => theme.colors.backgroundModal};
 `;
 
 export const ModalContainer = styled.div`
@@ -24,33 +23,20 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-  background: #ffffff;
+  /* background: #ffffff; */
+  background: ${({ theme }) => theme.colors.background};
   box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
-  @media screen and (max-width: 767px) {
-    max-width: 320px;
-    
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 20px;
+  max-width: 320px;
+  @media screen and (min-width: ${tablet}) {
     max-width: 672px;
-   
-  }
-  @media screen and (min-width: 1280px) {
-    max-width: 672px;
-    
   }
 `;
 
 export const CloseModal = styled.button`
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 768px) {
+  display: none;
+  @media screen and (min-width: ${tablet}) {
     padding: 0;
     border: 0;
-
     display: block;
     -webkit-box-align: center;
     position: absolute;
@@ -58,7 +44,8 @@ export const CloseModal = styled.button`
     right: 20px;
     width: 20px;
     height: 20px;
-    background: #ffffff;
+    /* background: #ffffff; */
+    background: ${({ theme }) => theme.colors.background};
   }
 `;
 export const CloseIcon = styled(AiOutlineClose)`
