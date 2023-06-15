@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { breakpoints } from '../styles/breakpoints';
 
-const { mobile, tablet, desktop } = breakpoints;
+const { tablet } = breakpoints;
 
 export const Overlay = styled.div`
   position: fixed;
