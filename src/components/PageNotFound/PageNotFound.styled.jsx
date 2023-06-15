@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const PageNotFd = styled.div`
   text-align: center;
-  color: red;
   height: 700px;
   padding-top: 200px;
   font-weight: 700;
@@ -12,6 +11,7 @@ export const PageNotFd = styled.div`
     margin-bottom: 8px;
     text-align: center;
     color: #fc842d;
+    color: ${({ theme }) => theme.colors.button};
 
     font-family: 'Verdana';
     font-style: normal;
