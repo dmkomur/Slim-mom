@@ -38,3 +38,16 @@ export const ModalContainer = styled.div`
     height: 574px;
   }
 `;
+
+export const CloseModal = styled.button`
+
+@media screen and (min-width: 768px) {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  }
+  
+`;

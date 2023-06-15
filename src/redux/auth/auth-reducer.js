@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ua, en } from 'localization';
 import {
   logIn,
   logOut,
@@ -13,14 +14,29 @@ const initialState = {
   refreshToken: null,
   sid: null,
   todaySummary: {},
-  user: { userData: {} },
+  user: { userData: { dailyRate: null, notAllowedProducts: [] } },
   isLoggedIn: false,
   isRefreshing: false,
+  lang: en,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    languageSelection: (state, action) => {
+      switch (action.payload) {
+        case 'ua':
+          state.lang = ua;
+          break;
+        case 'en':
+          state.lang = en;
+          break;
+        default:
+          state.lang = ua;
+      }
+    },
+  },
   extraReducers: builder => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.accessToken = action.payload.accessToken;
@@ -35,7 +51,7 @@ export const authSlice = createSlice({
       state.refreshToken = null;
       state.sid = null;
       state.todaySummary = {};
-      state.user = {};
+      state.user = { userData: { dailyRate: null, notAllowedProducts: [] } };
       state.isLoggedIn = false;
     });
     builder.addCase(refreshUser.pending, state => {
@@ -46,13 +62,13 @@ export const authSlice = createSlice({
       state.refreshToken = action.payload.newRefreshToken;
       state.sid = action.payload.sid;
       state.isLoggedIn = true;
-      state.isRefreshing = false;
     });
     builder.addCase(refreshUser.rejected, state => {
       state.isRefreshing = false;
     });
     builder.addCase(getUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.isRefreshing = false;
     });
     builder.addCase(dailyRate.fulfilled, (state, action) => {
       state.user.userData.dailyRate = action.payload.dailyRate;
@@ -68,3 +84,5 @@ export const authSlice = createSlice({
     });
   },
 });
+
+export const { languageSelection } = authSlice.actions;
