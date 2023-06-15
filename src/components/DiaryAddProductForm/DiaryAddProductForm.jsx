@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
@@ -13,8 +13,7 @@ function DiaryAddProductForm() {
   const date = '2023-06-14';
   const inputRef = useRef(null);
   const suggestionsListRef = useRef(null);
-  const eatenProducts = useSelector(state => state.day.eatenProducts);
-  
+  // const eatenProducts = useSelector(state => state.day.eatenProducts);
 
   useEffect(() => {
     dispatch(dayInfo({ date }));
@@ -50,14 +49,12 @@ function DiaryAddProductForm() {
     };
   }, []);
 
-  
-
   const onSubmit = e => {
     e.preventDefault();
 
     if (!productName && !weight) {
       return;
-    };
+    }
 
     const body = {
       date,
@@ -68,22 +65,20 @@ function DiaryAddProductForm() {
     dispatch(postProduct(body))
       .then(() => {
         dispatch(dayInfo({ date }));
-        
       })
       .catch(error => {
         console.log(error);
       });
-      setProductName('');
-        setWeight('');
-        setSuggestedProducts([]);
-        
+    setProductName('');
+    setWeight('');
+    setSuggestedProducts([]);
   };
 
   const handleProductNameChange = async e => {
     const query = e.target.value;
     setProductName(query);
     const suggestions = await productSearch(query);
-   
+
     setSuggestedProducts(suggestions);
   };
 
