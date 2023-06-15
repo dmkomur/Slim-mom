@@ -20,13 +20,9 @@ function Recommendations() {
   const products = useSelector(getDaily);
   const navigate = useNavigate();
 
-  console.log(products);
-
   const handleStartLoseWeight = () => {
     return isLoggedIn ? navigate('/diary') : navigate('/login');
   };
-  console.log(isLoggedIn);
-
   return (
     <div>
       <Title>
