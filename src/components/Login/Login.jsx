@@ -8,6 +8,8 @@ import {
 } from './Login.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 let schema = yup.object({
   password: yup
@@ -26,6 +28,9 @@ function Login() {
     email: '',
     password: '',
   };
+  const notify = msg => {
+    toast.error(msg);
+  };
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
     dispatch(logIn(values));
@@ -40,18 +45,29 @@ function Login() {
       >
         <StyledFormAuth>
           <StyledInputAuth type="email" name="email" placeholder="Email *" />
-          <ErrorMessage name="tremail" component="div" />
+          <ErrorMessage name="email">{m => notify(m)}</ErrorMessage>
 
           <StyledInputAuth
             type="password"
             name="password"
             placeholder="Password *"
           />
-          <ErrorMessage name="password" component="div" />
-
+          <ErrorMessage name="password">{m => notify(m)}</ErrorMessage>
           <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
         </StyledFormAuth>
       </Formik>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
