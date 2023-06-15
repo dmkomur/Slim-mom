@@ -12,7 +12,7 @@ let schema = yup.object({
   weight: yup.number().min(20).max(500),
   height: yup.number().min(100).max(250),
   age: yup.number().min(18).max(110),
-  desiredWeight: yup.number().min(100).max(500),
+  desiredWeight: yup.number().min(20).max(500),
   bloodType: yup.number(),
 });
 
@@ -30,11 +30,19 @@ function CalculatorCalorieForm() {
   };
 
   const handleSubmit = (values, { resetForm }) => {
+    const body = {
+      weight: values.weight,
+      height: values.height,
+      age: values.age,
+      desiredWeight: values.desiredWeight,
+      bloodType: Number(values.bloodType),
+    };
+
     !isLoggedIn
-      ? dispatch(dailyRate(values))
+      ? dispatch(dailyRate(body))
           .unwrap()
           .then(() => dispatch(toggleModal(!isModalOpen)))
-      : dispatch(dailyRateId(values))
+      : dispatch(dailyRateId(body))
           .unwrap()
           .then(() => dispatch(toggleModal(!isModalOpen)));
 
@@ -73,7 +81,7 @@ function CalculatorCalorieForm() {
                 id="bloodType1"
                 defaultChecked={values.bloodType === 1}
                 name="bloodType"
-                value="1"
+                value={Number(1)}
               />
               <label htmlFor="bloodType1">1</label>
 
@@ -82,7 +90,7 @@ function CalculatorCalorieForm() {
                 id="bloodType2"
                 defaultChecked={values.bloodType === 2}
                 name="bloodType"
-                value="2"
+                value={Number(2)}
               />
               <label htmlFor="bloodType2">2</label>
 
@@ -91,7 +99,7 @@ function CalculatorCalorieForm() {
                 id="bloodType3"
                 defaultChecked={values.bloodType === 3}
                 name="bloodType"
-                value="3"
+                value={Number(3)}
               />
               <label htmlFor="bloodType3">3</label>
 
@@ -100,7 +108,7 @@ function CalculatorCalorieForm() {
                 id="bloodType4"
                 defaultChecked={values.bloodType === 4}
                 name="bloodType"
-                value="4"
+                value={Number(4)}
               />
               <label htmlFor="bloodType4">4</label>
             </Field>
