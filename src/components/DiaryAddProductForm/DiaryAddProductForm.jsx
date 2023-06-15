@@ -78,9 +78,7 @@ function DiaryAddProductForm() {
 
   const handleProductSelect = async product => {
     setProductName(product.title.ua);
-    productSearch(product.title.ua);
-    const test = await productSearch(product.title.ua);
-    setIdProduct(test[0]._id);
+    setIdProduct(product._id);
     setSuggestedProducts([]);
   };
 
