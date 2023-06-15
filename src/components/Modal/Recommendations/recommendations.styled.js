@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
 
-const { mobile, tablet, desktop } = breakpoints;
+const { tablet, desktop } = breakpoints;
 
 export const Wrapper = styled.div`
   margin-bottom: 119px;

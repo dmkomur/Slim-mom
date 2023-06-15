@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { postProduct, deleteProduct, dayInfo } from './day-operations';
+import { deleteProduct, dayInfo } from './day-operations';
 
 const initialState = {
   id: null,
