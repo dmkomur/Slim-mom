@@ -1,19 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, refreshUser, getUser } from './auth-operations';
+import { ua, en } from 'localization';
+import {
+  logIn,
+  logOut,
+  refreshUser,
+  getUser,
+  dailyRate,
+  dailyRateId,
+} from './auth-operations';
 
 const initialState = {
   accessToken: null,
   refreshToken: null,
   sid: null,
   todaySummary: {},
-  user: {},
+  user:  { userData: { dailyRate: null, notAllowedProducts: [] } },
   isLoggedIn: false,
   isRefreshing: false,
+  lang: en,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    languageSelection: (state, action) => {
+      switch (action.payload) {
+        case 'ua':
+          state.lang = ua;
+          break;
+        case 'en':
+          state.lang = en;
+          break;
+        default:
+          state.lang = ua;
+      }
+    },
+  },
   extraReducers: builder => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.accessToken = action.payload.accessToken;
@@ -47,5 +70,19 @@ export const authSlice = createSlice({
     builder.addCase(getUser.fulfilled, (state, action) => {
       state.user = action.payload;
     });
+    builder.addCase(dailyRate.fulfilled, (state, action) => {
+      state.user.userData.dailyRate = action.payload.dailyRate;
+      state.user.userData.notAllowedProducts =
+        action.payload.notAllowedProducts;
+    });
+    builder.addCase(dailyRateId.fulfilled, (state, action) => {
+      state.user.userData.dailyRate = action.payload.dailyRate;
+      state.user.userData.notAllowedProducts =
+        action.payload.notAllowedProducts;
+      state.user.userData.summaries = action.payload.summaries;
+      state.user.userData.id = action.payload.id;
+    });
   },
 });
+
+export const { languageSelection } = authSlice.actions;
