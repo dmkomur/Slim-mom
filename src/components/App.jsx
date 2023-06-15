@@ -81,7 +81,7 @@ export const App = () => {
               <Route
                 path="registration"
                 element={
-                  <PublicRoute>
+                  <PublicRoute restricted>
                     <Register />
                   </PublicRoute>
                 }

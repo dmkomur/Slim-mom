@@ -9,8 +9,11 @@ import {
   StyledFormAuth,
   StyledBtnAuthAccent,
   StyledHeaderAuth,
+  StyledWrapInputAuth,
+  StyledLabelAuth,
+  StyledErrorAuth,
 } from '../Login/Login.styled';
-import { toast, ToastContainer } from 'react-toastify';
+import { IoMdAlert } from 'react-icons/io';
 
 let schema = yup.object({
   username: yup.string().required('Please enter a name').min(3).max(32),
@@ -37,9 +40,6 @@ function Register() {
     password: '',
     username: '',
   };
-  const notify = msg => {
-    toast.error(msg);
-  };
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
@@ -57,32 +57,49 @@ function Register() {
         initialValues={startValue}
       >
         <StyledFormAuth>
-          <StyledInputAuth type="text" name="username" placeholder="Name *" />
-          <ErrorMessage name="username">{m => notify(m)}</ErrorMessage>
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="text" name="username" placeholder=" " />
+            <StyledLabelAuth>Name *</StyledLabelAuth>
+            <ErrorMessage name="username">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
 
-          <StyledInputAuth type="email" name="email" placeholder="Email *" />
-          <ErrorMessage name="email">{m => notify(m)}</ErrorMessage>
-          <StyledInputAuth
-            type="password"
-            name="password"
-            placeholder="Password *"
-          />
-          <ErrorMessage name="password">{m => notify(m)}</ErrorMessage>
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="email" name="email" placeholder=" " />
+            <StyledLabelAuth>Email *</StyledLabelAuth>
+            <ErrorMessage name="email">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
+
+          <StyledWrapInputAuth>
+            <StyledInputAuth type="password" name="password" placeholder=" " />
+            <StyledLabelAuth>Password *</StyledLabelAuth>
+
+            <ErrorMessage name="password">
+              {m => (
+                <StyledErrorAuth>
+                  <IoMdAlert />
+                  {m}
+                </StyledErrorAuth>
+              )}
+            </ErrorMessage>
+          </StyledWrapInputAuth>
+
           <StyledBtnAuthAccent type="submit">Register</StyledBtnAuthAccent>
         </StyledFormAuth>
       </Formik>
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 }
