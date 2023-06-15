@@ -9,9 +9,11 @@ export const StyledButton = styled.button`
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  margin: 0 auto;
+  display: block;
+  -webkit-box-align: center;
+  /* align-items: center;
+  text-align: center; */
   color: #ffffff;
 `;
 
@@ -22,16 +24,18 @@ export const Title = styled.h2`
   line-height: 1.4;
   color: #212121;
   padding: 0;
-  margin: 44px 0 32px 0;
+  margin: 40px 0 42px 0;
   @media screen and (min-width: 768px) {
     font-size: 26px;
+    text-align: center;
   }
 `;
 
 export const CaloriesWrapper = styled.div`
- text-align: center;
-  width: 279px;
+  text-align: center;
+  /* width: 279px; */
   height: 62px;
+  /* padding: 7px; */
   margin-bottom: 32px;
 `;
 
@@ -58,8 +62,36 @@ export const Recommend = styled.div`
   margin-bottom: 40px;
   width: 280px;
   height: 263;
+
+  @media screen and (min-width: 768px) {
+    width: 330px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
 `;
-export const Box = styled.div`
+
+export const Caption = styled.h3`
+  margin: 20px 0 20px 5px;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #212121;
+  @media screen and (min-width: 768px) {
+    margin: 12px 0 20px 5px;
+  }
+`;
+
+export const ProductsList = styled.ul`
+  margin: 0;
+  /* padding: 5px; */
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  overflow-y: scroll;
+  height: 112px;
+  width: 100%;
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f0f1f3;
@@ -68,30 +100,10 @@ export const Box = styled.div`
   &::-webkit-scrollbar-thumb {
     background: #264061;
   }
-  overflow:hidden;
-`;
-
-export const Caption = styled.h3`
-  margin: 20px 0;
-  font-family: 'Verdana';
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
-  color: #212121;
-`;
-
-export const ProductsList = styled.ol`
-  margin: 0;
-  padding: 5px;
-  width: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  
 `;
 
 export const ProductItem = styled.li`
-  margin-bottom:5px;
+  margin-bottom: 10px;
   overflow-wrap: normal;
 `;
 
