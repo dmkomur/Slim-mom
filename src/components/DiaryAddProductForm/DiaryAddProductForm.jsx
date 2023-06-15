@@ -30,7 +30,7 @@ function DiaryAddProductForm() {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-  
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -57,16 +57,16 @@ function DiaryAddProductForm() {
     };
 
     dispatch(postProduct(body))
-    .then(() => {
-      dispatch(dayInfo({ date }));
-      setProductName('');
-      setWeight('');
-      setSuggestedProducts([]);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
+      .then(() => {
+        dispatch(dayInfo({ date }));
+        setProductName('');
+        setWeight('');
+        setSuggestedProducts([]);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   const handleProductNameChange = async e => {
     const query = e.target.value;
@@ -90,7 +90,7 @@ function DiaryAddProductForm() {
         <css.InputProdName
           type="text"
           placeholder="Enter product name"
-          value={productName || ''}
+          value={productName}
           onChange={handleProductNameChange}
           ref={inputRef}
         />
