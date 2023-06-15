@@ -1,5 +1,4 @@
 import {
-  Box,
   StyledButton,
   Title,
   ProductsList,
@@ -28,16 +27,12 @@ function Recommendations() {
   };
   console.log(isLoggedIn);
 
-  // useEffect(() => {
-  //   IsLoggedIn && dispatch(dailyRateId(userId));
-  // }, [dispatch, IsLoggedIn]);
-
-  // useEffect(() => {
-  //   IsLoggedIn && dispatch(dailyRate(userId));
-  // }, [dispatch, IsLoggedIn]);
   return (
-    <Box>
-      <Title>Your recommended daily calorie intake is</Title>
+    <div>
+      <Title>
+        Your recommended daily <br />
+        calorie intake is
+      </Title>
       <CaloriesWrapper>
         <Calories>
           {Math.trunc(products.dailyRate)}
@@ -47,9 +42,11 @@ function Recommendations() {
       <Recommend>
         <Caption>Foods you should not eat</Caption>
         <ProductsList>
-          {products.notAllowedProducts.map(product => (
+          {products.notAllowedProducts.map((product, idx) => (
             <ProductItem key={nanoid()}>
-              <Product>{product}</Product>
+              <Product>
+                {idx + 1}. {product}
+              </Product>
             </ProductItem>
           ))}
         </ProductsList>
@@ -58,7 +55,7 @@ function Recommendations() {
       <StyledButton type="button" onClick={handleStartLoseWeight}>
         Start losing weight
       </StyledButton>
-    </Box>
+    </div>
   );
 }
 
