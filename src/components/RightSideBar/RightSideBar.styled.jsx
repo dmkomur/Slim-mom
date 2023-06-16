@@ -5,7 +5,7 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 20px 12px 20px;
-  background-color: #f0f1f3;
+  /* background-color: #f0f1f3; */
 
   @media screen and (max-width: 320px) {
     width: 320px;
@@ -65,6 +65,15 @@ export const List = styled.ul`
   overflow-y: scroll;
   scroll-behavior: smooth;
   z-index: 10;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f0f1f3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #264061;
+  }
 `;
 
 export const Item = styled.li`

@@ -13,7 +13,7 @@ import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 // import { Loader } from './components/Loader/Loader';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
-import { RightSideBar } from './RightSideBar/RightSideBar';
+// import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
@@ -32,8 +32,11 @@ import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
+
 import GlobalTablet from './GlobalStylePublic/GlobalTablet';
 
+
+import Calculator from 'pages/Calculator/Calculator';
 
 
 export const App = () => {
@@ -83,7 +86,7 @@ export const App = () => {
                 path="calculator"
                 element={
                   <PrivateRoute>
-                    <CalculatorCalorieForm />
+                    <Calculator />
                   </PrivateRoute>
                 }
               />
@@ -93,7 +96,7 @@ export const App = () => {
                   <PrivateRoute>
                     <DiaryDateCalendar />
                     <DiaryProductList />
-                    <RightSideBar />
+                    {/* <RightSideBar /> */}
                   </PrivateRoute>
                 }
               />
