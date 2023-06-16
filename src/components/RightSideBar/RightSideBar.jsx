@@ -21,7 +21,7 @@ export const RightSideBar = () => {
   const dailyCalorie = user.dailyCalorie || 0;
 
   const caloricityPerDay = useSelector(rightSidebarSelectors.selectCaloricityPerDay);
-const selectedDate = useSelector(rightSidebarSelectors.selectDate);
+  const selectedDate = useSelector(rightSidebarSelectors.selectDate);
   const normalizedSelectedDate = new Date(selectedDate)
     .toLocaleString()
     .slice(0, 10);
@@ -65,8 +65,8 @@ const selectedDate = useSelector(rightSidebarSelectors.selectDate);
         <ListTitle>Food not recommended</ListTitle>
         {caloricityPerDay > 0 ? (
           <List>
-            {notRecProducts.map(product => (
-              <Item key={product._id}>{product.title.ua}</Item>
+            {notRecProducts.map((product, idx) => (
+              <Item key={product._id}>{idx + 1}. {product.title.ua}</Item>
             ))}
           </List>
         ) : (
