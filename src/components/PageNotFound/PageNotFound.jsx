@@ -2,7 +2,9 @@ import React from 'react';
 import {
   PageNotFd,
   StyledHeader,
+  StyledImg,
   StyledLine,
+  StyledSpan,
   StyledText,
 } from './PageNotFound.styled';
 import { createRoot } from 'react-dom/client';
@@ -15,9 +17,14 @@ function PageNotFound() {
       <StyledHeader>
         <li>4</li>
         <li>
-          <span>
-            <img src={strawberry} alt="strawberry" width="150"></img>
-          </span>
+          <StyledSpan>
+            <StyledImg
+              src={strawberry}
+              alt="strawberry"
+              width="150"
+              height="150"
+            ></StyledImg>
+          </StyledSpan>
         </li>
         <li>4</li>
       </StyledHeader>

@@ -52,10 +52,6 @@ export const StyledLine = styled.p`
   @media screen and (min-width: ${mobile}) {
     font-size: 20px;
     line-height: 140%;
-    /* letter-spacing: 1.5px; */
-    /* text-transform: uppercase;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      text-transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
     @media screen and (min-width: 480px) {
       font-size: 54px;
@@ -68,4 +64,28 @@ export const StyledLine = styled.p`
 export const StyledText = styled.span`
   color: ${({ theme }) => theme.colors.button};
   font-size: 14px;
+`;
+
+export const StyledSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+`;
+export const StyledImg = styled.img`
+  animation: loader 4s infinite;
+  /* animation: loader 4s; */
+  && hover {
+    rotate: 1.75turn;
+    transition: rotate 1s;
+  }
+  @keyframes loader {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      border-radius: 50%;
+      rotate: 360deg;
+    }
+  }
 `;
