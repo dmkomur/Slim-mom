@@ -69,8 +69,10 @@ export const RightSideBar = () => {
         <ListTitle>Food not recommended</ListTitle>
         {daySummary?.dailyRate > 0 ? (
           <List>
-            {notAllowedProducts.map(product => (
-              <Item key={nanoid()}>{product}</Item>
+            {notAllowedProducts.map((product, idx) => (
+              <Item key={nanoid()}>
+                {idx + 1}. {product}
+              </Item>
             ))}
           </List>
         ) : (

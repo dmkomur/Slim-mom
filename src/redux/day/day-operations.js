@@ -30,7 +30,22 @@ export const dayInfo = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const dayInfo = await instance.post('/day/info', body);
-      return dayInfo.data;
+      if (dayInfo.data.id) {
+        return dayInfo.data;
+      }
+      const info = {
+        date: body.date,
+        daySummary: {
+          date: body.date,
+          kcalLeft: dayInfo.data.kcalLeft,
+          kcalConsumed: dayInfo.data.kcalConsumed,
+          dailyRate: dayInfo.data.dailyRate,
+          percentsOfDailyRate: dayInfo.data.percentsOfDailyRate,
+        },
+        eatenProducts: [],
+        id: null,
+      };
+      return info;
     } catch (error) {
       return rejectWithValue(error.message);
     }
