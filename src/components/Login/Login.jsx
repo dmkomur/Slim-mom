@@ -8,6 +8,8 @@ import {
   StyledWrapInputAuth,
   StyledLabelAuth,
   StyledErrorAuth,
+  StyledLinkAuth,
+  StyledWrapAuthBtn,
 } from './Login.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -69,7 +71,10 @@ function Login() {
               )}
             </ErrorMessage>
           </StyledWrapInputAuth>
-          <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
+          <StyledWrapAuthBtn>
+            <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
+            <StyledLinkAuth to="/registration">Register</StyledLinkAuth>
+          </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
     </>

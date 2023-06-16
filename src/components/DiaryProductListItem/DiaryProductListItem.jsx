@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as css from './DiaryProductListItem.styled';
 import { dayInfo, deleteProduct } from 'redux/day/day-operations';
@@ -8,11 +9,20 @@ function DiaryProductListItem() {
   const dispatch = useDispatch();
   const date = '2023-06-14';
 
-  const handleDeleteFood = eatenProductId => {
+  const [deletedObjects, setDeletedObjects] = useState([]);
+
+  const handleDeleteFood = (eatenProductId, index) => {
+    if (deletedObjects.includes(index)) {
+      return;
+    }
+
     const body = {
       dayId,
       eatenProductId,
     };
+
+    setDeletedObjects([...deletedObjects, index]);
+
     dispatch(deleteProduct(body))
       .then(() => {
         dispatch(dayInfo({ date }));
@@ -28,12 +38,15 @@ function DiaryProductListItem() {
 
   return (
     <>
-      {eatenProducts.map(eaten => (
+      {eatenProducts.map((eaten, index) => (
         <css.ListItem key={eaten.id}>
           <css.PName>{eaten.title}</css.PName>{' '}
           <css.PGrame>{eaten.weight} g</css.PGrame>{' '}
-          <css.PKcal>{eaten.kcal} kcal</css.PKcal>{' '}
-          <css.Button onClick={() => handleDeleteFood(eaten.id)} type="button">
+          <css.PKcal>{eaten.kcal.toFixed(0)} kcal</css.PKcal>{' '}
+          <css.Button
+            onClick={() => handleDeleteFood(eaten.id, index)}
+            type="button"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
