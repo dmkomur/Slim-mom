@@ -6,7 +6,7 @@ import Register from './Register/Register';
 // import Modal from './Modal/Modal';
 // import Header from './Header/Header';
 // import DiaryAddProductForm from './DiaryAddProductForm/DiaryAddProductForm';
-import DiaryProductList from './DiaryProductList/DiaryProductList';
+// import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 // import { Loader } from './components/Loader/Loader';
 // import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
@@ -95,7 +95,7 @@ export const App = () => {
                 element={
                   <PrivateRoute>
                     <DiaryDateCalendar />
-                    <DiaryProductList />
+                    {/* <DiaryProductList /> */}
                     {/* <RightSideBar /> */}
                   </PrivateRoute>
                 }
