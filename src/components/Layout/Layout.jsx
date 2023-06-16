@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Container } from './Layout.styled';
+import { CommonContainer } from './Layout.styled';
 import { Suspense } from 'react';
 import Header from '../Header/Header';
 // import { Loader } from '../Loader/Loader';
@@ -7,14 +7,14 @@ import Header from '../Header/Header';
 export const Layout = () => {
   return (
     <>
-      <Container>
+      <CommonContainer>
         <Header />
         <main>
           <Suspense fallback={<div>Loading....</div>}>
             <Outlet />
           </Suspense>
         </main>
-      </Container>
+      </CommonContainer>
     </>
   );
 };
