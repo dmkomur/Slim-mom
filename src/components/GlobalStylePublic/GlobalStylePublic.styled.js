@@ -1,6 +1,4 @@
-
 import { createGlobalStyle } from 'styled-components';
-
 
 import MainLeafdDesktop1x from 'img/main-leaf-desktop@1x-min.png';
 import MainLeafDesktop2x from 'img/main-leaf-desktop@2x-min.png';
@@ -52,15 +50,16 @@ import LiniaTabletAvif2x from 'img/linia-tablet@2x.avif';
 import LiniaTabletWebp1x from 'img/linia.webp';
 import LiniaTabletWebp2x from 'img/linia-tablet@2x.webp';
 
-
 export const GlobalStylePublic = createGlobalStyle`
 body{
-  ${'' /* color: ${({ theme }) => theme.colors.secondText};
+  ${
+    '' /* color: ${({ theme }) => theme.colors.secondText};
   font-family: 'Verdana', -apple-system, sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.04em;
-  line-height: 1.21; */}
+  line-height: 1.21; */
+  }
 
   @media screen and (max-width: 320px) {
     background-image: none;
@@ -85,7 +84,7 @@ body{
       url(${MainBananTabletWebp1x}) type("image/webp") 1x,
       url(${MainBananTabletWebp2x}) type("image/webp") 2x,
       url(${MainBananTablet1x}) type("image/png") 1x,
-      url(${MainBananTablet2x}) type("image/png") 2x), 
+      url(${MainBananTablet2x}) type("image/png") 2x),
     image-set(url(${LiniaTabletAvif1x}) type("image/avif") 1x,
       url(${LiniaTabletAvif2x}) type("image/avif") 2x,
       url(${LiniaTabletWebp1x}) type("image/webp") 1x,
@@ -94,8 +93,8 @@ body{
       url(${LiniaTablet2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-    background-size: 531px 602px, 350px 350px, 740px 527px, 553px 750px;
-    background-position: 20px 400px, 410px 460px, 250px 520px, 220px 300px;
+        background-size: 531px 602px, 350px 350px, 740px 527px;
+        background-position: bottom -35em left 00em, bottom -20em right 0em, bottom -40em right -20em, bottom -40em right -32px;
    } 
 
 
@@ -103,9 +102,9 @@ body{
     background-image: 
     image-set(url(${MainLeafDesktopAvif1x}) type("image/avif") 1x,
       url(${MainLeafDesktopAvif2x}) type("image/avif") 2x,
-      url(${MainLeafDesktopWebp1x }) type("image/webp") 1x,
-      url(${MainLeafDesktopWebp2x }) type("image/webp") 2x,
-      url(${MainLeafdDesktop1x }) type("image/png") 1x,
+      url(${MainLeafDesktopWebp1x}) type("image/webp") 1x,
+      url(${MainLeafDesktopWebp2x}) type("image/webp") 2x,
+      url(${MainLeafdDesktop1x}) type("image/png") 1x,
       url(${MainLeafDesktop2x}) type("image/png") 2x),
     image-set(url(${StrawberryDesktopAvif1x}) type("image/avif") 1x,
       url(${StrawberryDesktopAvif2x}) type("image/avif") 2x,
@@ -119,8 +118,8 @@ body{
       url(${BananWebp2x}) type("image/webp") 2x,
       url(${Banan1x}) type("image/png") 1x, 
       url(${Banan2x}) type("image/png") 2x),
-    image-set(url(${LiniaDesktopAvif1x }) type("image/avif") 1x,
-      url(${LiniaDesktopAvif2x }) type("image/avif") 2x,
+    image-set(url(${LiniaDesktopAvif1x}) type("image/avif") 1x,
+      url(${LiniaDesktopAvif2x}) type("image/avif") 2x,
       url(${LiniaDesktopWebp1x}) type("image/webp") 1x,
       url(${LiniaDesktopWebp2x}) type("image/webp") 2x,
       url(${LiniaDesktop1x}) type("image/png") 1x,
@@ -128,7 +127,7 @@ body{
 
     background-repeat: no-repeat;
     background-size: 746px 846px, 370px 370px, 700px 500px, 602px 816px;
-    background-position: 300px 20px, 900px 506px , top -110px right -120px, top 50px right 0px ;
+    background-position: top 00px right 195px, top 35em right 0px , top -5em right -15em, top 50px right 0px ;
   }
 
-}`
+}`;
