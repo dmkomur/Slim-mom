@@ -13,7 +13,7 @@ import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 // import { Loader } from './components/Loader/Loader';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
-import { RightSideBar } from './RightSideBar/RightSideBar';
+// import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
