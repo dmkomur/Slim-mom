@@ -46,6 +46,14 @@ export const CloseModal = styled.button`
     height: 20px;
     /* background: #ffffff; */
     background: ${({ theme }) => theme.colors.background};
+
+    &:hover,
+    &:focus {
+      transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.2);
+
+      color: ${({ theme }) => theme.colors.buttonHover};
+    }
   }
 `;
 export const CloseIcon = styled(AiOutlineClose)`
