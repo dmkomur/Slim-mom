@@ -19,7 +19,7 @@ import { useDispatch } from 'react-redux';
 
 import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
@@ -32,7 +32,12 @@ import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
+
+import GlobalTablet from './GlobalStylePublic/GlobalTablet';
+
+
 import Calculator from 'pages/Calculator/Calculator';
+
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -41,16 +46,20 @@ export const App = () => {
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
+    
   }, [dispatch]);
 
   const isRefreshing = useSelector(getIsRefreshing);
+
+
+
 
   return isRefreshing ? (
     <b>Refresing user...</b>
   ) : (
     <>
-      <ThemeSwitching>
-        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
+        <ThemeSwitching>
+          {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -59,6 +68,7 @@ export const App = () => {
                 path="registration"
                 element={
                   <PublicRoute restricted>
+                    <GlobalTablet />
                     <Register />
                   </PublicRoute>
                 }
@@ -67,6 +77,7 @@ export const App = () => {
                 path="login"
                 element={
                   <PublicRoute restricted>
+                    <GlobalTablet />
                     <Login />
                   </PublicRoute>
                 }
