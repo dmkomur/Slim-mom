@@ -10,11 +10,12 @@ import {
   StyledBtnAuthAccent,
   StyledErrorAuth,
 } from '../Login/Login.styled';
+import { Field } from 'formik';
 
 export const StyledWrapCaloriesCalc = styled.div`
-    @media screen and (min-width: ${breakpoints.desktop}) {
-      width: 600px;
-    }
+  @media screen and (min-width: ${breakpoints.desktop}) {
+    width: 600px;
+  }
 `;
 
 export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
@@ -40,7 +41,7 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   @media screen and (min-width: ${breakpoints.desktop}) {
     margin-top: 147px;
   }
-`
+`;
 
 export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
   gap: 16px;
@@ -77,13 +78,11 @@ export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
       order: 6;
     }
   }
-`
+`;
 
-export const StyledLabelCaloriesCalc = styled(StyledLabelAuth)`
-`
+export const StyledLabelCaloriesCalc = styled(StyledLabelAuth)``;
 
-export const StyledWrapInputCaloriesCalc = styled(StyledWrapInputAuth)`
-`
+export const StyledWrapInputCaloriesCalc = styled(StyledWrapInputAuth)``;
 
 export const StyledInputCaloriesCalc = styled(StyledInputAuth)`
   width: 240px;
@@ -92,41 +91,40 @@ export const StyledInputCaloriesCalc = styled(StyledInputAuth)`
   @media screen and (min-width: ${breakpoints.tablet}) {
     padding: 20px 0px 20px 0px;
   }
-`
+`;
 
 export const StyledErrorCaloriesCalc = styled(StyledErrorAuth)`
   top: 42px;
   font-size: 9px;
 
-  @media screen and (min-width: ${breakpoints.tablet}){
+  @media screen and (min-width: ${breakpoints.tablet}) {
     top: 60px;
   }
-`
+`;
 
 export const BtnWrapCaloriesCalc = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-
   @media screen and (min-width: ${breakpoints.tablet}) {
     position: absolute;
     top: 125%;
   }
 
-  @media screen and (min-width: ${breakpoints.desktop}){
+  @media screen and (min-width: ${breakpoints.desktop}) {
     top: 115%;
     right: 10%;
   }
-`
+`;
 
 export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
   margin-top: 50px;
 
   @media screen and (min-width: ${breakpoints.tablet}) {
-  margin-top: 0px;
+    margin-top: 0px;
   }
-`
+`;
 
 export const StyledLabelBTCaloriesCalc = styled.span`
   position: relative;
@@ -145,39 +143,39 @@ export const StyledLabelBTCaloriesCalc = styled.span`
     padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
   }
-`
+`;
 
-export const StyledRadioBtnsBTCaloriesCalc = styled.div`
+export const StyledRadioBtnsBTCaloriesCalc = styled(Field)`
   position: absolute;
   display: flex;
   column-gap: 28px;
   width: 240px;
   margin-top: 8px;
 
-    & :nth-child(1) {
-      order: 1;
-    }
+  & :nth-child(1) {
+    order: 1;
+  }
 
-    & :nth-child(2) {
-      order: 2;
-    }
+  & :nth-child(2) {
+    order: 2;
+  }
 
-    & :nth-child(3) {
-      order: 3;
-    }
+  & :nth-child(3) {
+    order: 3;
+  }
 
-    & :nth-child(4) {
-      order: 4;
-    }
+  & :nth-child(4) {
+    order: 4;
+  }
 
-    & :nth-child(5) {
-      order: 5;
-    }
+  & :nth-child(5) {
+    order: 5;
+  }
 
-    & :nth-child(6) {
-      order: 6;
-    }
-`
+  & :nth-child(6) {
+    order: 6;
+  }
+`;
 
 export const StyledRadioBtnBTCaloriesCalc = styled.input`
   -webkit-appearance: none;
@@ -188,26 +186,26 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
   margin: 0;
   width: 20px;
   height: 20px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   border-radius: 50%;
-  
-  background-color: #FFFFFF;
-  
+
+  background-color: #ffffff;
+
   font: inherit;
-  
+
   cursor: pointer;
 
   &::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  box-shadow: inset 14px 14px #FC842D;
-  
-  background-color: CanvasText;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: inset 14px 14px #fc842d;
 
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
+    background-color: CanvasText;
+
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
   }
 
   &:checked::before {
@@ -217,7 +215,7 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
   &:hover {
     box-shadow: 0 0 20px rgba(252, 132, 45, 0.5);
   }
-`
+`;
 
 export const StyledRadioLabelBTCaloriesCalc = styled.label`
   display: flex;
@@ -227,5 +225,5 @@ export const StyledRadioLabelBTCaloriesCalc = styled.label`
   font-weight: 400;
   line-height: 1.21;
 
-color: #9B9FAA;
-`
+  color: #9b9faa;
+`;

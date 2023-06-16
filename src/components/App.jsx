@@ -32,6 +32,7 @@ import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
+import Calculator from 'pages/Calculator/Calculator';
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -74,7 +75,7 @@ export const App = () => {
                 path="calculator"
                 element={
                   <PrivateRoute>
-                    <CalculatorCalorieForm />
+                    <Calculator />
                   </PrivateRoute>
                 }
               />
