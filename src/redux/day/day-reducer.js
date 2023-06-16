@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteProduct, dayInfo } from './day-operations';
+import { deleteProduct, dayInfo, postProduct } from './day-operations';
 
 const initialState = {
   id: null,
@@ -13,6 +13,12 @@ export const daySlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
+      // .addCase(postProduct.fulfilled, (state, action) => {
+      //   state.eatenProducts = action.payload.day.eatenProducts;
+      //   state.id = action.payload.day.id;
+      //   state.date = action.payload.day.date;
+      //   state.daySummary = action.payload.day.daySummary;
+      // })
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.daySummary = action.payload.newDaySummary;
       })

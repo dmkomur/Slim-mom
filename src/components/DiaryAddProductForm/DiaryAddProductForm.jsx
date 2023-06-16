@@ -1,23 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
 
-function DiaryAddProductForm() {
+function DiaryAddProductForm({ valueDate }) {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
   const [weight, setWeight] = useState('');
   const [suggestedProducts, setSuggestedProducts] = useState([]);
   const [productId, setIdProduct] = useState('');
-  const date = '2023-06-14';
   const inputRef = useRef(null);
   const suggestionsListRef = useRef(null);
-  // const eatenProducts = useSelector(state => state.day.eatenProducts);
+  let selectedDate = useMemo(() => ({ date: valueDate }), [valueDate]);
 
   useEffect(() => {
-    dispatch(dayInfo({ date }));
-  }, [dispatch]);
+    dispatch(dayInfo(selectedDate));
+  }, [dispatch, selectedDate]);
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -57,14 +56,14 @@ function DiaryAddProductForm() {
     }
 
     const body = {
-      date,
+      date: valueDate,
       productId,
       weight,
     };
-
+    console.log(body);
     dispatch(postProduct(body))
       .then(() => {
-        dispatch(dayInfo({ date }));
+        dispatch(dayInfo(selectedDate));
       })
       .catch(error => {
         console.log(error);
@@ -76,6 +75,9 @@ function DiaryAddProductForm() {
 
   const handleProductNameChange = async e => {
     const query = e.target.value;
+    if (query === '') {
+      return;
+    }
     setProductName(query);
     const suggestions = await productSearch(query);
 
@@ -103,7 +105,7 @@ function DiaryAddProductForm() {
           <css.SuggestionsList ref={suggestionsListRef}>
             {suggestedProducts.map(product => (
               <css.SuggestionItem
-                key={product.id}
+                key={product._id}
                 onClick={() => handleProductSelect(product)}
               >
                 {product.title.ua}
