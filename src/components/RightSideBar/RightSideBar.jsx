@@ -11,23 +11,17 @@ import {
   Content,
   ContainerItem,
 } from './RightSideBar.styled';
-import { rightSidebarSelectors  } from 'redux/rightSideBar/rightSIdeBar-selectors';
 import { useSelector } from 'react-redux';
-import { useAuth } from '../../hooks/useAuth';
+import { getDaySummary } from 'redux/day/day-selectors';
+import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
+import { nanoid } from 'nanoid';
 
 export const RightSideBar = () => {
-  const { user } = useAuth();
-  const notRecProducts = user.notRecProducts || [];
-  const dailyCalorie = user.dailyCalorie || 0;
-
-  const caloricityPerDay = useSelector(rightSidebarSelectors.selectCaloricityPerDay);
-  const selectedDate = useSelector(rightSidebarSelectors.selectDate);
-  const normalizedSelectedDate = new Date(selectedDate)
+  const daySummary = useSelector(getDaySummary);
+  const notAllowedProducts = useSelector(getNotAllowedProducts);
+  const normalizedSelectedDate = new Date(daySummary?.date)
     .toLocaleString()
     .slice(0, 10);
-
-  const leftCalories = dailyCalorie - caloricityPerDay;
-  const percentOfNormal = (caloricityPerDay / dailyCalorie) * 100;
 
   return (
     <Box>
@@ -37,36 +31,46 @@ export const RightSideBar = () => {
           <ContainerItem>
             <Title>Left</Title>
             <Content>
-              {caloricityPerDay > 0 ? Math.round(leftCalories) : 0} kcal
+              {daySummary?.dailyRate > 0 ? Math.round(daySummary.kcalLeft) : 0}{' '}
+              kcal
             </Content>{' '}
           </ContainerItem>
           <ContainerItem>
             <Title>Consumed</Title>
             <Content>
-              {caloricityPerDay > 0 ? Math.round(caloricityPerDay) : 0} kcal{' '}
+              {daySummary?.dailyRate > 0
+                ? Math.round(daySummary.kcalConsumed)
+                : 0}{' '}
+              kcal{' '}
             </Content>
           </ContainerItem>
           <ContainerItem>
             <Title>Daily rate </Title>
             <Content>
               {' '}
-              {dailyCalorie > 0 ? Math.round(dailyCalorie) : 0} kcal{' '}
+              {daySummary?.dailyRate > 0
+                ? Math.round(daySummary.dailyRate)
+                : 0}{' '}
+              kcal{' '}
             </Content>
           </ContainerItem>
           <ContainerItem>
             <Title>% of normal</Title>
             <Content>
-              {caloricityPerDay > 0 ? Math.round(percentOfNormal) : 0} %
+              {daySummary?.dailyRate > 0
+                ? Math.round(daySummary.percentsOfDailyRate)
+                : 0}{' '}
+              %
             </Content>
           </ContainerItem>
         </Container>
       </BoxList>
       <BoxList>
         <ListTitle>Food not recommended</ListTitle>
-        {caloricityPerDay > 0 ? (
+        {daySummary?.dailyRate > 0 ? (
           <List>
-            {notRecProducts.map((product, idx) => (
-              <Item key={product._id}>{idx + 1}. {product.title.ua}</Item>
+            {notAllowedProducts.map(product => (
+              <Item key={nanoid()}>{product}</Item>
             ))}
           </List>
         ) : (

@@ -5,7 +5,7 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 20px 12px 20px;
-  background-color: #f0f1f3;
+  /* background-color: #f0f1f3; */
 
   @media screen and (max-width: 320px) {
     width: 320px;

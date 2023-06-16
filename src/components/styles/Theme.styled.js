@@ -1,7 +1,7 @@
 export const light = {
   name: 'light-theme',
   colors: {
-    switcherOn: '#000000',
+    switcherOn: '#202025',
 
     firstText: '#212121',
     secondText: '#9B9FAA',
@@ -17,6 +17,10 @@ export const light = {
     borderLight: 'rgba(254, 190, 144, 0.5)',
     borderActive: '#212121',
 
+    backgroundGradientDesktop:
+      'linear-gradient(90deg, rgba(255,255,255,1) 60%, rgba(240,241,243,1) 60%)',
+    backgroundGradientTablet:
+      'linear-gradient(180deg, rgba(255,255,255,1) 68%, rgba(240,241,243,1) 68%)',
     background: '#FFFFFF',
     backroundSecond: '#F0F1F3',
     backroundBurger: '#264061',
@@ -36,7 +40,7 @@ export const dark = {
     firstText: '#DDDDDD',
     secondText: '#ECECEC',
 
-    buttonText: '#000000',
+    buttonText: '#202025',
     buttonTextHover: '#3B3B3B',
     button: '#FF6B00',
     buttonHover: '#CB5600',
@@ -47,7 +51,11 @@ export const dark = {
     borderLight: 'rgba(255, 219, 193, 0.5)',
     borderActive: '#DDDDDD',
 
-    background: '#000000',
+    backgroundGradientDesktop:
+      'linear-gradient(90deg, rgba(54,54,58,1) 60%, rgba(74,74,77,1) 60%)',
+    backgroundGradientTablet:
+      'linear-gradient(180deg, rgba(54,54,58,1) 68%, rgba(74,74,77,1) 68%)',
+    background: '#36363A',
     backroundSecond: '#5F5F5F',
     backroundBurger: '#679DE3',
     backgroundMobile: '#737373',

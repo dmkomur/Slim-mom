@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
-
+import { StyledBtnAuthAccent } from '../../Login/Login.styled.jsx';
 const { tablet, desktop } = breakpoints;
 
 export const Wrapper = styled.div`
@@ -16,7 +16,7 @@ export const Title = styled.h2`
   font-size: 18px;
   line-height: 1.4;
   /* color: #212121; */
-  color:  ${({ theme }) => theme.colors.firstText};
+  color: ${({ theme }) => theme.colors.firstText};
   padding: 0;
   margin: 40px 0 42px 0;
   @media screen and (min-width: ${tablet}) {
@@ -37,7 +37,7 @@ export const Calories = styled.h1`
   padding: 7px;
   font-size: 48px;
   line-height: 1.2;
-  color:${({ theme }) => theme.colors.scroll};
+  color: ${({ theme }) => theme.colors.scroll};
   /* color: #264061; */
 `;
 
@@ -45,7 +45,7 @@ export const Kkal = styled.span`
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
-  color:${({ theme }) => theme.colors.scroll};
+  color: ${({ theme }) => theme.colors.scroll};
   /* color: #264061; */
 `;
 
@@ -65,9 +65,9 @@ export const Recommend = styled.div`
 
 export const Caption = styled.h3`
   margin: 20px 0 20px 5px;
-   font-size: 14px;
+  font-size: 14px;
   line-height: 1.2;
-  color:  ${({ theme }) => theme.colors.firstText};
+  color: ${({ theme }) => theme.colors.firstText};
   /* color: #212121; */
   @media screen and (min-width: ${tablet}) {
     margin: 12px 0 20px 5px;
@@ -85,7 +85,7 @@ export const ProductsList = styled.ul`
   width: 100%;
   &::-webkit-scrollbar {
     width: 6px;
-    background-color:${({ theme }) => theme.colors.backroundSecond};
+    background-color: ${({ theme }) => theme.colors.backroundSecond};
     /* background-color: #f0f1f3; */
   }
 
@@ -107,4 +107,16 @@ export const Product = styled.p`
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.secondText};
   /* color: #9b9faa; */
+`;
+
+export const EnterButton = styled(StyledBtnAuthAccent)`
+  margin: 0 auto;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
