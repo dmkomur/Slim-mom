@@ -14,7 +14,7 @@ import strawberry_webp_d from 'img/Strawberry-desktop@2x-min.webp';
 import strawberry_avif_d from 'img/Strawberry-desktop@2x-min.avif';
 import strawberry_png_t from 'img/main-strawberry-tablet@2x-min.png';
 import strawberry_webp_t from 'img/main-strawberry-tablet@2x-min.webp';
-import strawberry_avif_t from 'img/main-strawberry-tablet_2x-min.avif';
+import strawberry_avif_t from 'img/main-strawberry-tablet@2x-min.avif';
 
 const root = createRoot(document.getElementById('root'));
 function PageNotFound() {
@@ -27,60 +27,60 @@ function PageNotFound() {
             <picture>
               <source
                 type="image/avif"
-                srcset={`${strawberry_avif_d} 1x, ${strawberry_avif_d} 2x`}
                 media="(min-width: 1200px)"
+                srcSet={`${strawberry_avif_d} 1x, ${strawberry_avif_d} 2x`}
               />
               <source
                 type="image/webp"
                 media="(min-width: 1200px)"
-                srcset={`${strawberry_webp_d} 1x, ${strawberry_webp_d} 2x`}
+                srcSet={`${strawberry_webp_d} 1x, ${strawberry_webp_d} 2x`}
               />
               <source
                 type="image/png"
                 media="(min-width: 1200px)"
-                srcset={`${strawberry_png_d} 1x, ${strawberry_png_d} 2x`}
+                srcSet={`${strawberry_png_d} 1x, ${strawberry_png_d} 2x`}
               />
               <source
                 type="image/avif"
-                width="100"
-                height="100"
-                srcset={`${strawberry_avif_t} 1x, ${strawberry_avif_t} 2x`}
+                width="120"
+                height="150"
                 media="(min-width: 768px)"
+                srcSet={`${strawberry_avif_t} 1x, ${strawberry_avif_t} 2x`}
               />
               <source
                 type="image/webp"
-                width="100"
-                height="100"
+                width="120"
+                height="150"
                 media="(min-width: 768px)"
-                srcset={`${strawberry_webp_t} 1x, ${strawberry_webp_t} 2x`}
+                srcSet={`${strawberry_webp_t} 1x, ${strawberry_webp_t} 2x`}
               />
               <source
                 type="image/png"
-                width="100"
-                height="100"
+                width="120"
+                height="150"
                 media="(min-width: 768px)"
-                srcset={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
               <source
                 type="image/avif"
-                width="75"
-                height="75"
-                srcset={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                width="85"
+                height="100"
                 media="(min-width: 320px)"
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
               <source
                 type="image/webp"
-                width="75"
-                height="75"
+                width="85"
+                height="100"
                 media="(min-width: 320px)"
-                srcset={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
               <source
                 type="image/png"
-                width="75"
-                height="75"
+                width="85"
+                height="100"
                 media="(min-width: 320px)"
-                srcset={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
               <StyledImg
                 src={strawberry}
