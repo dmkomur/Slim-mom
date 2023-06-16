@@ -65,6 +65,15 @@ export const List = styled.ul`
   overflow-y: scroll;
   scroll-behavior: smooth;
   z-index: 10;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f0f1f3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #264061;
+  }
 `;
 
 export const Item = styled.li`
