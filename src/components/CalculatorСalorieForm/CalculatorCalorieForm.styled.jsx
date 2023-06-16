@@ -28,7 +28,7 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   letter-spacing: 0em;
   text-transform: none;
 
-  color: #212121;
+  color: ${({ theme }) => theme.colors.firstText};
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     margin-top: 100px;
@@ -119,7 +119,7 @@ export const BtnWrapCaloriesCalc = styled.div`
 `;
 
 export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
-  margin-top: 50px;
+  margin-top: 60px;
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     margin-top: 0px;
@@ -137,11 +137,11 @@ export const StyledLabelBTCaloriesCalc = styled.span`
   line-height: 1.21;
   letter-spacing: 0.04em;
 
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderInput};
   }
 `;
 
@@ -186,10 +186,10 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
   margin: 0;
   width: 20px;
   height: 20px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${({ theme }) => theme.colors.borderInput};
   border-radius: 50%;
 
-  background-color: #ffffff;
+  background-color: transparent;
 
   font: inherit;
 
@@ -226,4 +226,10 @@ export const StyledRadioLabelBTCaloriesCalc = styled.label`
   line-height: 1.21;
 
   color: #9b9faa;
+
+   &:hover,
+   &:focus {
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.button};
+   }
 `;
