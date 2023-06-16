@@ -18,12 +18,20 @@ function PageNotFound() {
         <li>4</li>
         <li>
           <StyledSpan>
-            <StyledImg
-              src={strawberry}
-              alt="strawberry"
-              width="150"
-              height="150"
-            ></StyledImg>
+            {/* <picture>
+              <source
+                type="image/png"
+                srcset={(${strawberry})}
+               
+                media="(min-width: 1200px)"
+              />
+              <StyledImg
+                src={strawberry}
+                alt="strawberry"
+                width="150"
+                height="150"
+              ></StyledImg>
+            </picture> */}
           </StyledSpan>
         </li>
         <li>4</li>

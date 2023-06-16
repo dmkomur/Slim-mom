@@ -39,25 +39,22 @@ export const StyledHeader = styled.ul`
 export const StyledLine = styled.p`
   color: ${({ theme }) => theme.colors.button};
   line-height: 1.4;
-  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.borderInput};
   letter-spacing: 1.5px;
+  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.borderInput};
   text-transform: uppercase;
   transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     text-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: ${mobile}) {
+    font-size: 20px;
+  }
 
   @media screen and (min-width: ${tablet}) {
     font-size: 45px;
   }
 
-  @media screen and (min-width: ${mobile}) {
-    font-size: 20px;
-    line-height: 140%;
-
-    @media screen and (min-width: 480px) {
-      font-size: 54px;
-      font-family: 'system-ui, sans-serif';
-      letter-spacing: 1.5px;
-    }
+  @media screen and (min-width: ${desktop}) {
+    font-size: 54px;
   }
 `;
 
@@ -73,8 +70,7 @@ export const StyledSpan = styled.span`
   transition: 0.5s ease-in-out;
 `;
 export const StyledImg = styled.img`
-  animation: loader 4s infinite;
-  /* animation: loader 4s; */
+  animation: loader 4s;
   && hover {
     rotate: 1.75turn;
     transition: rotate 1s;
