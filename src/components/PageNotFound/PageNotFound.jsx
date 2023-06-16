@@ -65,42 +65,21 @@ function PageNotFound() {
                 type="image/avif"
                 width="85"
                 height="100"
-                media="(min-width: 320px)"
-                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                media="(max-width: 767px)"
+                srcSet={`${strawberry_avif_t} 1x, ${strawberry_avif_t} 2x`}
               />
               <source
                 type="image/webp"
                 width="85"
                 height="100"
-                media="(min-width: 320px)"
-                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+                media="(max-width: 767px)"
+                srcSet={`${strawberry_webp_t} 1x, ${strawberry_webp_t} 2x`}
               />
               <source
                 type="image/png"
                 width="85"
                 height="100"
-                media="(min-width: 320px)"
-                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
-              />
-              <source
-                type="image/avif"
-                width="85"
-                height="100"
-                media="(max-width: 320px)"
-                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
-              />
-              <source
-                type="image/webp"
-                width="85"
-                height="100"
-                media="(max-width: 320px)"
-                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
-              />
-              <source
-                type="image/png"
-                width="85"
-                height="100"
-                media="(max-width: 320px)"
+                media="(max-width: 767px)"
                 srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
               <StyledImg
