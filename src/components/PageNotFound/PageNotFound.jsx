@@ -82,6 +82,27 @@ function PageNotFound() {
                 media="(min-width: 320px)"
                 srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
               />
+              <source
+                type="image/avif"
+                width="85"
+                height="100"
+                media="(max-width: 320px)"
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+              />
+              <source
+                type="image/webp"
+                width="85"
+                height="100"
+                media="(max-width: 320px)"
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+              />
+              <source
+                type="image/png"
+                width="85"
+                height="100"
+                media="(max-width: 320px)"
+                srcSet={`${strawberry_png_t} 1x, ${strawberry_png_t} 2x`}
+              />
               <StyledImg
                 src={strawberry}
                 alt="strawberry"

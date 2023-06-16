@@ -20,9 +20,13 @@ export const StyledHeader = styled.ul`
   justify-content: center;
   color: ${({ theme }) => theme.colors.button};
   line-height: 1.4;
-  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.borderInput};
-  transition: text-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    text-transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.secondText};
+  transition: text-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    text-transform 5000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: ${mobile}) {
+    font-size: 65px;
+  }
 
   @media screen and (min-width: ${mobile}) {
     font-size: 65px;
@@ -40,13 +44,19 @@ export const StyledLine = styled.p`
   color: ${({ theme }) => theme.colors.button};
   line-height: 1.4;
   letter-spacing: 1.5px;
-  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.borderInput};
   text-transform: uppercase;
-  transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    text-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 4px 4px 5px ${({ theme }) => theme.colors.secondText};
+  transition: text-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: ${mobile}) {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
 
   @media screen and (min-width: ${mobile}) {
     font-size: 20px;
+    margin-bottom: 10px;
   }
 
   @media screen and (min-width: ${tablet}) {
@@ -61,6 +71,22 @@ export const StyledLine = styled.p`
 export const StyledText = styled.span`
   color: ${({ theme }) => theme.colors.button};
   font-size: 14px;
+
+  @media screen and (max-width: ${mobile}) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: ${mobile}) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    font-size: 24px;
+  }
 `;
 
 export const StyledSpan = styled.span`
