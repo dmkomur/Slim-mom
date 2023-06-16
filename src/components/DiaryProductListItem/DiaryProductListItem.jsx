@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as css from './DiaryProductListItem.styled';
 import { dayInfo, deleteProduct } from 'redux/day/day-operations';
 
-function DiaryProductListItem() {
+function DiaryProductListItem({valueDate}) {
   const eatenProducts = useSelector(state => state.day.eatenProducts);
   const dayId = useSelector(state => state.day.id);
   const dispatch = useDispatch();
-  const date = '2023-06-14';
-
+  let selectedDate = useMemo(() => ({ date: valueDate }), [valueDate]);
   const [deletedObjects, setDeletedObjects] = useState([]);
 
   const handleDeleteFood = (eatenProductId, index) => {
@@ -25,7 +24,7 @@ function DiaryProductListItem() {
 
     dispatch(deleteProduct(body))
       .then(() => {
-        dispatch(dayInfo({ date }));
+        dispatch(dayInfo( selectedDate ));
       })
       .catch(error => {
         console.log(error);
