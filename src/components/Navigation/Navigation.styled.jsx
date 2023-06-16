@@ -10,12 +10,34 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationListDiary  = styled.div`
-display:none; */
+display:none;
 @media screen and (min-width: ${desktop}) {
     display: block;
+    list-style: none;
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
 }
 `
-export const NavigationItem = styled.li``;
+export const NavigationItem = styled.li`
+  margin-bottom: 20px;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b9faa;
+  &:hover,
+  &:focus {
+    color: #ffffff;
+  }
+  &:active {
+    color: #ffffff;
+  }
+  `;
 
 export const NavItem = styled(NavLink)`
   font-family: 'Verdana';

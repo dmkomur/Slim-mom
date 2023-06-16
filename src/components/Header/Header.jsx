@@ -17,8 +17,8 @@ import {
   StyledSvgClose,
   StyledLogo,
   StyledSlimMom,
-  StyledNavigation,
-  StyledUserInfo,
+  // StyledNavigation,
+  // StyledUserInfo,
   StyledLogoMob,
   NavElemnt,
   // StyledUse,
@@ -59,9 +59,9 @@ function Header() {
           )}
         </StyledLogoMob>
         <NavElemnt />
-        <StyledNavigation>
+        {/* <StyledNavigation> */}
           <Navigation />
-        </StyledNavigation>
+        {/* </StyledNavigation> */}
 
 
 

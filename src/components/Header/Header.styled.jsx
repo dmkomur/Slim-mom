@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { breakpoints } from 'components/styles/breakpoints';
 
-const {mobile, tablet, desktop} = breakpoints;
+const { mobile, tablet, desktop } = breakpoints;
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -24,82 +24,80 @@ export const Nav = styled.div`
   width: 100vw;
   border-bottom: 2px solid #e0e0e0;
   @media screen and (min-width: ${desktop}) {
-   display: none;
-}
+    display: none;
+  }
 `;
-
 
 // ---------Logo-------
 
 export const StyledLogo = styled.div`
-display:none;
-/* display: block;
+  display: none;
+  /* display: block;
 display: flex;
 align-items: center;
 justify-content: flex-start;
 column-gap: 8px; */
-@media screen and (min-width: ${tablet}) {
-display: block;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-column-gap: 10px;
-}
-@media screen and (min-width: ${desktop}) {
+  @media screen and (min-width: ${tablet}) {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+  }
+  @media screen and (min-width: ${desktop}) {
     column-gap: 0;
   }
 `;
 
 export const LogoImg = styled.img`
-margin-top: 20px;
+  margin-top: 20px;
   margin-bottom: 16px;
-  width: 46px;
+  max-width: 46px;
   height: 44px;
   @media screen and (min-width: ${desktop}) {
-    width: 70.25px;
-height: 66px;
+    max-width: 70.25px;
+    height: 66px;
     position: absolute;
     top: 0px;
   }
-
 `;
 
 export const StyledSlimMom = styled.div`
-display: flex;
-justify-content: flex-start;
-align-items: center;
-column-gap: 5.5px;
-@media screen and (min-width: ${desktop}) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 5.5px;
+  @media screen and (min-width: ${desktop}) {
     margin-left: 59px;
     /* position: absolute;
     top: 126.94px;
     left: 59.51px; */
-}
+  }
 `;
 
 export const LogoSlim = styled.img`
-width: 47.2px;
-height: 16px;
+  max-width: 47.2px;
+  height: 16px;
 `;
 
 export const LogoMom = styled.img`
-width: 52.51px;
-height: 15.41px;
+  max-width: 52.51px;
+  height: 15.41px;
 `;
 
 export const StyledLogoMob = styled.div`
-display: flex;
-align-items: center;
-justify-content: flex-start;
-column-gap: 8px;
-/* display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 8px;
+  /* display: flex;
 justify-content: flex-start;
 align-items: center;
 column-gap: 5.5px; */
-@media screen and (min-width: ${tablet}) {
-display: none;
-}
-`
+  @media screen and (min-width: ${tablet}) {
+    display: none;
+  }
+`;
 
 // export const StyledSlimMomMob = styled.div`
 // display: block;
@@ -110,38 +108,51 @@ display: none;
 // `
 
 export const NavElemnt = styled.div`
-display: none;
-@media screen and (min-width: ${desktop}) {
+  display: none;
+  @media screen and (min-width: ${desktop}) {
     display: block;
-width: 0px;
-height: 32px;
-border-right: 2px solid #e0e0e0;
-margin-left: 20px;
-margin-right: 20px;
-}
-`
+    width: 0px;
+    height: 32px;
+    border-right: 2px solid #e0e0e0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+`;
 
 // ---------Navigation---------
 
-export const StyledNavigation = styled.div`
-display: flex;
-column-gap: 14px;
-@media screen and (min-width: ${tablet}) {
-    column-gap: 24px;
-}
-@media screen and (min-width: ${desktop}) {
-    /* margin-left: 20px; */
-    /* position: absolute;
-    top: 126.94px;
-    left: 207; */
-}
-
+// export const StyledNavigation = styled.div`
+//   /* display: flex;
+//   column-gap: 14px;
+//   @media screen and (min-width: ${tablet}) {
+//     column-gap: 24px;
+//   } */
+// `;
+export const Wrapper = styled.div`
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(38, 64, 97, 1);
+  z-index: 1;
+  @media screen and (min-width: ${desktop}) {
+    display: none;
+  }
 `;
 
 export const NavigationList = styled.ul`
-  margin: 60px 20px;
+  margin: 60px auto;
   width: 320px;
   height: 488px;
+  @media screen and (min-width: ${tablet}) {
+    width: 336px;
+height: 112px;
+margin: 100px auto;
+}
+  @media screen and (min-width: ${desktop}) {
+    display: none;
+  }
 `;
 
 export const NavigationItem = styled.li`
@@ -162,7 +173,9 @@ export const NavigationItem = styled.li`
   &:active {
     color: #ffffff;
   }
-
+  @media screen and (min-width: ${desktop}) {
+    display: none;
+  }
 `;
 
 export const NavItem = styled(NavLink)`
@@ -184,6 +197,9 @@ export const NavItem = styled(NavLink)`
   &:active {
     color: #ffffff;
   }
+  @media screen and (min-width: ${desktop}) {
+    display: none;
+  }
 `;
 
 export const ButtonClose = styled.button`
@@ -200,7 +216,7 @@ export const ButtonBurger = styled.button`
   padding: 0px;
   @media screen and (min-width: ${desktop}) {
     display: none;
-}
+  }
 `;
 
 export const StyledSvgBurger = styled.svg`
@@ -208,7 +224,6 @@ export const StyledSvgBurger = styled.svg`
   height: 12px;
   fill: rgba(33, 33, 33, 1);
   stroke: rgba(33, 33, 33, 1);
-  
 `;
 
 export const StyledSvgClose = styled.svg`
@@ -218,28 +233,14 @@ export const StyledSvgClose = styled.svg`
   stroke: rgba(33, 33, 33, 1);
 `;
 
-// export const StyledUse = styled.use`
-    
-// `
-
-export const Wrapper = styled.div`
-  position: absolute;
-  top: 80px;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(38, 64, 97, 1);
-  z-index: 1;
-`;
-
 export const StyledUserInfo = styled.div`
-    /* position: absolute;
+  /* position: absolute;
     right: 0;
     button: -120px;
     width: 100vw;
     height: 40px;
     background-color: #EFF1F3; */
-`
+`;
 
 // @media screen and (min-width: 320px) {}
 
