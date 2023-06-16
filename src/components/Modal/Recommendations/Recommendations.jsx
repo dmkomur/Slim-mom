@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import {
+  EnterButton,
   Wrapper,
   Title,
   ProductsList,
@@ -14,7 +15,7 @@ import {
   Recommend,
 } from './recommendations.styled';
 import { getDaily, getIsLoggedIn } from '../../../redux/auth/auth-selectors';
-import { StyledBtnAuthAccent } from 'components/Login/Login.styled';
+// import { StyledBtnAuthAccent } from 'components/Login/Login.styled';
 
 function Recommendations() {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -50,13 +51,9 @@ function Recommendations() {
         </ProductsList>
       </Recommend>
 
-      <StyledBtnAuthAccent
-        style={{ margin: '0 auto' }}
-        type="button"
-        onClick={handleStartLoseWeight}
-      >
+      <EnterButton type="button" onClick={handleStartLoseWeight}>
         Start losing weight
-      </StyledBtnAuthAccent>
+      </EnterButton>
     </Wrapper>
   );
 }
