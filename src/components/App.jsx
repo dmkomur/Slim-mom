@@ -85,7 +85,7 @@ export const App = () => {
                   <PrivateRoute>
                     <DiaryDateCalendar />
                     <DiaryProductList />
-                    <RightSideBar />
+                    {/* <RightSideBar /> */}
                   </PrivateRoute>
                 }
               />
