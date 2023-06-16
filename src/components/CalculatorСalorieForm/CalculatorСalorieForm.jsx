@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { createPortal } from 'react-dom';
 import { IoMdAlert } from 'react-icons/io';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { getIsLoggedIn, getUserData } from '../../redux/auth/auth-selectors';
 import {
