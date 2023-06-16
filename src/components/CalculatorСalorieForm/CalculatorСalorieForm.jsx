@@ -81,7 +81,6 @@ function CalculatorCalorieForm() {
       >
         {({ values }) => (
           <StyledFormCaloriesCalc>
-            <StyledWrapCaloriesCalc>
             <StyledWrapInputCaloriesCalc>
               <StyledInputCaloriesCalc
                 type="number"
@@ -150,15 +149,14 @@ function CalculatorCalorieForm() {
                 )}
               </ErrorMessage>
               </StyledWrapInputCaloriesCalc>
-            </StyledWrapCaloriesCalc>
 
             <div>
               <StyledLabelBTCaloriesCalc>Blood type *</StyledLabelBTCaloriesCalc>
-              
+
               <Field
                 component={StyledRadioBtnsBTCaloriesCalc}
                 name="bloodType">
-                
+              
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType1">
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"

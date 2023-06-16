@@ -12,21 +12,14 @@ import {
 } from '../Login/Login.styled';
 
 export const StyledWrapCaloriesCalc = styled.div`
-  /* @media screen and (min-width: ${breakpoints.mobile}) and (max-width: 767px) {
-    padding: 32px 20px 100px 20px;
-  }
-
-  @media screen and (min-width: ${breakpoints.tablet}) and (max-width: 1279px) {
-    padding: 100px 32px 398px 32px;
-  }
-
-  @media screen and (min-width: ${breakpoints.desktop}) {
-    padding: 147px 16px 111px 16px; 
-  } */
+    @media screen and (min-width: ${breakpoints.desktop}) {
+      width: 600px;
+    }
 `;
 
 export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   width: 280px;
+  margin-top: 32px;
   margin-bottom: 32px;
 
   font-size: 18px;
@@ -36,52 +29,107 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
 
   color: #212121;
 
-  /* @media screen and (min-width: ${breakpoints.tablet}) {
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    margin-top: 100px;
     width: 520px;
     margin-bottom: 68px;
 
     font-size: 34px;
-  } */
+  }
+
+  @media screen and (min-width: ${breakpoints.desktop}) {
+    margin-top: 147px;
+  }
 `
 
 export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
   gap: 16px;
 
-  /* @media screen and (min-width: ${breakpoints.tablet}) and (max-width: 1279px) {
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  } */
+    column-gap: 32px;
+    row-gap: 20px;
+
+    & :nth-child(1) {
+      order: 1;
+    }
+
+    & :nth-child(2) {
+      order: 3;
+    }
+
+    & :nth-child(3) {
+      order: 5;
+    }
+
+    & :nth-child(4) {
+      order: 2;
+    }
+
+    & :nth-child(5) {
+      order: 4;
+    }
+
+    & :nth-child(6) {
+      order: 6;
+    }
+  }
 `
 
 export const StyledLabelCaloriesCalc = styled(StyledLabelAuth)`
-  top: 20px;
 `
 
 export const StyledWrapInputCaloriesCalc = styled(StyledWrapInputAuth)`
 `
 
 export const StyledInputCaloriesCalc = styled(StyledInputAuth)`
-width: 240px;
-padding: 16px 0px 8px 0px;
+  width: 240px;
+  padding: 16px 0px 8px 0px;
+
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    padding: 20px 0px 20px 0px;
+  }
 `
 
 export const StyledErrorCaloriesCalc = styled(StyledErrorAuth)`
-top: 40px;
-font-size: 10px;
+  top: 42px;
+  font-size: 9px;
+
+  @media screen and (min-width: ${breakpoints.tablet}){
+    top: 60px;
+  }
 `
 
 export const BtnWrapCaloriesCalc = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    position: absolute;
+    top: 125%;
+  }
+
+  @media screen and (min-width: ${breakpoints.desktop}){
+    top: 115%;
+    right: 10%;
+  }
 `
 
 export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
   margin-top: 24px;
+
+  @media screen and (min-width: ${breakpoints.tablet}) {
+  margin-top: 0px;
+  }
 `
 
 export const StyledLabelBTCaloriesCalc = styled.span`
+  position: relative;
   display: block;
   width: 240px;
   padding: 16px 0px 0px 0px;
@@ -93,16 +141,42 @@ export const StyledLabelBTCaloriesCalc = styled.span`
 
   color: #9b9faa;
 
-  /* @media screen and (min-width: ${breakpoints.tablet}) and (max-width: 1279px) {
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
-  } */
+  }
 `
 
 export const StyledRadioBtnsBTCaloriesCalc = styled.div`
+  position: absolute;
   display: flex;
   column-gap: 28px;
   width: 240px;
   margin-top: 8px;
+
+    & :nth-child(1) {
+      order: 1;
+    }
+
+    & :nth-child(2) {
+      order: 2;
+    }
+
+    & :nth-child(3) {
+      order: 3;
+    }
+
+    & :nth-child(4) {
+      order: 4;
+    }
+
+    & :nth-child(5) {
+      order: 5;
+    }
+
+    & :nth-child(6) {
+      order: 6;
+    }
 `
 
 export const StyledRadioBtnBTCaloriesCalc = styled.input`
