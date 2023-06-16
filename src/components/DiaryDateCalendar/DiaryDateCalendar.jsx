@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar.jsx';
+import DiaryProductList from 'components/DiaryProductList/DiaryProductList.jsx';
 
 export function DiaryDateCalendar() {
   const [value, onChange] = useState(new Date());
   const [isCalendarOpen, setCalendarOpen] = useState(false);
 
   const exportDate = value => {
-    const date = value.getDate();
+    const date = value.getDate().toString().padStart(2, '0');;
     const month = (value.getMonth() + 1).toString().padStart(2, '0');
     const year = value.getFullYear();
     return `${year}-${month}-${date}`;
@@ -54,8 +55,13 @@ export function DiaryDateCalendar() {
           )}
         </css.wrapCalendar>
         <DiaryAddProductForm valueDate={exportDate(value)} />
+        <DiaryProductList valueDate={exportDate(value)} />
+
+        
+        
       </div>
       <RightSideBar selectedDate={value} />
+      
     </>
   );
 }
