@@ -22,14 +22,13 @@ body {
   font-size: 14px;
   letter-spacing: 0.04em;
   line-height: 1.21;
-
-  @media screen and (max-width:767px) {
-    background: ${({ theme }) => theme.colors.background}
-    };
+  width: 100vw;
+  height: 100vh;
+  @media screen and (max-width: 767px){
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background: ${({ theme }) => theme.colors.background};}
 
     @media screen and (min-width: 768px) {
-      width: 768px;
-    height: 1000px;
     background-image: image-set(url(${LeafTabletAvift1x}) type("image/avif") 1x,
      url(${LeafTabletAvift2x}) type("image/avif") 2x,
      url(${LeafTabletWebp1x}) type("image/webp") 1x, 
@@ -43,8 +42,6 @@ body {
     };
 
     @media screen and (min-width: 1280px) {
-    width: 1280px;
-    height: 850px;
     background-image: image-set(url(${LeafDesktopAvift1x}) type("image/avif") 1x,
      url(${LeafDesktopAvift2x}) type("image/avif") 2x,
      url(${LeafDesktopWebp1x}) type("image/webp") 1x, 
