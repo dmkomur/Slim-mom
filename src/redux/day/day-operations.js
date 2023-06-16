@@ -30,7 +30,6 @@ export const dayInfo = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const dayInfo = await instance.post('/day/info', body);
-      console.log(dayInfo.data);
       if (dayInfo.data.id) {
         return dayInfo.data;
       }
