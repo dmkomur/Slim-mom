@@ -14,12 +14,18 @@ import StrawberryDesktopAvif1x from 'img/Strawberry-desktop@1x-min.avif';
 import StrawberryDesktopAvif2x from 'img/Strawberry-desktop@2x-min.avif';
 import StrawberryDesktopWebp1x from 'img/Strawberry-desktop@1x-min.webp';
 import StrawberryDesktopWebp2x from 'img/Strawberry-desktop@2x-min.webp';
-import LiniaDesktop1x from 'img/linia-desktop@1x-min.png';
-import LiniaDesktop2x from 'img/linia-desktop@2x-min.png';
-import LiniaDesktopAvif1x from 'img/linia-desktop@1x-min.avif';
-import LiniaDesktopAvif2x from 'img/linia-desktop@2x-min.avif';
-import LiniaDesktopWebp1x from 'img/linia-desktop@1x-min.webp';
-import LiniaDesktopWebp2x from 'img/linia-desktop@2x-min.webp';
+import Banan1x from 'img/banana.png';
+import Banan2x from 'img/banana@2x.png';
+import BananAvif1x from 'img/banana.avif';
+import BananAvif2x from 'img/banana@2x.avif';
+import BananWebp1x from 'img/banana.webp';
+import BananWebp2x from 'img/banana@2x.webp';
+import LiniaDesktop1x from 'img/linia.png';
+import LiniaDesktop2x from 'img/linia@2x-min.png';
+import LiniaDesktopAvif1x from 'img/linia.avif';
+import LiniaDesktopAvif2x from 'img/linia@2x.avif';
+import LiniaDesktopWebp1x from 'img/linia.webp';
+import LiniaDesktopWebp2x from 'img/linia@2x-min.webp';
 
 import MainLeafTablet1x from 'img/main-leaf-tablet@1x-min.png';
 import MainLeafTablet2x from 'img/main-leaf-tablet@2x-min.png';
@@ -33,18 +39,18 @@ import MainStrawberryTabletpAvif1x from 'img/main-strawberry-tablet@1x-min.avif'
 import MainStrawberryTabletpAvif2x from 'img/main-strawberry-tablet@2x-min.avif';
 import MainStrawberryTabletpWebp1x from 'img/main-strawberry-tablet@1x-min.webp';
 import MainStrawberryTabletpWebp2x from 'img/main-strawberry-tablet@2x-min.webp';
-import MainBananTablet1x from 'img/main-banan-tablet@1x-min.png';
-import MainBananTablet2x from 'img/main-banan-tablet@2x-min.png';
-import MainBananTabletAvif1x from 'img/main-banan-tablet@1x-min.avif';
-import MainBananTabletAvif2x from 'img/main-banan-tablet@2x-min.avif';
-import MainBananTabletWebp1x from 'img/main-banan-tablet@1x-min.webp';
-import MainBananTabletWebp2x from 'img/main-banan-tablet@2x-min.webp';
-import LiniaTablet1x from 'img/linia-tablet@1x-min.png';
-import LiniaTablet2x from 'img/linia-tablet@2x-min.png';
-import LiniaTabletAvif1x from 'img/linia-tablet@1x-min.avif';
-import LiniaTabletAvif2x from 'img/linia-tablet@2x-min.avif';
-import LiniaTabletWebp1x from 'img/linia-tablet@1x-min.webp';
-import LiniaTabletWebp2x from 'img/linia-tablet@2x-min.webp';
+import MainBananTablet1x from 'img/banana-tablet.png';
+import MainBananTablet2x from 'img/banana-tablet@2x.png';
+import MainBananTabletAvif1x from 'img/banana-tablet.avif';
+import MainBananTabletAvif2x from 'img/banana-tablet@2x.avif';
+import MainBananTabletWebp1x from 'img/banana-tablet.webp';
+import MainBananTabletWebp2x from 'img/banana-tablet@2x.webp';
+import LiniaTablet1x from 'img/linia-tablet.png';
+import LiniaTablet2x from 'img/linia-tablet@2x.png';
+import LiniaTabletAvif1x from 'img/linia-tablet.avif';
+import LiniaTabletAvif2x from 'img/linia-tablet@2x.avif';
+import LiniaTabletWebp1x from 'img/linia.webp';
+import LiniaTabletWebp2x from 'img/linia-tablet@2x.webp';
 
 
 export const GlobalStylePublic = createGlobalStyle`
@@ -107,12 +113,12 @@ body{
       url(${StrawberryDesktopWebp2x}) type("image/webp") 2x,
       url(${StrawberryDesktop1x}) type("image/png") 1x,
       url(${StrawberryDesktop2x}) type("image/png") 2x),
-    image-set(url(${MainBananTabletAvif1x}) type("image/avif") 1x,
-      url(${MainBananTabletAvif2x}) type("image/avif") 2x,
-      url(${MainBananTabletWebp1x}) type("image/webp") 1x,
-      url(${MainBananTabletWebp2x}) type("image/webp") 2x,
-      url(${MainBananTablet1x}) type("image/png") 1x, 
-      url(${MainBananTablet2x}) type("image/png") 2x),
+    image-set(url(${BananAvif1x}) type("image/avif") 1x,
+      url(${BananAvif2x}) type("image/avif") 2x,
+      url(${BananWebp1x}) type("image/webp") 1x,
+      url(${BananWebp2x}) type("image/webp") 2x,
+      url(${Banan1x}) type("image/png") 1x, 
+      url(${Banan2x}) type("image/png") 2x),
     image-set(url(${LiniaDesktopAvif1x }) type("image/avif") 1x,
       url(${LiniaDesktopAvif2x }) type("image/avif") 2x,
       url(${LiniaDesktopWebp1x}) type("image/webp") 1x,
