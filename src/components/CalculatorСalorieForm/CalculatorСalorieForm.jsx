@@ -4,7 +4,11 @@ import { IoMdAlert } from 'react-icons/io';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { getIsLoggedIn, getUserData } from '../../redux/auth/auth-selectors';
-import { dailyRate, dailyRateId, getUser } from '../../redux/auth/auth-operations';
+import {
+  dailyRate,
+  dailyRateId,
+  getUser,
+} from '../../redux/auth/auth-operations';
 import { calcData } from 'redux/calculator/calculator-reducer';
 import { getCalcData } from 'redux/calculator/calculator-selectors';
 import { toggleModal } from '../../redux/modal/modal-reducer.js';
@@ -57,7 +61,7 @@ function CalculatorCalorieForm() {
       desiredWeight: values.desiredWeight,
       bloodType: Number(values.bloodType),
     };
-
+    console.log(values);
     !isLoggedIn
       ? dispatch(dailyRate(body))
           .unwrap()
@@ -73,7 +77,9 @@ function CalculatorCalorieForm() {
 
   return (
     <StyledWrapCaloriesCalc>
-      <StyledHeaderCaloriesCalc>Calculate your daily calorie intake right now</StyledHeaderCaloriesCalc>
+      <StyledHeaderCaloriesCalc>
+        Calculate your daily calorie intake right now
+      </StyledHeaderCaloriesCalc>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={schema}
@@ -85,10 +91,10 @@ function CalculatorCalorieForm() {
               <StyledInputCaloriesCalc
                 type="number"
                 name="height"
-                placeholder=" " />
+                placeholder=" "
+              />
               <StyledLabelCaloriesCalc>Height *</StyledLabelCaloriesCalc>
-              <ErrorMessage
-                name="height">
+              <ErrorMessage name="height">
                 {m => (
                   <StyledErrorCaloriesCalc>
                     <IoMdAlert />
@@ -97,15 +103,15 @@ function CalculatorCalorieForm() {
                 )}
               </ErrorMessage>
             </StyledWrapInputCaloriesCalc>
-            
+
             <StyledWrapInputCaloriesCalc>
               <StyledInputCaloriesCalc
                 type="number"
                 name="age"
-                placeholder=" " />
+                placeholder=" "
+              />
               <StyledLabelCaloriesCalc>Age *</StyledLabelCaloriesCalc>
-              <ErrorMessage
-                name="age">
+              <ErrorMessage name="age">
                 {m => (
                   <StyledErrorCaloriesCalc>
                     <IoMdAlert />
@@ -114,15 +120,17 @@ function CalculatorCalorieForm() {
                 )}
               </ErrorMessage>
             </StyledWrapInputCaloriesCalc>
-            
+
             <StyledWrapInputCaloriesCalc>
               <StyledInputCaloriesCalc
                 type="number"
                 name="weight"
-                placeholder=" " />
-              <StyledLabelCaloriesCalc>Current weight *</StyledLabelCaloriesCalc>
-              <ErrorMessage
-                name="weight">
+                placeholder=" "
+              />
+              <StyledLabelCaloriesCalc>
+                Current weight *
+              </StyledLabelCaloriesCalc>
+              <ErrorMessage name="weight">
                 {m => (
                   <StyledErrorCaloriesCalc>
                     <IoMdAlert />
@@ -131,16 +139,17 @@ function CalculatorCalorieForm() {
                 )}
               </ErrorMessage>
             </StyledWrapInputCaloriesCalc>
-            
+
             <StyledWrapInputCaloriesCalc>
               <StyledInputCaloriesCalc
                 type="number"
                 name="desiredWeight"
                 placeholder=" "
               />
-              <StyledLabelCaloriesCalc>Desired weight *</StyledLabelCaloriesCalc>
-              <ErrorMessage
-                name="desiredWeight">
+              <StyledLabelCaloriesCalc>
+                Desired weight *
+              </StyledLabelCaloriesCalc>
+              <ErrorMessage name="desiredWeight">
                 {m => (
                   <StyledErrorCaloriesCalc>
                     <IoMdAlert />
@@ -148,58 +157,58 @@ function CalculatorCalorieForm() {
                   </StyledErrorCaloriesCalc>
                 )}
               </ErrorMessage>
-              </StyledWrapInputCaloriesCalc>
+            </StyledWrapInputCaloriesCalc>
 
             <div>
-              <StyledLabelBTCaloriesCalc>Blood type *</StyledLabelBTCaloriesCalc>
+              <StyledLabelBTCaloriesCalc>
+                Blood type *
+              </StyledLabelBTCaloriesCalc>
 
-              <Field
-                component={StyledRadioBtnsBTCaloriesCalc}
-                name="bloodType">
-              
+              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType">
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType1">
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType1"
                     defaultChecked={values.bloodType === 1}
                     name="bloodType"
-                    value="1" />
+                    value="1"
+                  />
                   1
                 </StyledRadioLabelBTCaloriesCalc>
-                
-                <StyledRadioLabelBTCaloriesCalc
-                  htmlFor="bloodType2">
+
+                <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType2">
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType2"
                     defaultChecked={values.bloodType === 2}
                     name="bloodType"
-                    value="2" />
+                    value="2"
+                  />
                   2
                 </StyledRadioLabelBTCaloriesCalc>
-                
-                <StyledRadioLabelBTCaloriesCalc
-                  htmlFor="bloodType3">
+
+                <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType3">
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType3"
                     defaultChecked={values.bloodType === 3}
                     name="bloodType"
-                    value="3" />
+                    value="3"
+                  />
                   3
                 </StyledRadioLabelBTCaloriesCalc>
-                
-                <StyledRadioLabelBTCaloriesCalc
-                  htmlFor="bloodType4">
+
+                <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType4">
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType4"
                     defaultChecked={values.bloodType === 4}
                     name="bloodType"
-                    value="4" />
+                    value="4"
+                  />
                   4
                 </StyledRadioLabelBTCaloriesCalc>
-              </Field>
+              </StyledRadioBtnsBTCaloriesCalc>
             </div>
             <BtnWrapCaloriesCalc>
               <StyledBtnCaloriesCalc type="submit">

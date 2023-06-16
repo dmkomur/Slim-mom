@@ -16,7 +16,7 @@ import strawberry_png_t from 'img/main-strawberry-tablet@2x-min.png';
 import strawberry_webp_t from 'img/main-strawberry-tablet@2x-min.webp';
 import strawberry_avif_t from 'img/main-strawberry-tablet@2x-min.avif';
 
-const root = createRoot(document.getElementById('root'));
+// const root = createRoot(document.getElementById('root'));
 function PageNotFound() {
   return (
     <PageNotFd>
@@ -105,6 +105,6 @@ function PageNotFound() {
   );
 }
 
-root.render(<PageNotFound />);
+// root.render(<PageNotFound />);
 
 export default PageNotFound;
