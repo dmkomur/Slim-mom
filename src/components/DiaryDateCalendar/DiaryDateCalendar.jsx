@@ -48,7 +48,13 @@ export function DiaryDateCalendar() {
           </css.buttoncc>
           {isCalendarOpen && (
             <css.Calendarep>
-              <Calendar onChange={handleDateChange} value={value} />
+              <Calendar
+                onChange={handleDateChange}
+                value={value}
+                maxDate={
+                  new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
+                }
+              />
             </css.Calendarep>
           )}
         </css.wrapCalendar>
