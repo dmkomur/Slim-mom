@@ -13,6 +13,7 @@ import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
 // import { Loader } from './components/Loader/Loader';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
+import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
@@ -108,14 +109,7 @@ export const App = () => {
                   <PrivateRoute>
                     <DiaryDateCalendar />
                     <DiaryProductList />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="menu"
-                element={
-                  <PrivateRoute>
-                    <DiaryProductList />
+                    <RightSideBar />
                   </PrivateRoute>
                 }
               />
@@ -124,17 +118,6 @@ export const App = () => {
           </Routes>
         </Suspense>
       </ThemeProvider>
-      {/* <Header></Header>
-      <Navigation></Navigation>
-      <UserInfo></UserInfo>
-      <Login></Login>
-      <Register></Register>
-      <Modal></Modal>
-      <CalculatorСalorieForm></CalculatorСalorieForm>
-      <DiaryDateCalendar></DiaryDateCalendar>
-      <DiaryAddProductForm></DiaryAddProductForm>
-      <DiaryProductList></DiaryProductList>
-      <DiaryProductListItem></DiaryProductListItem> */}
     </>
   );
 };
