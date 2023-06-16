@@ -1,27 +1,37 @@
 import { Field, Form } from 'formik';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { breakpoints } from 'components/styles/breakpoints';
 
 export const StyledInputAuth = styled(Field)`
   border: none;
   width: 280px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderInput};
   padding: 20px 0px;
+  background-color: transparent;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   &:focus {
     outline: none;
-    border-bottom: 1px solid #fc842d;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderActive};
   }
   &:not(:placeholder-shown) + span,
   &:focus + span {
     top: 0;
-    color: #fc842d;
+    color: ${({ theme }) => theme.colors.borderActive};
+  }
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    width: 240px;
   }
 `;
 
 export const StyledFormAuth = styled(Form)`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 36px;
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    align-items: start;
+  }
 `;
 
 export const StyledBtnAuthAccent = styled.button`
@@ -37,10 +47,50 @@ export const StyledBtnAuthAccent = styled.button`
   align-items: center;
   justify-content: center;
   letter-spacing: 0.04em;
-  color: #ffffff;
-  background: #fc842d;
+  color: ${({ theme }) => theme.colors.buttonText};
+  background: ${({ theme }) => theme.colors.button};
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
+  transition: background-color 250ms linear;
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.shadowButtonHover};
+  }
+`;
+export const StyledLinkAuth = styled(Link)`
+  width: 182px;
+  height: 44px;
+  border: none;
+  font-family: inherit;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  color: ${({ theme }) => theme.colors.button};
+  background: ${({ theme }) => theme.colors.buttonText};
+  border: 2px solid ${({ theme }) => theme.colors.button};
+  /* box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5); */
+  border-radius: 30px;
+  transition: background-color 250ms linear, color 250ms linear;
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.shadowButtonHover};
+    color: ${({ theme }) => theme.colors.buttonText};
+  }
+`;
+export const StyledWrapAuthBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    flex-direction: row;
+    gap: 32px;
+  }
 `;
 export const StyledWrapInputAuth = styled.div`
   position: relative;
@@ -53,7 +103,8 @@ export const StyledLabelAuth = styled.span`
   font-size: 14px;
   line-height: 1.21;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
+  pointer-events: none;
   transition: top 250ms linear;
 `;
 export const StyledHeaderAuth = styled.h3`
@@ -63,7 +114,7 @@ export const StyledHeaderAuth = styled.h3`
   line-height: 1.21;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #fc842d;
+  color: ${({ theme }) => theme.colors.button};
 `;
 
 export const StyledErrorAuth = styled.div`
@@ -76,5 +127,6 @@ export const StyledErrorAuth = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #fc842d;
+  color: ${({ theme }) => theme.colors.button};
 `;
+// @media screen and (min-width: ${breakpoints.tablet}) and (max-width: 1279px)

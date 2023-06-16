@@ -12,6 +12,8 @@ import {
   StyledWrapInputAuth,
   StyledLabelAuth,
   StyledErrorAuth,
+  StyledLinkAuth,
+  StyledWrapAuthBtn,
 } from '../Login/Login.styled';
 import { IoMdAlert } from 'react-icons/io';
 
@@ -21,18 +23,17 @@ let schema = yup.object({
   password: yup
     .string()
     .required('Please enter a password')
-    .min(8)
+    .min(8, 'Min 8 symbols')
     .max(32)
-    .matches(/^(?=.*[a-zA-Z])(?=.*[0-9])/, 'a-z and 0-9'),
+    .matches(/^(?=.*[a-zA-Z])(?=.*[0-9])/, 'Use characters and numbers'),
 
   email: yup
     .string()
     .required('Please enter a password')
     .email()
-    .min(8)
+    .min(8, 'Min 8 symbols')
     .max(32),
 });
-
 function Register() {
   const dispatch = useDispatch();
   const startValue = {
@@ -40,7 +41,6 @@ function Register() {
     password: '',
     username: '',
   };
-
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
     dispatch(register(values))
@@ -84,7 +84,13 @@ function Register() {
           </StyledWrapInputAuth>
 
           <StyledWrapInputAuth>
-            <StyledInputAuth type="password" name="password" placeholder=" " />
+            <StyledInputAuth
+              type="password"
+              name="password"
+              placeholder=" "
+              // pattern="/^[a-zA-Z0-9]{8,16}$/"
+              // minlength="8"
+            />
             <StyledLabelAuth>Password *</StyledLabelAuth>
 
             <ErrorMessage name="password">
@@ -96,8 +102,10 @@ function Register() {
               )}
             </ErrorMessage>
           </StyledWrapInputAuth>
-
-          <StyledBtnAuthAccent type="submit">Register</StyledBtnAuthAccent>
+          <StyledWrapAuthBtn>
+            <StyledBtnAuthAccent type="submit">Register</StyledBtnAuthAccent>
+            <StyledLinkAuth to="/login">Log in</StyledLinkAuth>
+          </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
     </>
