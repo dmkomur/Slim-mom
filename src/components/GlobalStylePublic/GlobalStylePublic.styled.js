@@ -52,19 +52,15 @@ import LiniaTabletWebp2x from 'img/linia-tablet@2x.webp';
 
 export const GlobalStylePublic = createGlobalStyle`
 body{
-  ${
-    '' /* color: ${({ theme }) => theme.colors.secondText};
+  color: ${({ theme }) => theme.colors.secondText};
   font-family: 'Verdana', -apple-system, sans-serif;
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.04em;
-  line-height: 1.21; */
-  }
+  letter-spacing: 0.04em;  
+  line-height: 1.21; 
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: ${({ theme }) => theme.colors.background};
 
-  @media screen and (max-width: 320px) {
-    background-image: none;
-    background-color: #FFFFFF;
-  }
   @media screen and (min-width: 768px) {
     background-image: 
     image-set(url(${MainLeafTabletAvif1x}) type("image/avif") 1x,
@@ -93,8 +89,8 @@ body{
       url(${LiniaTablet2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-        background-size: 531px 602px, 350px 350px, 740px 527px;
-        background-position: bottom -35em left 00em, bottom -20em right 0em, bottom -40em right -20em, bottom -40em right -32px;
+        background-size: 531px 602px, 330px 330px, 740px 527px;
+        background-position: bottom -35em left 0em, bottom -22em right 0em, bottom -40em right -20em, bottom -40em right 0em;
    } 
 
 
@@ -127,7 +123,7 @@ body{
 
     background-repeat: no-repeat;
     background-size: 746px 846px, 370px 370px, 700px 500px, 602px 816px;
-    background-position: top 00px right 195px, top 35em right 0px , top -5em right -15em, top 50px right 0px ;
+    background-position: right 15em top 0em, top 35em right 0em , top -5em right -15em, right 0em top 3em ;
   }
 
 }`;
