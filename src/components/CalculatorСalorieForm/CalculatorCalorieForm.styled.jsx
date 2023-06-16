@@ -121,7 +121,7 @@ export const BtnWrapCaloriesCalc = styled.div`
 `
 
 export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
-  margin-top: 24px;
+  margin-top: 50px;
 
   @media screen and (min-width: ${breakpoints.tablet}) {
   margin-top: 0px;
