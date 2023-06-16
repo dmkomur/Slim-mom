@@ -5,7 +5,7 @@ export const Calendarep = styled.div`
     position: absolute;
     z-index: 1;
     top: 20px;
-   width: 320px;
+    width: 320px;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -17,10 +17,15 @@ export const Calendarep = styled.div`
 export const buttoncc = styled.a`
   @media (min-width: ${breakpoints.mobile}) {
     margin-left: 20px;
+    margin-top: 4px;
+    cursor: pointer;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
-    margin-top: 14px;
+    margin-top: 19px;
+  }
+  &:hover {
+    color: #656cff;
   }
 `;
 
@@ -30,7 +35,7 @@ export const viewDate = styled.div`
     font-weight: 700;
     font-size: 18px;
     line-height: 1.2;
-    color: #212121;
+    color: ${({ theme }) => theme.colors.firstText};
   }
 
   @media (min-width: ${breakpoints.tablet}) {
