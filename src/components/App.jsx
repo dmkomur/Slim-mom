@@ -17,64 +17,39 @@ import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
-import { ThemeProvider } from 'styled-components';
-import { light, dark } from './styles/Theme.styled';
-import { GlobalStyles } from './styles/Global';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
 import PageNotFound from './PageNotFound/PageNotFound';
-import {
-  ThemeContainer,
-  Checkbox,
-  Ball,
-} from './styles/ThemeSwitching.styled.js';
+
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
 import { getIsRefreshing } from 'redux/auth/auth-selectors';
+import { ThemeSwitching } from './styles/ThemeSwitching';
+import { useAuth } from 'hooks';
+import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
+import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 
 export const App = () => {
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   useEffect(() => {
-    const currentTheme = JSON.parse(localStorage.getItem('current-theme'));
-    if (currentTheme) {
-      return setSelectedTheme(currentTheme);
-    }
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
   }, [dispatch]);
 
-  const [selectedTheme, setSelectedTheme] = useState(light);
   const isRefreshing = useSelector(getIsRefreshing);
-  const HandleThemeChange = theme => {
-    if (theme === dark) {
-      setSelectedTheme(light);
-      localStorage.setItem('current-theme', JSON.stringify(light));
-    } else {
-      setSelectedTheme(dark);
-      localStorage.setItem('current-theme', JSON.stringify(dark));
-    }
-  };
 
   return isRefreshing ? (
     <b>Refresing user...</b>
   ) : (
     <>
-      <ThemeProvider theme={selectedTheme}>
-        <GlobalStyles />
-        <ThemeContainer>
-          <Checkbox
-            type="checkbox"
-            onChange={() => {
-              HandleThemeChange(selectedTheme);
-            }}
-          />
-          <Ball></Ball>
-        </ThemeContainer>
+      <ThemeSwitching>
+        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -117,7 +92,7 @@ export const App = () => {
             </Route>
           </Routes>
         </Suspense>
-      </ThemeProvider>
+      </ThemeSwitching>
     </>
   );
 };

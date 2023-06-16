@@ -14,6 +14,8 @@ export const ThemeContainer = styled.label`
   position: relative;
   width: 40px;
   height: 21px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const Checkbox = styled.input`
@@ -21,6 +23,7 @@ export const Checkbox = styled.input`
   position: absolute;
   &:checked + span {
     transform: translateX(20px);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
@@ -32,4 +35,5 @@ export const Ball = styled.span`
   top: 1px;
   left: 1px;
   border-radius: 50%;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
