@@ -1,11 +1,11 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import CalculatorCalorieForm from 'components/CalculatorСalorieForm/CalculatorСalorieForm';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar';
 import { Box } from './Calculator.styled';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 function Calculator() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // useEffect(() => {dispatch() },[])
 

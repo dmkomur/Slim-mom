@@ -7,7 +7,7 @@ import {
   StyledSpan,
   StyledText,
 } from './PageNotFound.styled';
-import { createRoot } from 'react-dom/client';
+// import { createRoot } from 'react-dom/client';
 import strawberry from 'img/Strawberry-desktop@2x-min.png';
 import strawberry_png_d from 'img/Strawberry-desktop@2x-min.png';
 import strawberry_webp_d from 'img/Strawberry-desktop@2x-min.webp';
