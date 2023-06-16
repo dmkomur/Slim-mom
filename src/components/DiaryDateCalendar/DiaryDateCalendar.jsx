@@ -9,11 +9,10 @@ export function DiaryDateCalendar() {
   const [value, onChange] = useState(new Date());
   const [isCalendarOpen, setCalendarOpen] = useState(false);
 
-  const exportDate = value => {
-    const date = value.getDate();
-    const month = (value.getMonth() + 1).toString().padStart(2, '0');
-    const year = value.getFullYear();
-    return `${year}-${month}-${date}`;
+  const exportDate = () => {
+    let date = new Date();
+    let dateString = date.toISOString().split('T')[0];
+    return dateString;
   };
 
   const handleToggleCalendar = () => {
