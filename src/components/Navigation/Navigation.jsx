@@ -14,6 +14,7 @@ import {
 } from './Navigation.styled';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
+import LanguageBar from 'components/LanguageBar/LanguageBar';
 
 function Navigation() {
   const isUserLogin = useSelector(getIsLoggedIn);
@@ -36,6 +37,9 @@ function Navigation() {
                 <NavigationItem>
                   <ThemeSwitcher />
                 </NavigationItem>
+                <NavigationItem>
+                  <LanguageBar />
+                </NavigationItem>
               </NavigationList>
             </NavigationLogin>
             {isModalOpen ? <UserInfo /> : <></>}
@@ -52,6 +56,9 @@ function Navigation() {
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeSwitcher />
+                </NavigationItem>
+                <NavigationItem>
+                  <LanguageBar />
                 </NavigationItem>
               </NavigationList>
             </NavigationListDiary>
