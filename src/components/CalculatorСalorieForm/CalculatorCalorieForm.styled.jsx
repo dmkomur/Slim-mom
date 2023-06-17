@@ -9,7 +9,7 @@ import {
   StyledInputAuth,
   StyledBtnAuthAccent,
   StyledErrorAuth,
-} from '../Login/Login.styled';
+} from '../../pages/Login/Login.styled';
 import { Field } from 'formik';
 
 export const StyledWrapCaloriesCalc = styled.div`
@@ -248,7 +248,6 @@ export const StyledRadioBtnSpanCaloriesCalc = styled.span`
   color: ${props =>
     props.idx == props.children ? props.theme.colors.button : props.theme.colors.secondText
   };
-
   font-weight: ${props =>
     props.idx == props.children ? '700' : '400'
   }

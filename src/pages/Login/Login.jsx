@@ -8,8 +8,9 @@ import {
   StyledWrapInputAuth,
   StyledLabelAuth,
   StyledErrorAuth,
-  StyledLinkAuth,
+  // StyledLinkAuth,
   StyledWrapAuthBtn,
+  AuthWrapComponent,
 } from './Login.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -20,11 +21,16 @@ let schema = yup.object({
   password: yup
     .string()
     .required('Please enter a password')
-    .min(8)
-    .max(32)
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols')
     .matches(/^(?=.*[a-zA-Z])(?=.*[0-9])/, 'a-z and 0-9'),
 
-  email: yup.string().required('Please enter a email').email().min(8).max(32),
+  email: yup
+    .string()
+    .required('Please enter a email')
+    .email('Enter a correct email')
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols'),
 });
 
 function Login() {
@@ -39,8 +45,8 @@ function Login() {
     dispatch(logIn(values));
   };
   return (
-    <>
-      <StyledHeaderAuth>Log in</StyledHeaderAuth>
+    <AuthWrapComponent>
+      <StyledHeaderAuth>Sign in</StyledHeaderAuth>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={schema}
@@ -72,12 +78,12 @@ function Login() {
             </ErrorMessage>
           </StyledWrapInputAuth>
           <StyledWrapAuthBtn>
-            <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
-            <StyledLinkAuth to="/registration">Register</StyledLinkAuth>
+            <StyledBtnAuthAccent type="submit">Sign in</StyledBtnAuthAccent>
+            {/* <StyledLinkAuth to="/registration">Register</StyledLinkAuth> */}
           </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
-    </>
+    </AuthWrapComponent>
   );
 }
 

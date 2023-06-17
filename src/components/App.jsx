@@ -1,25 +1,15 @@
 import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
-// import Navigation from './Navigation/Navigation';
-import Login from './Login/Login';
-import Register from './Register/Register';
-// import UserInfo from './UserInfo/UserInfo';
-// import Modal from './Modal/Modal';
-// import Header from './Header/Header';
-// import DiaryAddProductForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductList from './DiaryProductList/DiaryProductList';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
-// import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
+import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
 import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
@@ -35,9 +25,7 @@ import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled'
 
 import GlobalTablet from './GlobalStylePublic/GlobalTablet';
 
-
 import Calculator from 'pages/Calculator/Calculator';
-
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -46,20 +34,16 @@ export const App = () => {
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
-    
   }, [dispatch]);
 
   const isRefreshing = useSelector(getIsRefreshing);
-
-
-
 
   return isRefreshing ? (
     <b>Refresing user...</b>
   ) : (
     <>
-        <ThemeSwitching>
-          {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
+      <ThemeSwitching>
+        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -95,7 +79,7 @@ export const App = () => {
                 element={
                   <PrivateRoute>
                     <DiaryDateCalendar />
-                    {/* <DiaryProductList /> */}
+                    <DiaryProductList />
                     {/* <RightSideBar /> */}
                   </PrivateRoute>
                 }
