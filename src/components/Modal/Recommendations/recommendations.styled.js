@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../styles/breakpoints';
-import { StyledBtnAuthAccent } from '../../Login/Login.styled.jsx';
+import { StyledBtnAuthAccent } from '../../../pages/Login/Login.styled.jsx';
 const { tablet, desktop } = breakpoints;
 
 export const Wrapper = styled.div`

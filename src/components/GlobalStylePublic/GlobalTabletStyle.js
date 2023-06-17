@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import LeafTablet1x from 'img/leaf-tablet@1x-min.png';
 import LeafTablet2x from 'img/leaf-tablet@2x-min.png';
 import LeafTabletAvif1x from 'img/leaf-tablet@1x-min.avif';
@@ -24,10 +24,10 @@ import LiniaTabletAvif2x from 'img/linia-tablet@2x.avif';
 import LiniaTabletWebp1x from 'img/linia.webp';
 import LiniaTabletWebp2x from 'img/linia-tablet@2x.webp';
 
-
 export const GlobalTabletStyle = createGlobalStyle`
 body{
-    
+   height: 100vh;
+    width: 100vw;   
   @media screen and (min-width: 768px) {
     background-image: 
     image-set(url(${LeafTabletAvif1x}) type("image/avif") 1x,
@@ -60,4 +60,4 @@ body{
         background-position: bottom -20em left 0em, bottom -24em right -8em, bottom -44em right -20em, bottom -50em right -2em;
    } 
 }
-`
+`;

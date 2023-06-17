@@ -1,19 +1,9 @@
 
-// import Navigation from './Navigation/Navigation';
-import Login from './Login/Login';
-import Register from './Register/Register';
-// import UserInfo from './UserInfo/UserInfo';
-// import Modal from './Modal/Modal';
-// import Header from './Header/Header';
-// import DiaryAddProductForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductList from './DiaryProductList/DiaryProductList';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
-// import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
-import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
-// import { RightSideBar } from './RightSideBar/RightSideBar';
+import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
+import DiaryProductList from './DiaryProductList/DiaryProductList';
+import Home from 'pages/Home/Home';
 
 import { useDispatch } from 'react-redux';
 
@@ -37,7 +27,6 @@ import GlobalTablet from './GlobalStylePublic/GlobalTablet';
 import Calculator from 'pages/Calculator/Calculator';
 import Diary from 'pages/Diary/Diary';
 
-
 export const App = () => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
@@ -45,13 +34,9 @@ export const App = () => {
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
-
   }, [dispatch]);
 
   const isRefreshing = useSelector(getIsRefreshing);
-
-
-
 
   return isRefreshing ? (
     <b>Refresing user...</b>
@@ -62,12 +47,11 @@ export const App = () => {
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<CalculatorCalorieForm />} />
+              <Route index element={<Home />} />
               <Route
                 path="registration"
                 element={
                   <PublicRoute restricted>
-                    <GlobalTablet />
                     <Register />
                   </PublicRoute>
                 }
@@ -76,7 +60,6 @@ export const App = () => {
                 path="login"
                 element={
                   <PublicRoute restricted>
-                    <GlobalTablet />
                     <Login />
                   </PublicRoute>
                 }
