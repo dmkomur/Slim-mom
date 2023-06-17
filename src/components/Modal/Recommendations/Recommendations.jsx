@@ -16,13 +16,19 @@ import {
 } from './recommendations.styled';
 import { getDaily, getIsLoggedIn } from '../../../redux/auth/auth-selectors';
 // import { StyledBtnAuthAccent } from 'components/Login/Login.styled';
+import { useDispatch } from 'react-redux';
+import { toggleModal } from 'redux/modal/modal-reducer';
+import { getIsModalOpen } from 'redux/modal/modal-selectors';
 
 function Recommendations() {
   const isLoggedIn = useSelector(getIsLoggedIn);
+  const isModalOpen = useSelector(getIsModalOpen);
   const products = useSelector(getDaily);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleStartLoseWeight = () => {
+    dispatch(toggleModal(!isModalOpen));
     return isLoggedIn ? navigate('/diary') : navigate('/login');
   };
 

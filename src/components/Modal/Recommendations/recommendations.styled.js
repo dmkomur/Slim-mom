@@ -6,10 +6,10 @@ const { tablet, desktop } = breakpoints;
 export const Wrapper = styled.div`
   margin-bottom: 119px;
   @media screen and (min-width: ${tablet}) {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
   @media screen and (min-width: ${desktop}) {
-    margin-bottom: 82px;
+    margin-bottom: 50px;
   }
 `;
 export const Title = styled.h2`
@@ -19,10 +19,11 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.firstText};
   padding: 0;
   margin: 40px 0 42px 0;
+  text-align: center;
   @media screen and (min-width: ${tablet}) {
     font-size: 26px;
-    text-align: center;
-    margin: 64px 0 20px 0;
+
+    margin: 50px 0 20px 0;
   }
 `;
 
@@ -55,6 +56,7 @@ export const Recommend = styled.div`
   margin-bottom: 40px;
   width: 280px;
   height: 263;
+  margin-inline: auto;
 
   @media screen and (min-width: ${tablet}) {
     width: 330px;
@@ -81,7 +83,7 @@ export const ProductsList = styled.ul`
   flex-direction: column;
   justify-content: start;
   overflow-y: scroll;
-  height: 112px;
+  height: 200px;
   width: 100%;
   &::-webkit-scrollbar {
     width: 6px;

@@ -11,10 +11,14 @@ import {
   ButtonBack,
 } from './UserInfo.styled';
 // import {IoReturnDownBackSharp} from 'react-icons';
-
+import { toggleModal } from 'redux/modal/modal-reducer';
+import { getIsModalOpen } from 'redux/modal/modal-selectors';
+import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 
 function UserInfo() {
   const { username } = useSelector(getUser);
+  const isModalOpen = useSelector(getIsModalOpen);
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -23,17 +27,27 @@ function UserInfo() {
 
   return (
     <StyledUserInfo>
-      <ButtonBack>
+      <ButtonBack
+        type="buton"
+        onClick={() => {
+          dispatch(toggleModal(!isModalOpen));
+        }}
+      >
         <StyledSvgBack>
           <use href={sprite + '#icon-back'}></use>
         </StyledSvgBack>
-        </ButtonBack>
-      {username && <StyledTitle>{username}</StyledTitle>}
-      <NavUserInfo />
-      <Button onClick={onLogout}>Exit</Button>
+      </ButtonBack>
+      {isLoggedIn ? (
+        <>
+          {username && <StyledTitle>{username}</StyledTitle>}
+          <NavUserInfo />
+          <Button onClick={onLogout}>Exit</Button>
+        </>
+      ) : (
+        <></>
+      )}
     </StyledUserInfo>
   );
 }
 
 export default UserInfo;
-

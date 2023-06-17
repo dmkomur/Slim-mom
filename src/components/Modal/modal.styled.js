@@ -11,6 +11,9 @@ export const Overlay = styled.div`
   height: 100vh;
   /* background: rgba(33, 33, 33, 0.12); */
   background: ${({ theme }) => theme.colors.backgroundModal};
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const ModalContainer = styled.div`
