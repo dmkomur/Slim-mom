@@ -1,5 +1,5 @@
 import Navigation from 'components/Navigation';
-import UserInfo from 'components/UserInfo';
+// import UserInfo from 'components/UserInfo';
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 import {
   StyledHeader,

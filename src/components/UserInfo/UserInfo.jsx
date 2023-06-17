@@ -10,7 +10,7 @@ import {
   StyledSvgBack,
   ButtonBack,
 } from './UserInfo.styled';
-import {IoReturnDownBackSharp} from 'react-icons';
+// import {IoReturnDownBackSharp} from 'react-icons';
 
 
 function UserInfo() {

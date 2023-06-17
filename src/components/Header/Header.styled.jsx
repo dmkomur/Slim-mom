@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { breakpoints } from 'components/styles/breakpoints';
 
-const { mobile, tablet, desktop } = breakpoints;
+const { tablet, desktop } = breakpoints;
 
 export const StyledHeader = styled.header`
   display: flex;

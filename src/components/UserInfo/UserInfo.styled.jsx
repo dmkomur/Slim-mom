@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints } from 'components/styles/breakpoints';
 
-const { mobile, tablet, desktop } = breakpoints;
+const { tablet } = breakpoints;
 
 export const StyledUserInfo = styled.div`
   display: block;
@@ -17,7 +17,7 @@ export const StyledUserInfo = styled.div`
   background-color: #eff1f3;
   @media screen and (min-width: ${tablet}) {
     position: static;
-margin-right: 48px;
+    margin-right: 48px;
     background-color: transparent;
   }
 `;
@@ -70,7 +70,7 @@ export const ButtonBack = styled.button`
   stroke: #000000;
   padding: 0;
   cursor: pointer;
-  @media screen and (min-width: &{tablet}) {
+  @media screen and (min-width: ${tablet}) {
     display: none;
   }
 `;
@@ -88,4 +88,3 @@ export const StyledSvgBack = styled.svg`
 // @media screen and (min-width: 768px) {}
 
 // @media screen and (min-width: 1200px) {}
-
