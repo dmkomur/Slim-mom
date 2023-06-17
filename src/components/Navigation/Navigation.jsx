@@ -13,27 +13,33 @@ import {
   StyledDiv,
 } from './Navigation.styled';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
+import { getIsModalOpen } from 'redux/modal/modal-selectors';
 
 function Navigation() {
   const isUserLogin = useSelector(getIsLoggedIn);
+  const isModalOpen = useSelector(getIsModalOpen);
 
   return (
     <StyledDiv>
       <nav>
         {!isUserLogin ? (
-          <NavigationLogin>
-            <NavigationList>
-              <NavigationItem>
-                <NavItem to="login">Sign In</NavItem>
-              </NavigationItem>
-              <NavigationItem>
-                <NavItem to="registration">Sign Up</NavItem>
-              </NavigationItem>
-              <NavigationItem>
-                <ThemeSwitcher />
-              </NavigationItem>
-            </NavigationList>
-          </NavigationLogin>
+          <>
+            {' '}
+            <NavigationLogin>
+              <NavigationList>
+                <NavigationItem>
+                  <NavItem to="login">Sign In</NavItem>
+                </NavigationItem>
+                <NavigationItem>
+                  <NavItem to="registration">Sign Up</NavItem>
+                </NavigationItem>
+                <NavigationItem>
+                  <ThemeSwitcher />
+                </NavigationItem>
+              </NavigationList>
+            </NavigationLogin>
+            {isModalOpen ? <UserInfo /> : <></>}
+          </>
         ) : (
           <NavigationDiary>
             <NavigationListDiary>
