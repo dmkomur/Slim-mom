@@ -4,8 +4,9 @@ import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
 import { useWidth } from 'hooks/useWidth';
+import { toggleModal } from 'redux/modal/modal-reducer';
 
-function DiaryAddProductForm({ valueDate, openMobileForm, setOpenMobileForm }) {
+function DiaryAddProductForm({ valueDate, openMobileForm }) {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
   const [weight, setWeight] = useState('');
@@ -99,7 +100,8 @@ function DiaryAddProductForm({ valueDate, openMobileForm, setOpenMobileForm }) {
     setProductName('');
     setWeight('');
     setSuggestedProducts([]);
-    setOpenMobileForm(false);
+    dispatch(toggleModal(false));
+    // setOpenMobileForm(false);
   };
 
   const handleProductNameChange = e => {
@@ -135,7 +137,8 @@ function DiaryAddProductForm({ valueDate, openMobileForm, setOpenMobileForm }) {
   };
 
   const handleAddForm = () => {
-    setOpenMobileForm(true);
+    dispatch(toggleModal(true));
+    // setOpenMobileForm(true);
     console.log(openMobileForm);
   };
 
