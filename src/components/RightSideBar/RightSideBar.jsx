@@ -20,7 +20,7 @@ export const RightSideBar = () => {
   const daySummary = useSelector(getDaySummary);
   const notAllowedProducts = useSelector(getNotAllowedProducts);
 
-  const normalizedSelectedDate = new Date(daySummary?.date)
+  const normalizedSelectedDate = new Date(daySummary?.date || new Date())
     .toISOString()
     .split('T')[0];
 

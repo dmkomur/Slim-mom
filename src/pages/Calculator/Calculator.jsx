@@ -31,7 +31,13 @@ function Calculator() {
           <Recommendations />
         ) : (
           <>
-            <CalculatorCalorieForm />
+            <div
+              style={{
+                flexGrow: 1,
+              }}
+            >
+              <CalculatorCalorieForm />
+            </div>
             <RightSideBar />
           </>
         )}

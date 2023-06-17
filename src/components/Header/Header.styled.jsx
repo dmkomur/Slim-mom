@@ -63,7 +63,7 @@ export const LogoImg = styled.img`
     max-width: 70.25px;
     height: 66px;
     position: absolute;
-    top: -15px;
+    top: -37px;
     left: 0px;
   }
   @media screen and (max-width: ${mobile}) {
