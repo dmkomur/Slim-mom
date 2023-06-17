@@ -66,8 +66,8 @@ export const App = () => {
                     <Register />
                   </PublicRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -75,8 +75,8 @@ export const App = () => {
                     <Login />
                   </PublicRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="calculator"
                 element={
                   <PrivateRoute>

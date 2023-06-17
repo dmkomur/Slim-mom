@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
   position: relative;
   @media screen and (min-width: ${desktop}) {
     justify-content: flex-start;
-    padding-top: 74px;
+    /* padding-top: 74px; */
   }
 `;
 export const Nav = styled.div`
@@ -53,15 +53,16 @@ column-gap: 8px; */
 `;
 
 export const LogoImg = styled.img`
-  margin-top: 20px;
-  margin-bottom: 16px;
+  /* margin-top: 20px;
+  margin-bottom: 16px; */
   max-width: 46px;
   height: 44px;
   @media screen and (min-width: ${desktop}) {
     max-width: 70.25px;
     height: 66px;
     position: absolute;
-    top: 0px;
+    top: -15px;
+    left: 0px;
   }
 `;
 
