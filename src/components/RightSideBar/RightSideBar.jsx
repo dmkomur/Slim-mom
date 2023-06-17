@@ -19,9 +19,10 @@ import { nanoid } from 'nanoid';
 export const RightSideBar = () => {
   const daySummary = useSelector(getDaySummary);
   const notAllowedProducts = useSelector(getNotAllowedProducts);
+
   const normalizedSelectedDate = new Date(daySummary?.date)
-    .toLocaleString()
-    .slice(0, 10);
+    .toISOString()
+    .split('T')[0];
 
   return (
     <Box>
