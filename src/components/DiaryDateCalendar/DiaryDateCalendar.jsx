@@ -7,8 +7,11 @@ import { RightSideBar } from 'components/RightSideBar/RightSideBar.jsx';
 import DiaryProductList from 'components/DiaryProductList/DiaryProductList.jsx';
 import { BsCalendarEvent } from 'react-icons/bs';
 import { useWidth } from 'hooks/useWidth.js';
+import { useSelector } from 'react-redux';
+import { getIsModalOpen } from 'redux/modal/modal-selectors.js';
 
 export function DiaryDateCalendar() {
+  const isModalOpen = useSelector(getIsModalOpen);
   const [value, onChange] = useState(new Date());
   const [isCalendarOpen, setCalendarOpen] = useState(false);
   const width = useWidth();
@@ -34,7 +37,7 @@ export function DiaryDateCalendar() {
     <>
       <css.Flex>
         <css.LeftBlock>
-          {openMobileForm ? (
+          {isModalOpen ? (
             <></>
           ) : (
             <css.wrapCalendar>
@@ -59,7 +62,7 @@ export function DiaryDateCalendar() {
 
           {width < 768 ? (
             <>
-              {openMobileForm ? (
+              {isModalOpen ? (
                 <DiaryAddProductForm
                   valueDate={exportDate(value)}
                   openMobileForm={openMobileForm}
@@ -83,7 +86,7 @@ export function DiaryDateCalendar() {
             </>
           )}
         </css.LeftBlock>
-        {openMobileForm ? <></> : <RightSideBar selectedDate={value} />}
+        {isModalOpen ? <></> : <RightSideBar selectedDate={value} />}
       </css.Flex>
     </>
   );
