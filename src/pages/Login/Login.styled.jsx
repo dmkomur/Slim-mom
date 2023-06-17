@@ -18,6 +18,7 @@ export const StyledInputAuth = styled(Field)`
   &:focus + span {
     top: 0;
     color: ${({ theme }) => theme.colors.borderActive};
+    font-size: 12px;
   }
   @media screen and (min-width: ${breakpoints.tablet}) {
     width: 240px;
@@ -105,7 +106,7 @@ export const StyledLabelAuth = styled.span`
   letter-spacing: 0.04em;
   color: ${({ theme }) => theme.colors.secondText};
   pointer-events: none;
-  transition: top 250ms linear;
+  transition: all 250ms linear;
 `;
 export const StyledHeaderAuth = styled.h3`
   font-weight: 700;
