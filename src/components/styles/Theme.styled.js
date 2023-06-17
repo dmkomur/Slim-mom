@@ -1,11 +1,12 @@
 export const light = {
   name: 'light-theme',
   colors: {
-    switcherOn: '#202025',
+    switcherOn: '#36363A',
 
     firstText: '#212121',
     secondText: '#9B9FAA',
 
+    buttonBackground: '#FFFFFF',
     buttonText: '#FFFFFF',
     buttonTextHover: '#E0E0E0',
     button: '#FC842D',
@@ -13,6 +14,7 @@ export const light = {
     shadowButton: 'rgba(252, 132, 45, 0.5)',
     shadowButtonHover: 'rgba(202,105,34,0.75)',
 
+    inputText: '#202025',
     borderInput: '#E0E0E0',
     borderLight: 'rgba(254, 190, 144, 0.5)',
     borderActive: '#212121',
@@ -40,6 +42,7 @@ export const dark = {
     firstText: '#DDDDDD',
     secondText: '#ECECEC',
 
+    buttonBackground: '#36363A',
     buttonText: '#202025',
     buttonTextHover: '#3B3B3B',
     button: '#FF6B00',
@@ -47,9 +50,11 @@ export const dark = {
     shadowButton: 'rgba(255,107,0,0.75)',
     shadowButtonHover: 'rgba(203,86,0,0.75)',
 
-    borderInput: '#3B3B3B',
+    inputText: '#202025',
+    borderInput: 'rgba(236,236,236,0.3)',
     borderLight: 'rgba(255, 219, 193, 0.5)',
     borderActive: '#DDDDDD',
+    borderBottom: '#ECECEC',
 
     backgroundGradientDesktop:
       'linear-gradient(90deg, rgba(54,54,58,1) 60%, rgba(74,74,77,1) 60%)',
