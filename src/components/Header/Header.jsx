@@ -32,6 +32,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
+import LanguageBar from 'components/LanguageBar/LanguageBar';
 // import { BsDisplay } from 'react-icons/bs';
 
 function Header() {
@@ -93,6 +94,9 @@ function Header() {
             <NavigationList>
               <NavigationItem>
                 <ThemeSwitcher />
+              </NavigationItem>
+              <NavigationItem>
+                <LanguageBar />
               </NavigationItem>
               <NavigationItem>
                 <NavLink to="diary">Diary</NavLink>
