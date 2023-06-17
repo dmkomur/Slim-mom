@@ -13,16 +13,19 @@ export const StyledHeader = styled.header`
   position: relative;
   @media screen and (min-width: ${desktop}) {
     justify-content: flex-start;
-    padding-top: 74px;
+    /* padding-top: 74px; */
   }
 `;
 export const Nav = styled.div`
   position: absolute;
   top: 80px;
-  left: 0;
+  left: -20px;
   right: 0;
   width: 100vw;
   border-bottom: 2px solid #e0e0e0;
+  @media screen and (min-width: ${tablet}) {
+    left: -32px;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -43,22 +46,25 @@ column-gap: 8px; */
     align-items: center;
     justify-content: flex-start;
     column-gap: 10px;
+    flex-grow: 1;
   }
   @media screen and (min-width: ${desktop}) {
     column-gap: 0;
+    flex-grow: 0;
   }
 `;
 
 export const LogoImg = styled.img`
-  margin-top: 20px;
-  margin-bottom: 16px;
+  /* margin-top: 20px;
+  margin-bottom: 16px; */
   max-width: 46px;
   height: 44px;
   @media screen and (min-width: ${desktop}) {
     max-width: 70.25px;
     height: 66px;
     position: absolute;
-    top: 0px;
+    top: -15px;
+    left: 0px;
   }
 `;
 
@@ -131,11 +137,14 @@ export const NavElemnt = styled.div`
 export const Wrapper = styled.div`
   position: absolute;
   top: 80px;
-  left: 0;
+  left: -20px;
   width: 100vw;
   height: 100vh;
   background-color: rgba(38, 64, 97, 1);
   z-index: 1;
+  @media screen and (min-width: ${tablet}) {
+    left: -32px;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -143,13 +152,10 @@ export const Wrapper = styled.div`
 
 export const NavigationList = styled.ul`
   margin: 60px auto;
-  width: 320px;
-  height: 488px;
+
   @media screen and (min-width: ${tablet}) {
-    width: 336px;
-height: 112px;
-margin: 100px auto;
-}
+    margin: 100px auto;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -166,13 +172,13 @@ export const NavigationItem = styled.li`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
-  &:hover,
+  /* &:hover,
   &:focus {
     color: #ffffff;
   }
   &:active {
     color: #ffffff;
-  }
+  } */
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -213,7 +219,7 @@ export const ButtonBurger = styled.button`
   height: 24px;
   border: none;
   background-color: transparent;
-  padding: 0px;
+  padding-top: 3px;
   @media screen and (min-width: ${desktop}) {
     display: none;
   }

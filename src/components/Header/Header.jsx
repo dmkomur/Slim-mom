@@ -30,6 +30,7 @@ import sprite from 'images/header/symbol-defs.svg';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
@@ -60,10 +61,8 @@ function Header() {
         </StyledLogoMob>
         <NavElemnt />
         {/* <StyledNavigation> */}
-          <Navigation />
+        <Navigation />
         {/* </StyledNavigation> */}
-
-
 
         {isUserLogin && (
           <div>
@@ -85,6 +84,9 @@ function Header() {
         {isOpen && (
           <Wrapper>
             <NavigationList>
+              <NavigationItem>
+                <ThemeSwitcher />
+              </NavigationItem>
               <NavigationItem>
                 <NavLink to="diary">Diary</NavLink>
               </NavigationItem>
