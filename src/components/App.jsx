@@ -19,7 +19,7 @@ import { useDispatch } from 'react-redux';
 
 import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
@@ -35,9 +35,7 @@ import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled'
 
 import GlobalTablet from './GlobalStylePublic/GlobalTablet';
 
-
 import Calculator from 'pages/Calculator/Calculator';
-
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -46,24 +44,20 @@ export const App = () => {
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
-    
   }, [dispatch]);
 
   const isRefreshing = useSelector(getIsRefreshing);
-
-
-
 
   return isRefreshing ? (
     <b>Refresing user...</b>
   ) : (
     <>
-        <ThemeSwitching>
-          {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
+      <ThemeSwitching>
+        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<CalculatorCalorieForm />} />
+              {/* <Route index element={<CalculatorCalorieForm />} />
               <Route
                 path="registration"
                 element={
@@ -95,12 +89,12 @@ export const App = () => {
                 element={
                   <PrivateRoute>
                     <DiaryDateCalendar />
-                    {/* <DiaryProductList /> */}
-                    {/* <RightSideBar /> */}
+                    <DiaryProductList /> 
+                    <RightSideBar />
                   </PrivateRoute>
                 }
               />
-              <Route path="*" element={<PageNotFound />} />
+              <Route path="*" element={<PageNotFound />} /> */}
             </Route>
           </Routes>
         </Suspense>
