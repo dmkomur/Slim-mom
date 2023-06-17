@@ -129,6 +129,10 @@ export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
 `;
 
 export const StyledLabelBTCaloriesCalc = styled.span`
+  &:has(+ #bloodTypeField label input:checked) {
+    color: #000000;
+    };
+  
   position: relative;
   display: block;
   width: 240px;
@@ -234,15 +238,15 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
   &:hover {
     box-shadow: 0 0 20px rgba(252, 132, 45, 0.5);
   }
+
+  &:checked:has(#typeLabel) {
+    color: green;
+  }
 `;
 
 export const StyledRadioBtnSpanCaloriesCalc = styled.span`
-  /* color: ${props =>
-    props.idx == props.children ? `${({ theme }) => theme.colors.button}` : `${({ theme }) => theme.colors.secondText}`
-  }; */
-
   color: ${props =>
-    props.idx == props.children ? '#FC842D' : '#9B9FAA'
+    props.idx == props.children ? props.theme.colors.button : props.theme.colors.secondText
   };
 
   font-weight: ${props =>

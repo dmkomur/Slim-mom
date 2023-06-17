@@ -76,6 +76,11 @@ function CalculatorCalorieForm() {
           .then(() => dispatch(toggleModal(!isModalOpen)));
   };
 
+  const onChangeRadioButton = () => {
+    const bloodTypeLabel = document.querySelector('#typeLabel')
+    bloodTypeLabel.style.color = 'red';
+  }
+
   return (
     <StyledWrapCaloriesCalc>
       <StyledHeaderCaloriesCalc>
@@ -161,11 +166,11 @@ function CalculatorCalorieForm() {
             </StyledWrapInputCaloriesCalc>
 
             <div>
-              <StyledLabelBTCaloriesCalc>
+              <StyledLabelBTCaloriesCalc id='typeLabel'>
                 Blood type *
               </StyledLabelBTCaloriesCalc>
 
-              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType">
+              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType" id='bloodTypeField'>
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType1">
                   <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>1</StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
