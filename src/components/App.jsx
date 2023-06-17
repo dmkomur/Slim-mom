@@ -1,8 +1,5 @@
-
-import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
-import DiaryProductList from './DiaryProductList/DiaryProductList';
 import Home from 'pages/Home/Home';
 
 import { useDispatch } from 'react-redux';
@@ -22,8 +19,6 @@ import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
-
-import GlobalTablet from './GlobalStylePublic/GlobalTablet';
 import Calculator from 'pages/Calculator/Calculator';
 import Diary from 'pages/Diary/Diary';
 
@@ -76,7 +71,7 @@ export const App = () => {
                 path="diary"
                 element={
                   <PrivateRoute>
-                    <Diary/>
+                    <Diary />
                   </PrivateRoute>
                 }
               />
