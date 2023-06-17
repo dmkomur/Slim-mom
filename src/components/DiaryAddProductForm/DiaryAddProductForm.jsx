@@ -76,7 +76,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, setOpenMobileForm }) {
     setSuggestedProducts([]);
   };
 
-  const onSubmit1 = e => {
+  const onSubmitMobile = e => {
     e.preventDefault();
 
     if (!productName && !weight) {
@@ -143,7 +143,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, setOpenMobileForm }) {
     <>
       {openMobileForm ? (
         <>
-          <css.Form action="" onSubmit={onSubmit1}>
+          <css.Form action="" onSubmit={onSubmitMobile}>
             <css.InputProdName
               type="text"
               placeholder="Enter product name"
