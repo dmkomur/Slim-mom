@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 80px;
+  /* height: 80px; */
   position: relative;
   @media screen and (min-width: ${desktop}) {
     justify-content: flex-start;
@@ -18,7 +18,7 @@ export const StyledHeader = styled.header`
 `;
 export const Nav = styled.div`
   position: absolute;
-  top: 80px;
+  top: 59px;
   left: -20px;
   right: 0;
   width: 100vw;
@@ -142,7 +142,7 @@ export const NavElemnt = styled.div`
 // `;
 export const Wrapper = styled.div`
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: -20px;
   width: 100vw;
   height: 100vh;

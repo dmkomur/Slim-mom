@@ -12,7 +12,7 @@ export const StyledUserInfo = styled.div`
   align-items: center;
   position: absolute;
   right: -20px;
-  bottom: -40px;
+  bottom: -56px;
   width: 100vw;
   height: 40px;
   background-color: #eff1f3;
@@ -27,7 +27,7 @@ export const StyledUserInfo = styled.div`
 export const NavUserInfo = styled.div`
   width: 0px;
   height: 32px;
-  border: 2px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
 `;
 
 export const Button = styled.button`
