@@ -4,7 +4,7 @@ import Home from 'pages/Home/Home';
 
 import { useDispatch } from 'react-redux';
 
-import { Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -21,6 +21,14 @@ import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Calculator from 'pages/Calculator/Calculator';
 import Diary from 'pages/Diary/Diary';
+import Loader from './Loader/Loader';
+
+// const Login = lazy(() => import('../pages/Login/Login'));
+// const Register = lazy(() => import('../pages/Register/Register'));
+// const Home = lazy(() => import('pages/Home/Home'));
+// const Calculator = lazy(() => import('pages/Calculator/Calculator'));
+// const Diary = lazy(() => import('pages/Diary/Diary'));
+// const PageNotFoundL = lazy(() => import('./PageNotFound/PageNotFound'));
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -34,7 +42,7 @@ export const App = () => {
   const isRefreshing = useSelector(getIsRefreshing);
 
   return isRefreshing ? (
-    <b>Refresing user...</b>
+  <Loader/>
   ) : (
     <>
       <ThemeSwitching>

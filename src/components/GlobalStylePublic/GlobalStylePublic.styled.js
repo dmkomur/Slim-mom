@@ -91,8 +91,8 @@ body{
       url(${LiniaTablet2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-        background-size: 531px 602px, 330px 330px, 740px 527px;
-        background-position: bottom -35em left 0em, bottom -22em right 0em, bottom -40em right -20em, bottom -40em right 0em;
+        background-size: 608px 496px, 370px 370px, 750px 550px,602px 760px;
+        background-position: left -2em bottom 1em, right -1em bottom 13em, right -16em bottom -7em, right -2em bottom -12em;
    } 
 
 
