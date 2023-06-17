@@ -64,7 +64,6 @@ export const List = styled.ul`
   max-height: 180px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  z-index: 10;
 
   &::-webkit-scrollbar {
     width: 6px;
