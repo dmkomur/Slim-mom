@@ -8,6 +8,10 @@ export const NavigationList = styled.ul`
   display: flex;
   gap: 15px;
   align-items: center;
+
+  @media screen and (min-width: ${tablet}) {
+    gap: 45px;
+  }
 `;
 
 export const NavigationListDiary = styled.div`

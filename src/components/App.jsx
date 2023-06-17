@@ -1,6 +1,6 @@
 import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
-import Login from './Login/Login';
-import Register from './Register/Register';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
 import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import { RightSideBar } from './RightSideBar/RightSideBar';

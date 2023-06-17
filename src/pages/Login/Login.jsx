@@ -8,7 +8,7 @@ import {
   StyledWrapInputAuth,
   StyledLabelAuth,
   StyledErrorAuth,
-  StyledLinkAuth,
+  // StyledLinkAuth,
   StyledWrapAuthBtn,
   AuthWrapComponent,
 } from './Login.styled';
@@ -46,7 +46,7 @@ function Login() {
   };
   return (
     <AuthWrapComponent>
-      <StyledHeaderAuth>Log in</StyledHeaderAuth>
+      <StyledHeaderAuth>Sign in</StyledHeaderAuth>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={schema}
@@ -78,8 +78,8 @@ function Login() {
             </ErrorMessage>
           </StyledWrapInputAuth>
           <StyledWrapAuthBtn>
-            <StyledBtnAuthAccent type="submit">Log in</StyledBtnAuthAccent>
-            <StyledLinkAuth to="/registration">Register</StyledLinkAuth>
+            <StyledBtnAuthAccent type="submit">Sign in</StyledBtnAuthAccent>
+            {/* <StyledLinkAuth to="/registration">Register</StyledLinkAuth> */}
           </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
