@@ -135,11 +135,14 @@ export const NavElemnt = styled.div`
 export const Wrapper = styled.div`
   position: absolute;
   top: 80px;
-  left: 0;
-  /* width: 100vw;
-  height: 100vh; */
+  left: -20px;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(38, 64, 97, 1);
   z-index: 1;
+  @media screen and (min-width: ${tablet}) {
+    left: -32px;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -147,11 +150,8 @@ export const Wrapper = styled.div`
 
 export const NavigationList = styled.ul`
   margin: 60px auto;
-  width: 320px;
-  height: 488px;
+
   @media screen and (min-width: ${tablet}) {
-    width: 336px;
-    height: 112px;
     margin: 100px auto;
   }
   @media screen and (min-width: ${desktop}) {

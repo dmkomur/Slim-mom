@@ -10,6 +10,7 @@ export const ThemeContainer = styled.label`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
   /* margin: 10px auto; */
   padding: 5px;
   position: relative;

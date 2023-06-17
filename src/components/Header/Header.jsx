@@ -64,8 +64,6 @@ function Header() {
         <Navigation />
         {/* </StyledNavigation> */}
 
-
-
         {isUserLogin && (
           <div>
             {isOpen ? (
@@ -86,6 +84,9 @@ function Header() {
         {isOpen && (
           <Wrapper>
             <NavigationList>
+              <NavigationItem>
+                <ThemeSwitcher />
+              </NavigationItem>
               <NavigationItem>
                 <NavLink to="diary">Diary</NavLink>
               </NavigationItem>

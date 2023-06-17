@@ -7,10 +7,11 @@ export const StyledUserInfo = styled.div`
   display: block;
   display: flex;
   column-gap: 16px;
+  padding-right: 20px;
   justify-content: flex-end;
   align-items: center;
   position: absolute;
-  right: 0;
+  right: -20px;
   bottom: -40px;
   width: 100vw;
   height: 40px;
@@ -64,7 +65,7 @@ export const StyledTitle = styled.p`
 
 export const ButtonBack = styled.button`
   position: absolute;
-  left: 0;
+  left: 20px;
   border: none;
   background-color: transparent;
   stroke: #000000;

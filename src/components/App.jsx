@@ -67,7 +67,7 @@ export const App = () => {
                   </PublicRoute>
                 }
               /> */}
-              {/* <Route
+              <Route
                 path="login"
                 element={
                   <PublicRoute restricted>
@@ -75,7 +75,7 @@ export const App = () => {
                     <Login />
                   </PublicRoute>
                 }
-              /> */}
+              />
               {/* <Route
                 path="calculator"
                 element={
