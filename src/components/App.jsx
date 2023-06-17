@@ -4,7 +4,7 @@ import Register from '../pages/Register/Register';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
 import DiaryProductList from './DiaryProductList/DiaryProductList';
 // import { RightSideBar } from './RightSideBar/RightSideBar';
-
+import Home from 'pages/Home/Home';
 import { useDispatch } from 'react-redux';
 
 import { Suspense, useEffect } from 'react';
@@ -47,7 +47,7 @@ export const App = () => {
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<CalculatorCalorieForm />} />
+              <Route index element={<Home />} />
               <Route
                 path="registration"
                 element={
