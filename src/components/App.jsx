@@ -1,9 +1,7 @@
 import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
-import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
 import DiaryProductList from './DiaryProductList/DiaryProductList';
-// import { RightSideBar } from './RightSideBar/RightSideBar';
 import Home from 'pages/Home/Home';
 import { useDispatch } from 'react-redux';
 
@@ -52,7 +50,6 @@ export const App = () => {
                 path="registration"
                 element={
                   <PublicRoute restricted>
-                    <GlobalTablet />
                     <Register />
                   </PublicRoute>
                 }
@@ -61,7 +58,6 @@ export const App = () => {
                 path="login"
                 element={
                   <PublicRoute restricted>
-                    <GlobalTablet />
                     <Login />
                   </PublicRoute>
                 }

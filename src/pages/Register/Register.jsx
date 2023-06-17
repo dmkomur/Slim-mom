@@ -17,6 +17,7 @@ import {
   AuthWrapComponent,
 } from '../Login/Login.styled';
 import { IoMdAlert } from 'react-icons/io';
+import GlobalTablet from 'components/GlobalStylePublic/GlobalTablet';
 
 let schema = yup.object({
   username: yup
@@ -54,66 +55,69 @@ function Register() {
       .then(() => resetForm());
   };
   return (
-    <AuthWrapComponent>
-      <StyledHeaderAuth>Sign Up</StyledHeaderAuth>
-      <Formik
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-        initialValues={startValue}
-      >
-        <StyledFormAuth>
-          <StyledWrapInputAuth>
-            <StyledInputAuth type="text" name="username" placeholder=" " />
-            <StyledLabelAuth>Name *</StyledLabelAuth>
-            <ErrorMessage name="username">
-              {m => (
-                <StyledErrorAuth>
-                  <IoMdAlert />
-                  {m}
-                </StyledErrorAuth>
-              )}
-            </ErrorMessage>
-          </StyledWrapInputAuth>
+    <>
+      <GlobalTablet />
+      <AuthWrapComponent>
+        <StyledHeaderAuth>Sign Up</StyledHeaderAuth>
+        <Formik
+          onSubmit={handleSubmit}
+          validationSchema={schema}
+          initialValues={startValue}
+        >
+          <StyledFormAuth>
+            <StyledWrapInputAuth>
+              <StyledInputAuth type="text" name="username" placeholder=" " />
+              <StyledLabelAuth>Name *</StyledLabelAuth>
+              <ErrorMessage name="username">
+                {m => (
+                  <StyledErrorAuth>
+                    <IoMdAlert />
+                    {m}
+                  </StyledErrorAuth>
+                )}
+              </ErrorMessage>
+            </StyledWrapInputAuth>
 
-          <StyledWrapInputAuth>
-            <StyledInputAuth type="email" name="email" placeholder=" " />
-            <StyledLabelAuth>Email *</StyledLabelAuth>
-            <ErrorMessage name="email">
-              {m => (
-                <StyledErrorAuth>
-                  <IoMdAlert />
-                  {m}
-                </StyledErrorAuth>
-              )}
-            </ErrorMessage>
-          </StyledWrapInputAuth>
+            <StyledWrapInputAuth>
+              <StyledInputAuth type="email" name="email" placeholder=" " />
+              <StyledLabelAuth>Email *</StyledLabelAuth>
+              <ErrorMessage name="email">
+                {m => (
+                  <StyledErrorAuth>
+                    <IoMdAlert />
+                    {m}
+                  </StyledErrorAuth>
+                )}
+              </ErrorMessage>
+            </StyledWrapInputAuth>
 
-          <StyledWrapInputAuth>
-            <StyledInputAuth
-              type="password"
-              name="password"
-              placeholder=" "
-              // pattern="/^[a-zA-Z0-9]{8,16}$/"
-              // minlength="8"
-            />
-            <StyledLabelAuth>Password *</StyledLabelAuth>
+            <StyledWrapInputAuth>
+              <StyledInputAuth
+                type="password"
+                name="password"
+                placeholder=" "
+                // pattern="/^[a-zA-Z0-9]{8,16}$/"
+                // minlength="8"
+              />
+              <StyledLabelAuth>Password *</StyledLabelAuth>
 
-            <ErrorMessage name="password">
-              {m => (
-                <StyledErrorAuth>
-                  <IoMdAlert />
-                  {m}
-                </StyledErrorAuth>
-              )}
-            </ErrorMessage>
-          </StyledWrapInputAuth>
-          <StyledWrapAuthBtn>
-            <StyledBtnAuthAccent type="submit">Sign Up</StyledBtnAuthAccent>
-            {/* <StyledLinkAuth to="/login">Log in</StyledLinkAuth> */}
-          </StyledWrapAuthBtn>
-        </StyledFormAuth>
-      </Formik>
-    </AuthWrapComponent>
+              <ErrorMessage name="password">
+                {m => (
+                  <StyledErrorAuth>
+                    <IoMdAlert />
+                    {m}
+                  </StyledErrorAuth>
+                )}
+              </ErrorMessage>
+            </StyledWrapInputAuth>
+            <StyledWrapAuthBtn>
+              <StyledBtnAuthAccent type="submit">Sign Up</StyledBtnAuthAccent>
+              {/* <StyledLinkAuth to="/login">Log in</StyledLinkAuth> */}
+            </StyledWrapAuthBtn>
+          </StyledFormAuth>
+        </Formik>
+      </AuthWrapComponent>
+    </>
   );
 }
 
