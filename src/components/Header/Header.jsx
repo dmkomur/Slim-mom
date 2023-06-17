@@ -32,7 +32,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
-import { BsDisplay } from 'react-icons/bs';
+// import { BsDisplay } from 'react-icons/bs';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
