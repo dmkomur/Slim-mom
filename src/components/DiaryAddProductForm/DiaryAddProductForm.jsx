@@ -14,6 +14,7 @@ function DiaryAddProductForm({ valueDate }) {
   const inputRef = useRef(null);
   const suggestionsListRef = useRef(null);
   let selectedDate = useMemo(() => ({ date: valueDate }), [valueDate]);
+  const searchTimeoutRef = useRef(null);
 
   useEffect(() => {
     dispatch(dayInfo(selectedDate));
@@ -74,16 +75,36 @@ function DiaryAddProductForm({ valueDate }) {
     setSuggestedProducts([]);
   };
 
-  const handleProductNameChange = async e => {
+  // const handleProductNameChange = debounce(async e => {
+  //   const query = e.target.value;
+  //   if (query === '') {
+  //     setProductName('');
+  //     setSuggestedProducts([]);
+  //     return;
+  //   }
+  //   setProductName(query);
+  //   const suggestions = await productSearch(query);
+  //   setSuggestedProducts(suggestions);
+  // }, 300); 
+
+  const handleProductNameChange = e => {
     const query = e.target.value;
+
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    setProductName(query);
+
     if (query === '') {
-      setProductName('');
       setSuggestedProducts([]);
       return;
     }
-    setProductName(query);
-    const suggestions = await productSearch(query);
-    setSuggestedProducts(suggestions);
+
+    searchTimeoutRef.current = setTimeout(async () => {
+      const suggestions = await productSearch(query);
+      setSuggestedProducts(suggestions);
+    }, 1500);
   };
 
   const handleProductSelect = product => {
@@ -91,6 +112,12 @@ function DiaryAddProductForm({ valueDate }) {
     setIdProduct(product._id);
     setSuggestedProducts([]);
     console.log(product);
+  };
+
+  const handleGramsChange = e => {
+    const value = e.target.value;
+    const numericValue = value.replace(/[^0-9]/g, '');
+    setWeight(numericValue);
   };
 
   return (
@@ -119,7 +146,7 @@ function DiaryAddProductForm({ valueDate }) {
           type="text"
           placeholder="Grams"
           value={weight}
-          onChange={e => setWeight(e.target.value)}
+          onChange={handleGramsChange}
         />
         <css.Button type="submit">
           <svg
