@@ -9,7 +9,7 @@ import {
   StyledInputAuth,
   StyledBtnAuthAccent,
   StyledErrorAuth,
-} from '../Login/Login.styled';
+} from '../../pages/Login/Login.styled';
 import { Field } from 'formik';
 
 export const StyledWrapCaloriesCalc = styled.div`
@@ -227,9 +227,9 @@ export const StyledRadioLabelBTCaloriesCalc = styled.label`
 
   color: #9b9faa;
 
-   &:hover,
-   &:focus {
+  &:hover,
+  &:focus {
     font-weight: 700;
     color: ${({ theme }) => theme.colors.button};
-   }
+  }
 `;
