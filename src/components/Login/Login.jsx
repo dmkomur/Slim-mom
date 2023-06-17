@@ -10,6 +10,7 @@ import {
   StyledErrorAuth,
   StyledLinkAuth,
   StyledWrapAuthBtn,
+  AuthWrapComponent,
 } from './Login.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -20,11 +21,16 @@ let schema = yup.object({
   password: yup
     .string()
     .required('Please enter a password')
-    .min(8)
-    .max(32)
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols')
     .matches(/^(?=.*[a-zA-Z])(?=.*[0-9])/, 'a-z and 0-9'),
 
-  email: yup.string().required('Please enter a email').email().min(8).max(32),
+  email: yup
+    .string()
+    .required('Please enter a email')
+    .email('Enter a correct email')
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols'),
 });
 
 function Login() {
@@ -39,7 +45,7 @@ function Login() {
     dispatch(logIn(values));
   };
   return (
-    <>
+    <AuthWrapComponent>
       <StyledHeaderAuth>Log in</StyledHeaderAuth>
       <Formik
         onSubmit={handleSubmit}
@@ -77,7 +83,7 @@ function Login() {
           </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
-    </>
+    </AuthWrapComponent>
   );
 }
 

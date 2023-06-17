@@ -14,25 +14,30 @@ import {
   StyledErrorAuth,
   StyledLinkAuth,
   StyledWrapAuthBtn,
+  AuthWrapComponent,
 } from '../Login/Login.styled';
 import { IoMdAlert } from 'react-icons/io';
 
 let schema = yup.object({
-  username: yup.string().required('Please enter a name').min(3).max(32),
+  username: yup
+    .string()
+    .required('Please enter your name')
+    .min(3, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols'),
 
   password: yup
     .string()
     .required('Please enter a password')
-    .min(8, 'Min 8 symbols')
-    .max(32)
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols')
     .matches(/^(?=.*[a-zA-Z])(?=.*[0-9])/, 'Use characters and numbers'),
 
   email: yup
     .string()
-    .required('Please enter a password')
-    .email()
-    .min(8, 'Min 8 symbols')
-    .max(32),
+    .required('Please enter a email')
+    .email('Enter a correct email')
+    .min(8, 'Min length 8 symbols')
+    .max(32, 'Max length 32 symbols'),
 });
 function Register() {
   const dispatch = useDispatch();
@@ -49,7 +54,7 @@ function Register() {
       .then(() => resetForm());
   };
   return (
-    <>
+    <AuthWrapComponent>
       <StyledHeaderAuth>Register</StyledHeaderAuth>
       <Formik
         onSubmit={handleSubmit}
@@ -108,7 +113,7 @@ function Register() {
           </StyledWrapAuthBtn>
         </StyledFormAuth>
       </Formik>
-    </>
+    </AuthWrapComponent>
   );
 }
 
