@@ -83,7 +83,7 @@ export function DiaryDateCalendar() {
             </>
           )}
         </css.LeftBlock>
-        <RightSideBar selectedDate={value} />
+        {openMobileForm ? <></> : <RightSideBar selectedDate={value} />}
       </css.Flex>
     </>
   );
