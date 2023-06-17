@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
-// import { debounce } from 'lodash';
 
 function DiaryAddProductForm({ valueDate }) {
   const dispatch = useDispatch();
@@ -85,7 +84,7 @@ function DiaryAddProductForm({ valueDate }) {
   //   setProductName(query);
   //   const suggestions = await productSearch(query);
   //   setSuggestedProducts(suggestions);
-  // }, 300); 
+  // }, 300);
 
   const handleProductNameChange = e => {
     const query = e.target.value;
