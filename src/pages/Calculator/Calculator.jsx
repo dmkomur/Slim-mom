@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import CalculatorCalorieForm from 'components/CalculatorСalorieForm/CalculatorСalorieForm';
 import { RightSideBar } from 'components/RightSideBar/RightSideBar';
 import { Box } from './Calculator.styled';
@@ -19,13 +19,12 @@ function Calculator() {
     let dateString = date.toISOString().split('T')[0];
     return { date: dateString };
   };
-  console.log(exportDate());
   useEffect(() => {
     dispatch(dayInfo(exportDate()));
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <Box>
         {isModalOpen && width <= 768 ? (
           <Recommendations />
@@ -42,7 +41,7 @@ function Calculator() {
           </>
         )}
       </Box>
-    </Suspense>
+    </>
   );
 }
 export default Calculator;
