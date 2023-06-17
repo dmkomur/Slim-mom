@@ -46,9 +46,11 @@ column-gap: 8px; */
     align-items: center;
     justify-content: flex-start;
     column-gap: 10px;
+    flex-grow: 1;
   }
   @media screen and (min-width: ${desktop}) {
     column-gap: 0;
+    flex-grow: 0;
   }
 `;
 
@@ -217,7 +219,7 @@ export const ButtonBurger = styled.button`
   height: 24px;
   border: none;
   background-color: transparent;
-  padding: 0px;
+  padding-top: 3px;
   @media screen and (min-width: ${desktop}) {
     display: none;
   }

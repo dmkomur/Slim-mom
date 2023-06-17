@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { breakpoints } from 'components/styles/breakpoints';
 
-const { desktop } = breakpoints;
+const { tablet, desktop } = breakpoints;
 
 export const NavigationList = styled.ul`
   display: flex;
@@ -18,6 +18,7 @@ export const NavigationListDiary = styled.div`
     display: flex;
     column-gap: 24px;
     align-items: center;
+    /* flex-grow: 1; */
   }
 `;
 export const NavigationItem = styled.li`
@@ -59,11 +60,26 @@ export const NavItem = styled(NavLink)`
   }
 `;
 
-export const StyledUserInfo = styled.div``;
+export const StyledUserInfo = styled.div`
+  @media screen and (min-width: ${desktop}) {
+    flex-grow: 1;
+  }
+`;
 
 export const NavigationLogin = styled.div``;
 
-export const NavigationDiary = styled.div``;
+export const NavigationDiary = styled.div`
+  display: flex;
+`;
+
+export const StyledDiv = styled.div`
+  @media screen and (min-width: ${tablet}) {
+    flex-grow: 0;
+  }
+  @media screen and (min-width: ${desktop}) {
+    flex-grow: 1;
+  }
+`;
 
 // @media screen and (min-width: 320px) {}
 

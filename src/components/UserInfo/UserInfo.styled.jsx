@@ -19,6 +19,7 @@ export const StyledUserInfo = styled.div`
   @media screen and (min-width: ${tablet}) {
     position: static;
     margin-right: 48px;
+    width: 100%;
     background-color: transparent;
   }
 `;

@@ -10,6 +10,7 @@ import {
   NavigationDiary,
   StyledUserInfo,
   NavigationListDiary,
+  StyledDiv,
 } from './Navigation.styled';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 
@@ -17,7 +18,7 @@ function Navigation() {
   const isUserLogin = useSelector(getIsLoggedIn);
 
   return (
-    <div>
+    <StyledDiv>
       <nav>
         {!isUserLogin ? (
           <NavigationLogin>
@@ -36,15 +37,17 @@ function Navigation() {
         ) : (
           <NavigationDiary>
             <NavigationListDiary>
-              <NavigationItem>
-                <NavItem to="diary">Diary</NavItem>
-              </NavigationItem>
-              <NavigationItem>
-                <NavItem to="calculator">Calculator</NavItem>
-              </NavigationItem>
-              <NavigationItem>
-                <ThemeSwitcher />
-              </NavigationItem>
+              <NavigationList>
+                <NavigationItem>
+                  <NavItem to="diary">Diary</NavItem>
+                </NavigationItem>
+                <NavigationItem>
+                  <NavItem to="calculator">Calculator</NavItem>
+                </NavigationItem>
+                <NavigationItem>
+                  <ThemeSwitcher />
+                </NavigationItem>
+              </NavigationList>
             </NavigationListDiary>
             {
               <StyledUserInfo>
@@ -54,7 +57,7 @@ function Navigation() {
           </NavigationDiary>
         )}
       </nav>
-    </div>
+    </StyledDiv>
   );
 }
 export default Navigation;
