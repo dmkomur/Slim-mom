@@ -16,7 +16,7 @@ import { getDaySummary } from 'redux/day/day-selectors';
 import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 import { nanoid } from 'nanoid';
 
-export const RightSideBar = () => {
+const RightSideBar = () => {
   const daySummary = useSelector(getDaySummary);
   const notAllowedProducts = useSelector(getNotAllowedProducts);
 
@@ -83,3 +83,5 @@ export const RightSideBar = () => {
     </Box>
   );
 };
+
+export default RightSideBar;
