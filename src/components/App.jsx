@@ -1,4 +1,4 @@
-import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
+
 // import Navigation from './Navigation/Navigation';
 import Login from './Login/Login';
 import Register from './Register/Register';
@@ -19,7 +19,7 @@ import { useDispatch } from 'react-redux';
 
 import { Suspense, useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
@@ -34,9 +34,8 @@ import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 
 import GlobalTablet from './GlobalStylePublic/GlobalTablet';
-
-
 import Calculator from 'pages/Calculator/Calculator';
+import Diary from 'pages/Diary/Diary';
 
 
 export const App = () => {
@@ -46,7 +45,7 @@ export const App = () => {
     dispatch(refreshUser())
       .unwrap()
       .then(() => dispatch(getUser()));
-    
+
   }, [dispatch]);
 
   const isRefreshing = useSelector(getIsRefreshing);
@@ -58,8 +57,8 @@ export const App = () => {
     <b>Refresing user...</b>
   ) : (
     <>
-        <ThemeSwitching>
-          {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
+      <ThemeSwitching>
+        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -94,9 +93,7 @@ export const App = () => {
                 path="diary"
                 element={
                   <PrivateRoute>
-                    <DiaryDateCalendar />
-                    {/* <DiaryProductList /> */}
-                    {/* <RightSideBar /> */}
+                    <Diary/>
                   </PrivateRoute>
                 }
               />

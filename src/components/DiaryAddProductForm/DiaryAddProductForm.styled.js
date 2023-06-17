@@ -1,19 +1,27 @@
 import styled from 'styled-components';
-
+import { BiPlus } from 'react-icons/bi';
+import { breakpoints } from 'components/styles/breakpoints';
 
 export const Form = styled.form`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 60px;
+
   position: relative;
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 280px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 505px;
+    margin-bottom: 60px;
+  }
 `;
 
 export const InputProdName = styled.input`
   border: 0;
   outline: 0;
   border-bottom: 1px solid #e0e0e0;
-  width: 240px;
-  margin-right: 48px;
+
   padding-bottom: 20px;
   height: 38px;
 
@@ -22,6 +30,22 @@ export const InputProdName = styled.input`
   line-height: 120%;
   letter-spacing: 0.04em;
   color: #000;
+  background: transparent;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 150px;
+    margin-right: 15px;
+    font-weight: 400;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 240px;
+    margin-right: 28px;
+    font-weight: 700;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin-right: 48px;
+  }
 
   ::placeholder {
     color: #9b9faa;
@@ -32,8 +56,7 @@ export const InputGrams = styled.input`
   border: 0;
   outline: 0;
   border-bottom: 1px solid #e0e0e0;
-  width: 107px;
-  margin-right: 60px;
+
   padding-bottom: 20px;
   height: 38px;
 
@@ -43,6 +66,22 @@ export const InputGrams = styled.input`
   text-align: right;
   letter-spacing: 0.04em;
   color: #000;
+  background: transparent;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 50px;
+    margin-right: 15px;
+    font-weight: 400;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 107px;
+    margin-right: 87px;
+    font-weight: 700;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin-right: 60px;
+  }
 
   ::placeholder {
     color: #9b9faa;
@@ -57,6 +96,14 @@ export const Button = styled.button`
   color: #fff;
   border: 0;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Plus = styled(BiPlus)`
+  width: 25px;
+  height: auto;
 `;
 
 export const SuggestionsList = styled.ul`
@@ -78,6 +125,7 @@ export const SuggestionsList = styled.ul`
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f0f1f3;
+  
   }
 
   &::-webkit-scrollbar-thumb {
