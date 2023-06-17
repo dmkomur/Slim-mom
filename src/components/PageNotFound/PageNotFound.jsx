@@ -27,17 +27,17 @@ function PageNotFound() {
             <picture>
               <source
                 type="image/avif"
-                media="(min-width: 1200px)"
+                media="(min-width: 1280px)"
                 srcSet={`${strawberry_avif_d} 1x, ${strawberry_avif_d} 2x`}
               />
               <source
                 type="image/webp"
-                media="(min-width: 1200px)"
+                media="(min-width: 1280px)"
                 srcSet={`${strawberry_webp_d} 1x, ${strawberry_webp_d} 2x`}
               />
               <source
                 type="image/png"
-                media="(min-width: 1200px)"
+                media="(min-width: 1280px)"
                 srcSet={`${strawberry_png_d} 1x, ${strawberry_png_d} 2x`}
               />
               <source

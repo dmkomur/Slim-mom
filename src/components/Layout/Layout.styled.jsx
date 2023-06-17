@@ -27,7 +27,7 @@ export const CommonContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding: 20px 32px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding: 80px 16px;
   }
 `;

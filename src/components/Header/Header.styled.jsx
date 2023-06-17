@@ -19,10 +19,13 @@ export const StyledHeader = styled.header`
 export const Nav = styled.div`
   position: absolute;
   top: 80px;
-  left: 0;
+  left: -20px;
   right: 0;
   width: 100vw;
   border-bottom: 2px solid #e0e0e0;
+  @media screen and (min-width: ${tablet}) {
+    left: -32px;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -132,8 +135,8 @@ export const Wrapper = styled.div`
   position: absolute;
   top: 80px;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   background-color: rgba(38, 64, 97, 1);
   z-index: 1;
   @media screen and (min-width: ${desktop}) {
@@ -147,9 +150,9 @@ export const NavigationList = styled.ul`
   height: 488px;
   @media screen and (min-width: ${tablet}) {
     width: 336px;
-height: 112px;
-margin: 100px auto;
-}
+    height: 112px;
+    margin: 100px auto;
+  }
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
@@ -166,13 +169,13 @@ export const NavigationItem = styled.li`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
-  &:hover,
+  /* &:hover,
   &:focus {
     color: #ffffff;
   }
   &:active {
     color: #ffffff;
-  }
+  } */
   @media screen and (min-width: ${desktop}) {
     display: none;
   }
