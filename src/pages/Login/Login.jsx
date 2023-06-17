@@ -16,6 +16,7 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoMdAlert } from 'react-icons/io';
+import GlobalTablet from 'components/GlobalStylePublic/GlobalTablet';
 
 let schema = yup.object({
   password: yup
@@ -45,45 +46,53 @@ function Login() {
     dispatch(logIn(values));
   };
   return (
-    <AuthWrapComponent>
-      <StyledHeaderAuth>Sign in</StyledHeaderAuth>
-      <Formik
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-        initialValues={startValue}
-      >
-        <StyledFormAuth>
-          <StyledWrapInputAuth>
-            <StyledInputAuth type="email" name="email" placeholder=" " />
-            <StyledLabelAuth>Email *</StyledLabelAuth>
-            <ErrorMessage name="email">
-              {m => (
-                <StyledErrorAuth>
-                  <IoMdAlert />
-                  {m}
-                </StyledErrorAuth>
-              )}
-            </ErrorMessage>
-          </StyledWrapInputAuth>
-          <StyledWrapInputAuth>
-            <StyledInputAuth type="password" name="password" placeholder=" " />
-            <StyledLabelAuth>Password *</StyledLabelAuth>
-            <ErrorMessage name="password">
-              {m => (
-                <StyledErrorAuth>
-                  <IoMdAlert />
-                  {m}
-                </StyledErrorAuth>
-              )}
-            </ErrorMessage>
-          </StyledWrapInputAuth>
-          <StyledWrapAuthBtn>
-            <StyledBtnAuthAccent type="submit">Sign in</StyledBtnAuthAccent>
-            {/* <StyledLinkAuth to="/registration">Register</StyledLinkAuth> */}
-          </StyledWrapAuthBtn>
-        </StyledFormAuth>
-      </Formik>
-    </AuthWrapComponent>
+    <>
+      {' '}
+      <GlobalTablet />
+      <AuthWrapComponent>
+        <StyledHeaderAuth>Sign in</StyledHeaderAuth>
+        <Formik
+          onSubmit={handleSubmit}
+          validationSchema={schema}
+          initialValues={startValue}
+        >
+          <StyledFormAuth>
+            <StyledWrapInputAuth>
+              <StyledInputAuth type="email" name="email" placeholder=" " />
+              <StyledLabelAuth>Email *</StyledLabelAuth>
+              <ErrorMessage name="email">
+                {m => (
+                  <StyledErrorAuth>
+                    <IoMdAlert />
+                    {m}
+                  </StyledErrorAuth>
+                )}
+              </ErrorMessage>
+            </StyledWrapInputAuth>
+            <StyledWrapInputAuth>
+              <StyledInputAuth
+                type="password"
+                name="password"
+                placeholder=" "
+              />
+              <StyledLabelAuth>Password *</StyledLabelAuth>
+              <ErrorMessage name="password">
+                {m => (
+                  <StyledErrorAuth>
+                    <IoMdAlert />
+                    {m}
+                  </StyledErrorAuth>
+                )}
+              </ErrorMessage>
+            </StyledWrapInputAuth>
+            <StyledWrapAuthBtn>
+              <StyledBtnAuthAccent type="submit">Sign in</StyledBtnAuthAccent>
+              {/* <StyledLinkAuth to="/registration">Register</StyledLinkAuth> */}
+            </StyledWrapAuthBtn>
+          </StyledFormAuth>
+        </Formik>
+      </AuthWrapComponent>
+    </>
   );
 }
 
