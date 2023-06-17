@@ -1,13 +1,15 @@
 import React from 'react'
 import { Grid } from 'react-loader-spinner'
+import { LoaderStyle } from './Loader.styled'
 
- const Loader = () => {
+const Loader = () => {
+
 	return (
-		<div>
+		<LoaderStyle.LoaderContainer>
 			<Grid
 				height='100'
 				width='100'
-				color='#9114ff'
+				color='#5ba85e'
 				wrapperStyle={{}}
 				wrapperClass=''
 				visible={true}
@@ -16,7 +18,7 @@ import { Grid } from 'react-loader-spinner'
 				barColor=''
 				ariaLabel='circles-with-bar-loading'
 			/>
-		</div>
+		</LoaderStyle.LoaderContainer>
 	)
 }
 export default Loader;
