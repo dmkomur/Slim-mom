@@ -28,7 +28,7 @@ import {
   StyledRadioBtnsBTCaloriesCalc,
   StyledRadioBtnBTCaloriesCalc,
   StyledRadioLabelBTCaloriesCalc,
-  StyledRadioBtnSpanCaloriesCalc
+  StyledRadioBtnSpanCaloriesCalc,
 } from './CalculatorCalorieForm.styled.jsx';
 
 let schema = yup.object({
@@ -166,13 +166,19 @@ function CalculatorCalorieForm() {
             </StyledWrapInputCaloriesCalc>
 
             <div>
-              <StyledLabelBTCaloriesCalc id='typeLabel'>
+              <StyledLabelBTCaloriesCalc id="typeLabel">
                 Blood type *
               </StyledLabelBTCaloriesCalc>
 
-              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType" id='bloodTypeField'>
+              <StyledRadioBtnsBTCaloriesCalc
+                component="div"
+                name="bloodType"
+                id="bloodTypeField"
+              >
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType1">
-                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>1</StyledRadioBtnSpanCaloriesCalc>
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>
+                    1
+                  </StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType1"
@@ -183,7 +189,9 @@ function CalculatorCalorieForm() {
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType2">
-                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>2</StyledRadioBtnSpanCaloriesCalc>
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>
+                    2
+                  </StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType2"
@@ -194,7 +202,9 @@ function CalculatorCalorieForm() {
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType3">
-                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>3</StyledRadioBtnSpanCaloriesCalc>
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>
+                    3
+                  </StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType3"
@@ -205,7 +215,9 @@ function CalculatorCalorieForm() {
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType4">
-                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>4</StyledRadioBtnSpanCaloriesCalc>
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>
+                    4
+                  </StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType4"
@@ -216,7 +228,7 @@ function CalculatorCalorieForm() {
                 </StyledRadioLabelBTCaloriesCalc>
               </StyledRadioBtnsBTCaloriesCalc>
             </div>
-            <BtnWrapCaloriesCalc>
+            <BtnWrapCaloriesCalc id="submitButton">
               <StyledBtnCaloriesCalc type="submit">
                 Start losing weight
               </StyledBtnCaloriesCalc>

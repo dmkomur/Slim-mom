@@ -25,13 +25,15 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   line-height: 1.4;
   letter-spacing: 0em;
   text-transform: none;
+  /* text-align: left; */
+  margin-inline: auto;
 
   color: ${({ theme }) => theme.colors.firstText};
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     width: 520px;
     margin-bottom: 68px;
-
+    margin-inline: 0;
     font-size: 34px;
   }
 
@@ -41,6 +43,10 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
 
 export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
   gap: 16px;
+  /* align-items: flex-start;
+  & #submitButton {
+    align-items: center;
+  } */
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     position: relative;
