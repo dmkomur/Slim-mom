@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as css from './DiaryProductListItem.styled';
 import { dayInfo, deleteProduct } from 'redux/day/day-operations';
 
-function DiaryProductListItem({valueDate}) {
+
+function DiaryProductListItem({ valueDate }) {
   const eatenProducts = useSelector(state => state.day.eatenProducts);
   const dayId = useSelector(state => state.day.id);
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function DiaryProductListItem({valueDate}) {
 
     dispatch(deleteProduct(body))
       .then(() => {
-        dispatch(dayInfo( selectedDate ));
+        dispatch(dayInfo(selectedDate));
       })
       .catch(error => {
         console.log(error);
@@ -41,19 +42,12 @@ function DiaryProductListItem({valueDate}) {
         <css.ListItem key={eaten.id}>
           <css.PName>{eaten.title}</css.PName>{' '}
           <css.PGrame>{eaten.weight} g</css.PGrame>{' '}
-          <css.PKcal>{eaten.kcal.toFixed(0)} kcal</css.PKcal>{' '}
+          <css.PKcal>{eaten.kcal.toFixed(0)} <css.Kcal>kcal</css.Kcal></css.PKcal>{' '}
           <css.Button
             onClick={() => handleDeleteFood(eaten.id, index)}
             type="button"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              fill="none"
-            >
-              <path stroke="#9B9FAA" strokeWidth="2" d="m1 1 12 12M1 13 13 1" />
-            </svg>
+            <css.Close/>
           </css.Button>
         </css.ListItem>
       ))}

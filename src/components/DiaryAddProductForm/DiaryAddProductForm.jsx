@@ -4,6 +4,7 @@ import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
 
+
 function DiaryAddProductForm({ valueDate }) {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
@@ -148,16 +149,7 @@ function DiaryAddProductForm({ valueDate }) {
           onChange={handleGramsChange}
         />
         <css.Button type="submit">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-            style={{ width: '14px', height: '14px' }}
-          >
-            <path
-              fill="#fff"
-              d="M31.36 18.194h-13.166v13.166h-4.389v-13.166h-13.166v-4.389h13.166v-13.166h4.389v13.166h13.166v4.389z"
-            />
-          </svg>
+          <css.Plus />
         </css.Button>
       </css.Form>
     </div>

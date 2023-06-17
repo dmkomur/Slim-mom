@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { breakpoints } from 'components/styles/breakpoints';
 
 export const List = styled.ul`
-  height: 280px;
   overflow-y: auto;
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
+  border: 0;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -16,14 +17,22 @@ export const List = styled.ul`
   &::-webkit-scrollbar-thumb {
     background: #264061;
   }
+
+  @media (min-width: ${breakpoints.mobile}) {
+    height: 250px;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    height: 250px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 280px;
+  }
 `;
 
 
 export const DivStyle = styled.div`
-  height: 280px;
   overflow: hidden;
   position: relative;
-  width: 624px;
 
   &::before {
     content: '';
@@ -34,5 +43,18 @@ export const DivStyle = styled.div`
     height: 20%;
     background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
     pointer-events: none;
+  }
+
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 286px;
+    height: 250px;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    height: 250px;
+    width: 610px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 280px;
+    width: 624px;
   }
 `;

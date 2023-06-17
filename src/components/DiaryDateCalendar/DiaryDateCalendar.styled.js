@@ -53,3 +53,29 @@ export const wrapCalendar = styled.div`
     margin: 147px 0 60px 0;
   }
 `;
+
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
+
+
+export const LeftBlock = styled.div`
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 100%;
+    max-width: 286px;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 100%;
+    max-width: 610px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 750px;
+  }
+`;
+
+   

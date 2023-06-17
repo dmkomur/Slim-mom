@@ -29,29 +29,32 @@ export function DiaryDateCalendar() {
 
   return (
     <>
-      <div>
-        <css.wrapCalendar>
-          <css.viewDate>{value.toLocaleDateString()}</css.viewDate>
-          <css.buttoncc onClick={handleToggleCalendar}>
-            <BsCalendarEvent />
-          </css.buttoncc>
-          {isCalendarOpen && (
-            <css.Calendarep>
-              <Calendar
-                onChange={handleDateChange}
-                value={value}
-                maxDate={
-                  new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
-                }
-                locale="en-EN"
-              />
-            </css.Calendarep>
-          )}
-        </css.wrapCalendar>
-        <DiaryAddProductForm valueDate={exportDate(value)} />
-        <DiaryProductList valueDate={exportDate(value)} />
-      </div>
-      <RightSideBar selectedDate={value} />
+      <css.Flex>
+        <css.LeftBlock>
+          <css.wrapCalendar>
+            <css.viewDate>{value.toLocaleDateString()}</css.viewDate>
+            <css.buttoncc onClick={handleToggleCalendar}>
+              <BsCalendarEvent />
+            </css.buttoncc>
+            {isCalendarOpen && (
+              <css.Calendarep>
+                <Calendar
+                  onChange={handleDateChange}
+                  value={value}
+                  maxDate={
+                    new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
+                  }
+                  locale="en-EN"
+                />
+              </css.Calendarep>
+            )}
+          </css.wrapCalendar>
+          <DiaryAddProductForm valueDate={exportDate(value)} />
+          <DiaryProductList valueDate={exportDate(value)} />
+        </css.LeftBlock>
+        <RightSideBar selectedDate={value} />
+      </css.Flex>
+     
     </>
   );
 }
