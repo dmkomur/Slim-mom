@@ -28,6 +28,7 @@ import {
   StyledRadioBtnsBTCaloriesCalc,
   StyledRadioBtnBTCaloriesCalc,
   StyledRadioLabelBTCaloriesCalc,
+  StyledRadioBtnSpanCaloriesCalc
 } from './CalculatorCalorieForm.styled.jsx';
 
 let schema = yup.object({
@@ -74,6 +75,11 @@ function CalculatorCalorieForm() {
           .then(() => dispatch(calcData(body)))
           .then(() => dispatch(toggleModal(!isModalOpen)));
   };
+
+  const onChangeRadioButton = () => {
+    const bloodTypeLabel = document.querySelector('#typeLabel')
+    bloodTypeLabel.style.color = 'red';
+  }
 
   return (
     <StyledWrapCaloriesCalc>
@@ -160,12 +166,13 @@ function CalculatorCalorieForm() {
             </StyledWrapInputCaloriesCalc>
 
             <div>
-              <StyledLabelBTCaloriesCalc>
+              <StyledLabelBTCaloriesCalc id='typeLabel'>
                 Blood type *
               </StyledLabelBTCaloriesCalc>
 
-              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType">
+              <StyledRadioBtnsBTCaloriesCalc component="div" name="bloodType" id='bloodTypeField'>
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType1">
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>1</StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType1"
@@ -173,10 +180,10 @@ function CalculatorCalorieForm() {
                     name="bloodType"
                     value="1"
                   />
-                  1
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType2">
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>2</StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType2"
@@ -184,10 +191,10 @@ function CalculatorCalorieForm() {
                     name="bloodType"
                     value="2"
                   />
-                  2
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType3">
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>3</StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType3"
@@ -195,10 +202,10 @@ function CalculatorCalorieForm() {
                     name="bloodType"
                     value="3"
                   />
-                  3
                 </StyledRadioLabelBTCaloriesCalc>
 
                 <StyledRadioLabelBTCaloriesCalc htmlFor="bloodType4">
+                  <StyledRadioBtnSpanCaloriesCalc idx={values.bloodType}>4</StyledRadioBtnSpanCaloriesCalc>
                   <StyledRadioBtnBTCaloriesCalc
                     type="radio"
                     id="bloodType4"
@@ -206,7 +213,6 @@ function CalculatorCalorieForm() {
                     name="bloodType"
                     value="4"
                   />
-                  4
                 </StyledRadioLabelBTCaloriesCalc>
               </StyledRadioBtnsBTCaloriesCalc>
             </div>

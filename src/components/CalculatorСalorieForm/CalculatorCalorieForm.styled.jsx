@@ -13,14 +13,13 @@ import {
 import { Field } from 'formik';
 
 export const StyledWrapCaloriesCalc = styled.div`
-  @media screen and (min-width: ${breakpoints.desktop}) {
-    width: 600px;
+  @media screen and (min-width: ${breakpoints.mobile}) and (max-width: 767px) {
+
   }
 `;
 
 export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   width: 280px;
-  margin-top: 32px;
   margin-bottom: 32px;
 
   font-size: 18px;
@@ -31,7 +30,6 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   color: ${({ theme }) => theme.colors.firstText};
 
   @media screen and (min-width: ${breakpoints.tablet}) {
-    margin-top: 100px;
     width: 520px;
     margin-bottom: 68px;
 
@@ -39,7 +37,6 @@ export const StyledHeaderCaloriesCalc = styled(StyledHeaderAuth)`
   }
 
   @media screen and (min-width: ${breakpoints.desktop}) {
-    margin-top: 147px;
   }
 `;
 
@@ -48,6 +45,7 @@ export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
 
   @media screen and (min-width: ${breakpoints.tablet}) {
     position: relative;
+    max-width: 520px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -77,6 +75,10 @@ export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
     & :nth-child(6) {
       order: 6;
     }
+
+    @media screen and (min-width: ${breakpoints.desktop}) {
+    max-width: 600px;
+  }
   }
 `;
 
@@ -127,6 +129,10 @@ export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
 `;
 
 export const StyledLabelBTCaloriesCalc = styled.span`
+  &:has(+ #bloodTypeField label input:checked) {
+    color: #000000;
+    };
+  
   position: relative;
   display: block;
   width: 240px;
@@ -177,6 +183,23 @@ export const StyledRadioBtnsBTCaloriesCalc = styled(Field)`
   }
 `;
 
+export const StyledRadioLabelBTCaloriesCalc = styled.label`
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+
+  font-weight: 400;
+  line-height: 1.21;
+
+  color: #9b9faa;
+
+   &:hover,
+   &:focus {
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.button};
+   }
+`;
+
 export const StyledRadioBtnBTCaloriesCalc = styled.input`
   -webkit-appearance: none;
   appearance: none;
@@ -215,21 +238,17 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
   &:hover {
     box-shadow: 0 0 20px rgba(252, 132, 45, 0.5);
   }
+
+  &:checked:has(#typeLabel) {
+    color: green;
+  }
 `;
 
-export const StyledRadioLabelBTCaloriesCalc = styled.label`
-  display: flex;
-  align-items: center;
-  column-gap: 4px;
-
-  font-weight: 400;
-  line-height: 1.21;
-
-  color: #9b9faa;
-
-  &:hover,
-  &:focus {
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.button};
+export const StyledRadioBtnSpanCaloriesCalc = styled.span`
+  color: ${props =>
+    props.idx == props.children ? props.theme.colors.button : props.theme.colors.secondText
+  };
+  font-weight: ${props =>
+    props.idx == props.children ? '700' : '400'
   }
 `;
