@@ -41,7 +41,7 @@ function DiaryProductListItem({ valueDate }) {
       {eatenProducts.map((eaten, index) => (
         <css.ListItem key={eaten.id}>
           <css.PName>{eaten.title}</css.PName>{' '}
-          <css.PGrame>{eaten.weight} g</css.PGrame>{' '}
+          <css.PGrame>{eaten.weight} <css.Kcal>g</css.Kcal></css.PGrame>{' '}
           <css.PKcal>{eaten.kcal.toFixed(0)} <css.Kcal>kcal</css.Kcal></css.PKcal>{' '}
           <css.Button
             onClick={() => handleDeleteFood(eaten.id, index)}
