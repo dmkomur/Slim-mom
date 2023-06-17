@@ -21,6 +21,7 @@ import {
   // StyledUserInfo,
   StyledLogoMob,
   NavElemnt,
+  StyledNavLinkSupport,
   // StyledUse,
 } from './Header.styled';
 import logoImg from 'images/header/logo-img.svg';
@@ -31,6 +32,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
+import { BsDisplay } from 'react-icons/bs';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
@@ -44,20 +46,25 @@ function Header() {
       <StyledHeader>
         <Nav />
         <StyledLogo>
-          <LogoImg src={logoImg} alt="logo" />
-          <StyledSlimMom>
-            <LogoSlim src={logoSlim} alt="logo" />
-            <LogoMom src={logoMom} alt="logo" />
-          </StyledSlimMom>
-        </StyledLogo>
-        <StyledLogoMob>
-          <LogoImg src={logoImg} alt="logo" />
-          {isUserLogin && (
+          <StyledNavLinkSupport to="/calculator">
+            <LogoImg src={logoImg} alt="logo" />
             <StyledSlimMom>
               <LogoSlim src={logoSlim} alt="logo" />
               <LogoMom src={logoMom} alt="logo" />
             </StyledSlimMom>
-          )}
+          </StyledNavLinkSupport>
+        </StyledLogo>
+        <StyledLogoMob>
+          <StyledNavLinkSupport to="/calculator">
+            {' '}
+            <LogoImg src={logoImg} alt="logo" />
+            {isUserLogin && (
+              <StyledSlimMom>
+                <LogoSlim src={logoSlim} alt="logo" />
+                <LogoMom src={logoMom} alt="logo" />
+              </StyledSlimMom>
+            )}
+          </StyledNavLinkSupport>
         </StyledLogoMob>
         <NavElemnt />
         {/* <StyledNavigation> */}

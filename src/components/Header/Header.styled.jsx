@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { breakpoints } from 'components/styles/breakpoints';
 
-const { tablet, desktop } = breakpoints;
+const { tablet, desktop, mobile } = breakpoints;
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -65,6 +65,12 @@ export const LogoImg = styled.img`
     position: absolute;
     top: -15px;
     left: 0px;
+  }
+  @media screen and (max-width: ${mobile}) {
+    margin-right: 8px;
+  }
+  @media screen and (min-width: ${tablet}) {
+    margin-right: 10px;
   }
 `;
 
@@ -248,6 +254,14 @@ export const StyledUserInfo = styled.div`
     background-color: #EFF1F3; */
 `;
 
+export const StyledNavLinkSupport = styled(NavLink)`
+  @media screen and (min-width: ${mobile}) {
+    display: flex;
+  }
+  @media screen and (min-width: ${desktop}) {
+    display: block;
+  }
+`;
 // @media screen and (min-width: 320px) {}
 
 // @media screen and (min-width: 768px) {}
