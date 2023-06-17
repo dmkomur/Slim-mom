@@ -111,10 +111,14 @@ export const StyledHeaderAuth = styled.h3`
   font-weight: 700;
   margin-bottom: 40px;
   font-size: 14px;
+  text-align: center;
   line-height: 1.21;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.button};
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    text-align: left;
+  }
 `;
 
 export const StyledErrorAuth = styled.div`
@@ -129,4 +133,10 @@ export const StyledErrorAuth = styled.div`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.button};
 `;
-// @media screen and (min-width: ${breakpoints.tablet}) and (max-width: 1279px)
+
+export const AuthWrapComponent = styled.div`
+  padding-top: 40px;
+  @media screen and (min-width: ${breakpoints.tablet}) {
+    padding-top: 150px;
+  }
+`;
