@@ -76,10 +76,10 @@ function CalculatorCalorieForm() {
           .then(() => dispatch(toggleModal(!isModalOpen)));
   };
 
-  const onChangeRadioButton = () => {
-    const bloodTypeLabel = document.querySelector('#typeLabel')
-    bloodTypeLabel.style.color = 'red';
-  }
+  // const onChangeRadioButton = () => {
+  //   const bloodTypeLabel = document.querySelector('#typeLabel')
+  //   bloodTypeLabel.style.color = 'red';
+  // }
 
   return (
     <StyledWrapCaloriesCalc>

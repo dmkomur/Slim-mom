@@ -14,7 +14,6 @@ import { Field } from 'formik';
 
 export const StyledWrapCaloriesCalc = styled.div`
   @media screen and (min-width: ${breakpoints.mobile}) and (max-width: 767px) {
-
   }
 `;
 
@@ -77,8 +76,8 @@ export const StyledFormCaloriesCalc = styled(StyledFormAuth)`
     }
 
     @media screen and (min-width: ${breakpoints.desktop}) {
-    max-width: 600px;
-  }
+      max-width: 600px;
+    }
   }
 `;
 
@@ -131,8 +130,8 @@ export const StyledBtnCaloriesCalc = styled(StyledBtnAuthAccent)`
 export const StyledLabelBTCaloriesCalc = styled.span`
   &:has(+ #bloodTypeField label input:checked) {
     color: #000000;
-    };
-  
+  }
+
   position: relative;
   display: block;
   width: 240px;
@@ -193,11 +192,11 @@ export const StyledRadioLabelBTCaloriesCalc = styled.label`
 
   color: #9b9faa;
 
-   &:hover,
-   &:focus {
+  &:hover,
+  &:focus {
     font-weight: 700;
     color: ${({ theme }) => theme.colors.button};
-   }
+  }
 `;
 
 export const StyledRadioBtnBTCaloriesCalc = styled.input`
@@ -246,9 +245,8 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
 
 export const StyledRadioBtnSpanCaloriesCalc = styled.span`
   color: ${props =>
-    props.idx == props.children ? props.theme.colors.button : props.theme.colors.secondText
-  };
-  font-weight: ${props =>
-    props.idx == props.children ? '700' : '400'
-  }
+    props.idx === props.children
+      ? props.theme.colors.button
+      : props.theme.colors.secondText};
+  font-weight: ${props => (props.idx === props.children ? '700' : '400')};
 `;
