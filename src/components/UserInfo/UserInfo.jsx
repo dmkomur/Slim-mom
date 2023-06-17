@@ -27,16 +27,20 @@ function UserInfo() {
 
   return (
     <StyledUserInfo>
-      <ButtonBack
-        type="buton"
-        onClick={() => {
-          dispatch(toggleModal(!isModalOpen));
-        }}
-      >
-        <StyledSvgBack>
-          <use href={sprite + '#icon-back'}></use>
-        </StyledSvgBack>
-      </ButtonBack>
+      {isModalOpen ? (
+        <ButtonBack
+          type="buton"
+          onClick={() => {
+            dispatch(toggleModal(!isModalOpen));
+          }}
+        >
+          <StyledSvgBack>
+            <use href={sprite + '#icon-back'}></use>
+          </StyledSvgBack>
+        </ButtonBack>
+      ) : (
+        <></>
+      )}
       {isLoggedIn ? (
         <>
           {username && <StyledTitle>{username}</StyledTitle>}

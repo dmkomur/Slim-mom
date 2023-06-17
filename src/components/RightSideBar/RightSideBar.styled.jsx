@@ -4,8 +4,10 @@ export const Box = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 40px 20px 12px 20px;
+  align-items: center;
+  padding: 0px 20px 12px 20px;
   /* background-color: #f0f1f3; */
+  margin-top: 80px;
 
   @media screen and (max-width: 320px) {
     width: 320px;
@@ -19,10 +21,11 @@ export const Box = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 517px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     flex-direction: column;
-    margin-top: -168px;
-    padding: 292px 123px 0 106px;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0px;
   }
 `;
 
@@ -31,9 +34,21 @@ export const BoxList = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 60px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 768px) {
+    &:first-child {
+      margin-right: 97px;
+    }
+  }
   @media screen and (min-width: 1280px) {
     width: 288px;
     height: 178px;
+    &:first-child {
+      margin-right: 0px;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
