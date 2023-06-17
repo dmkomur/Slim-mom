@@ -1,19 +1,9 @@
 import DiaryDateCalendar from './DiaryDateCalendar/DiaryDateCalendar';
-// import Navigation from './Navigation/Navigation';
 import Login from './Login/Login';
 import Register from './Register/Register';
-// import UserInfo from './UserInfo/UserInfo';
-// import Modal from './Modal/Modal';
-// import Header from './Header/Header';
-// import DiaryAddProductForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductList from './DiaryProductList/DiaryProductList';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
-// import CalculatorСalorieForm from './DiaryAddProductForm/DiaryAddProductForm';
-// import DiaryProductListItem from './DiaryProductListItem/DiaryProductListItem';
-// import { Loader } from './components/Loader/Loader';
 import CalculatorCalorieForm from './CalculatorСalorieForm/CalculatorСalorieForm';
-// import { RightSideBar } from './RightSideBar/RightSideBar';
+import DiaryProductList from './DiaryProductList/DiaryProductList';
+import { RightSideBar } from './RightSideBar/RightSideBar';
 
 import { useDispatch } from 'react-redux';
 
@@ -57,7 +47,7 @@ export const App = () => {
         <Suspense>
           <Routes>
             <Route path="/" element={<Layout />}>
-              {/* <Route index element={<CalculatorCalorieForm />} />
+              <Route index element={<CalculatorCalorieForm />} />
               <Route
                 path="registration"
                 element={
@@ -66,7 +56,7 @@ export const App = () => {
                     <Register />
                   </PublicRoute>
                 }
-              /> */}
+              />
               <Route
                 path="login"
                 element={
@@ -76,7 +66,7 @@ export const App = () => {
                   </PublicRoute>
                 }
               />
-              {/* <Route
+              <Route
                 path="calculator"
                 element={
                   <PrivateRoute>
@@ -89,12 +79,12 @@ export const App = () => {
                 element={
                   <PrivateRoute>
                     <DiaryDateCalendar />
-                    <DiaryProductList /> 
-                    <RightSideBar />
+                    <DiaryProductList />
+                    {/* <RightSideBar /> */}
                   </PrivateRoute>
                 }
               />
-              <Route path="*" element={<PageNotFound />} /> */}
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
         </Suspense>
