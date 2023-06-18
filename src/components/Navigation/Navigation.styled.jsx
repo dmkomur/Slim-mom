@@ -32,11 +32,17 @@ export const NavigationItem = styled.li`
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
-  text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.secondText};
-  /* &:hover,
+
+  @media screen and (min-width: ${tablet}) {
+    &:last-child {
+      display: flex;
+      wrap: nowrap;
+      align-items: center;
+    }
+  } /* &:hover,
   &:focus {
     color: #ffffff;
   }

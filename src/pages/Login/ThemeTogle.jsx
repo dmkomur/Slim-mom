@@ -1,11 +1,14 @@
-import { ThemeContainer } from './ThemeSwitching.styled';
-import { Checkbox } from './ThemeSwitching.styled';
-import { Ball } from './ThemeSwitching.styled';
+import {
+  TogleSwitch,
+  StyledTogleLable,
+  StyledInput,
+  StyledThemeSpan,
+} from './ThemeTogle.styled';
 import { getCheck, getTheme } from 'redux/theme/theme-selectors';
 import { changeCheck, changeTheme } from 'redux/theme/theme-reducer.js';
 import { useDispatch, useSelector } from 'react-redux';
 
-export function ThemeSwitcher() {
+export const ThemeTogle = () => {
   const checked = useSelector(getCheck);
   const selectedTheme = useSelector(getTheme);
   const dispatch = useDispatch();
@@ -20,14 +23,16 @@ export function ThemeSwitcher() {
     localStorage.setItem('theme', newTheme);
   };
   return (
-    <ThemeContainer>
-      <Checkbox
-        type="checkbox"
-        checked={checked}
-        value={checked}
-        onChange={HandleThemeChange}
-      />
-      <Ball></Ball>
-    </ThemeContainer>
+    <TogleSwitch>
+      <StyledTogleLable>
+        <StyledInput
+          type="checkbox"
+          checked={checked}
+          value={checked}
+          onChange={HandleThemeChange}
+        />
+        <StyledThemeSpan></StyledThemeSpan>
+      </StyledTogleLable>
+    </TogleSwitch>
   );
-}
+};
