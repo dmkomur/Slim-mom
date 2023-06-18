@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, lazy } from 'react';
+import { useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
