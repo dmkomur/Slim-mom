@@ -41,7 +41,7 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route
-              path="registration"
+              path="/registration"
               element={
                 <PublicRoute restricted>
                   <Register />
@@ -49,7 +49,7 @@ export const App = () => {
               }
             />
             <Route
-              path="login"
+              path="/login"
               element={
                 <PublicRoute restricted>
                   <Login />
@@ -57,7 +57,7 @@ export const App = () => {
               }
             />
             <Route
-              path="calculator"
+              path="/calculator"
               element={
                 <PrivateRoute>
                   <Calculator />
@@ -65,7 +65,7 @@ export const App = () => {
               }
             />
             <Route
-              path="diary"
+              path="/diary"
               element={
                 <PrivateRoute>
                   <Diary />
