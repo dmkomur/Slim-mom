@@ -95,7 +95,8 @@ export const LogoSlim = styled.svg`
 
 export const LogoMom = styled.svg`
   max-width: 52.51px;
-  height: 15.41px;
+  margin-bottom: -2px;
+  height: 16px;
   fill: ${({ theme }) => theme.colors.button};
 `;
 

@@ -10,6 +10,7 @@ export const StyledInputAuth = styled(Field)`
   padding: 20px 0px;
   background-color: transparent;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: ${({ theme }) => theme.colors.inputText};
   &:focus {
     outline: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.borderActive};
@@ -55,7 +56,7 @@ export const StyledBtnAuthAccent = styled.button`
   transition: background-color 250ms linear;
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.colors.shadowButtonHover};
+    background-color: ${({ theme }) => theme.colors.buttonHover};
   }
 `;
 export const StyledLinkAuth = styled(Link)`

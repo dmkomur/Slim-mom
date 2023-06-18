@@ -137,7 +137,7 @@ export const StyledLabelBTCaloriesCalc = styled.span`
   &:has(+ #bloodTypeField label input:checked) {
     color: ${({ theme }) => theme.colors.firstText};
   }
-
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   display: block;
   width: 240px;
@@ -201,7 +201,7 @@ export const StyledRadioLabelBTCaloriesCalc = styled.label`
   &:hover,
   &:focus {
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.button};
+    color: ${({ theme }) => theme.colors.inputText};
   }
 `;
 
@@ -228,7 +228,7 @@ export const StyledRadioBtnBTCaloriesCalc = styled.input`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    box-shadow: inset 14px 14px #fc842d;
+    box-shadow: inset 14px 14px ${({ theme }) => theme.colors.button};
 
     background-color: CanvasText;
 
