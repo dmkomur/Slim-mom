@@ -124,10 +124,14 @@ function Header() {
                 <LanguageBar />
               </NavigationItem>
               <NavigationItem>
-                <NavItem to="/diary">Diary</NavItem>
+                <NavItem to="/diary" onClick={openHandler}>
+                  Diary
+                </NavItem>
               </NavigationItem>
               <NavigationItem>
-                <NavItem to="/calculator">Calculator</NavItem>
+                <NavItem to="/calculator" onClick={openHandler}>
+                  Calculator
+                </NavItem>
               </NavigationItem>
             </NavigationList>
           </Wrapper>

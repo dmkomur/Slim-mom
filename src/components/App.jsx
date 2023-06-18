@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, lazy } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -38,44 +38,47 @@ export const App = () => {
     <>
       <ThemeSwitching>
         {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="/registration"
-              element={
-                <PublicRoute restricted>
-                  <Register />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute restricted>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/calculator"
-              element={
-                <PrivateRoute>
-                  <Calculator />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/diary"
-              element={
-                <PrivateRoute>
-                  <Diary />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          {' '}
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route
+                path="/registration"
+                element={
+                  <PublicRoute restricted>
+                    <Register />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute restricted>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/calculator"
+                element={
+                  <PrivateRoute>
+                    <Calculator />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/diary"
+                element={
+                  <PrivateRoute>
+                    <Diary />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </ThemeSwitching>
     </>
   );
