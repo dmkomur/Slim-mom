@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from 'components/styles/breakpoints';
-const { tablet, desktop } = breakpoints;
+const { tablet } = breakpoints;
 // export const TogleSwitch = styled.div`
 //   position: relative;
 //   width: 200px;
