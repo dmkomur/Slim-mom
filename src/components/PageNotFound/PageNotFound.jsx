@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   PageNotFd,
   StyledHeader,
@@ -18,6 +19,8 @@ import strawberry_avif_t from 'img/main-strawberry-tablet@2x-min.avif';
 
 // const root = createRoot(document.getElementById('root'));
 function PageNotFound() {
+  const lang = useSelector(state => state.auth.lang);
+
   return (
     <PageNotFd>
       <StyledHeader>
@@ -93,12 +96,10 @@ function PageNotFound() {
         </li>
         <li>4</li>
       </StyledHeader>
-      <StyledLine>Page not found...</StyledLine>
+      <StyledLine>{lang.notFoundTitle}</StyledLine>
       <div className="container">
         <p className="text">
-          <StyledText>
-            Sorry, the page you're looking for cannot be accessed
-          </StyledText>
+          <StyledText>{lang.notFoundText}</StyledText>
         </p>
       </div>
     </PageNotFd>

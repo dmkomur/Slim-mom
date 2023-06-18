@@ -20,7 +20,7 @@ import { themeSlice } from './theme/theme-reducer';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['refreshToken', 'sid', 'accessToken'],
+  whitelist: ['refreshToken', 'sid', 'accessToken', 'lang'],
 };
 
 // Persisting token field from auth slice to localstorage
