@@ -49,7 +49,7 @@ export const dark = {
     shadowButton: 'rgba(255,107,0,0.75)',
     shadowButtonHover: 'rgba(203,86,0,0.3)',
 
-    inputText: '#202025',
+    inputText: '#EE4A10',
     borderInput: 'rgba(236,236,236,0.3)',
     borderLight: 'rgba(255, 219, 193, 0.5)',
     borderActive: '#DDDDDD',
@@ -61,7 +61,7 @@ export const dark = {
       'linear-gradient(180deg, rgba(54,54,58,1) 68%, rgba(74,74,77,1) 68%)',
     background: '#36363A',
     backroundSecond: '#5F5F5F',
-    backroundBurger: '#4672AA',
+    backroundBurger: '#36363A',
     backgroundMobile: '#737373',
     backgroundModal: 'rgba( 188, 188, 188, 0.12)',
 
