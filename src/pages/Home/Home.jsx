@@ -17,7 +17,7 @@ function Home() {
   const width = useWidth();
 
   return (
-    <Suspense fallback={<Loader />}>
+    // <Suspense fallback={<Loader />}>
       <Box>
         {isModalOpen && width <= 768 ? (
           <Recommendations />
@@ -25,7 +25,7 @@ function Home() {
           <CalculatorCalorieForm />
         )}
       </Box>
-    </Suspense>
+    // </Suspense>
   );
 }
 

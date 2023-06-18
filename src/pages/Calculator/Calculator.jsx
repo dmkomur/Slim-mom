@@ -30,7 +30,7 @@ function Calculator() {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    // <Suspense fallback={<Loader />}>
       <Box>
         {isModalOpen && width <= 768 ? (
           <Recommendations />
@@ -47,7 +47,7 @@ function Calculator() {
           </>
         )}
       </Box>
-    </Suspense>
+    // </Suspense>
   );
 }
 export default Calculator;

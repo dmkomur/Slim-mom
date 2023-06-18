@@ -10,9 +10,9 @@ export const Layout = () => {
       <CommonContainer>
         <Header />
         <main>
-          <Suspense fallback={<Loader />}>
+          {/* <Suspense fallback={<Loader />}> */}
             <Outlet />
-          </Suspense>
+          {/* </Suspense> */}
         </main>
       </CommonContainer>
     </>
