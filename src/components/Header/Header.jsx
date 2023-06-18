@@ -39,6 +39,7 @@ function Header() {
   const [isOpen, setOpen] = useState(false);
   const { isLoggedIn } = useAuth();
   const isUserLogin = useSelector(getIsLoggedIn);
+  const lang = useSelector(state => state.auth.lang);
   const selectedTheme = useSelector(getTheme);
   const openHandler = () => {
     setOpen(!isOpen);
@@ -125,12 +126,12 @@ function Header() {
               </NavigationItem>
               <NavigationItem>
                 <NavItem to="/diary" onClick={openHandler}>
-                  Diary
+                  {lang.diary}
                 </NavItem>
               </NavigationItem>
               <NavigationItem>
                 <NavItem to="/calculator" onClick={openHandler}>
-                  Calculator
+                  {lang.calculator}
                 </NavItem>
               </NavigationItem>
             </NavigationList>
