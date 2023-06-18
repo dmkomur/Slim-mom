@@ -62,8 +62,8 @@ export const ListTitle = styled.p`
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #212121;
-  text-align: start;
+  color: ${({ theme }) => theme.colors.firstText};
+  text-align: center;
   margin-bottom: 30px;
 `;
 
