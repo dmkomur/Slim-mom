@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -12,14 +12,14 @@ import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Loader from './Loader/Loader';
-import Login from 'pages/Login';
+// import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Home from 'pages/Home';
 import Calculator from 'pages/Calculator';
 import Diary from 'pages/Diary';
 import PageNotFound from './PageNotFound/PageNotFound';
 
-// const Login = lazy(() => import('pages/Login'));
+const Login = lazy(() => import('pages/Login'));
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
