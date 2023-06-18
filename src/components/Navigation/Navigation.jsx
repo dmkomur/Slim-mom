@@ -14,6 +14,7 @@ import {
 } from './Navigation.styled';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
+import LanguageBar from 'components/LanguageBar/LanguageBar';
 
 function Navigation() {
   const isUserLogin = useSelector(getIsLoggedIn);
@@ -28,13 +29,16 @@ function Navigation() {
             <NavigationLogin>
               <NavigationList>
                 <NavigationItem>
-                  <NavItem to="login">Sign In</NavItem>
+                  <NavItem to="/login">Sign In</NavItem>
                 </NavigationItem>
                 <NavigationItem>
-                  <NavItem to="registration">Sign Up</NavItem>
+                  <NavItem to="/registration">Sign Up</NavItem>
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeSwitcher />
+                </NavigationItem>
+                <NavigationItem>
+                  <LanguageBar />
                 </NavigationItem>
               </NavigationList>
             </NavigationLogin>
@@ -45,13 +49,16 @@ function Navigation() {
             <NavigationListDiary>
               <NavigationList>
                 <NavigationItem>
-                  <NavItem to="diary">Diary</NavItem>
+                  <NavItem to="/diary">Diary</NavItem>
                 </NavigationItem>
                 <NavigationItem>
-                  <NavItem to="calculator">Calculator</NavItem>
+                  <NavItem to="/calculator">Calculator</NavItem>
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeSwitcher />
+                </NavigationItem>
+                <NavigationItem>
+                  <LanguageBar />
                 </NavigationItem>
               </NavigationList>
             </NavigationListDiary>

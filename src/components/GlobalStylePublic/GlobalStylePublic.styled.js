@@ -91,8 +91,8 @@ body{
       url(${LiniaTablet2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-        background-size: 531px 602px, 330px 330px, 740px 527px;
-        background-position: bottom -35em left 0em, bottom -22em right 0em, bottom -40em right -20em, bottom -40em right 0em;
+        background-size: 608px 496px, 370px 370px, 750px 550px,602px 760px;
+        background-position: left -2em bottom 1em, right -1em bottom 13em, right -16em bottom -7em, right -2em bottom -12em;
    } 
 
 
@@ -124,8 +124,8 @@ body{
       url(${LiniaDesktop2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-    background-size: 746px 846px, 370px 370px, 700px 500px, 602px 816px;
-    background-position: right 15em top 0em, top 35em right 0em , top -5em right -15em, right 0em top 3em ;
+    background-size: 760px 760px, 360px 360px, 700px 500px, 602px 816px;
+    background-position: right 15em bottom 6em, right 3em bottom 3em, right -15em bottom 30em, right 0em bottom 0em;
   }
 
 }`;

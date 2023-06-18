@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 80px;
+  /* height: 80px; */
   position: relative;
   @media screen and (min-width: ${desktop}) {
     justify-content: flex-start;
@@ -18,7 +18,7 @@ export const StyledHeader = styled.header`
 `;
 export const Nav = styled.div`
   position: absolute;
-  top: 80px;
+  top: 59px;
   left: -20px;
   right: 0;
   width: 100vw;
@@ -63,7 +63,7 @@ export const LogoImg = styled.img`
     max-width: 70.25px;
     height: 66px;
     position: absolute;
-    top: -15px;
+    top: -37px;
     left: 0px;
   }
   @media screen and (max-width: ${mobile}) {
@@ -87,14 +87,16 @@ export const StyledSlimMom = styled.div`
   }
 `;
 
-export const LogoSlim = styled.img`
+export const LogoSlim = styled.svg`
   max-width: 47.2px;
   height: 16px;
+  fill: ${({ theme }) => theme.colors.firstText};
 `;
 
-export const LogoMom = styled.img`
+export const LogoMom = styled.svg`
   max-width: 52.51px;
   height: 15.41px;
+  fill: ${({ theme }) => theme.colors.button};
 `;
 
 export const StyledLogoMob = styled.div`
@@ -142,7 +144,7 @@ export const NavElemnt = styled.div`
 // `;
 export const Wrapper = styled.div`
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: -20px;
   width: 100vw;
   height: 100vh;
@@ -177,7 +179,7 @@ export const NavigationItem = styled.li`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
   /* &:hover,
   &:focus {
     color: #ffffff;
@@ -201,13 +203,15 @@ export const NavItem = styled(NavLink)`
   text-transform: uppercase;
   cursor: pointer;
 
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
   &:hover,
   &:focus {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  &:active {
-    color: #ffffff;
+  &.active {
+    color: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   @media screen and (min-width: ${desktop}) {
     display: none;
@@ -234,15 +238,25 @@ export const ButtonBurger = styled.button`
 export const StyledSvgBurger = styled.svg`
   width: 18px;
   height: 12px;
-  fill: rgba(33, 33, 33, 1);
-  stroke: rgba(33, 33, 33, 1);
+  fill: ${({ theme }) => theme.colors.firstText};
+  stroke: ${({ theme }) => theme.colors.firstText};
+  &:hover,
+  &:focus {
+    fill: ${({ theme }) => theme.colors.button};
+    stroke: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const StyledSvgClose = styled.svg`
   width: 12px;
   height: 12px;
-  fill: rgba(33, 33, 33, 1);
-  stroke: rgba(33, 33, 33, 1);
+  fill: ${({ theme }) => theme.colors.firstText};
+  stroke: ${({ theme }) => theme.colors.firstText};
+  &:hover,
+  &:focus {
+    fill: ${({ theme }) => theme.colors.button};
+    stroke: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const StyledUserInfo = styled.div`

@@ -54,19 +54,17 @@ export const wrapCalendar = styled.div`
   }
 `;
 
-
 export const Flex = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
 
-
-
 export const LeftBlock = styled.div`
   @media (min-width: ${breakpoints.mobile}) {
     width: 100%;
     max-width: 286px;
+    margin-top: 50px;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -77,5 +75,3 @@ export const LeftBlock = styled.div`
     width: 750px;
   }
 `;
-
-   

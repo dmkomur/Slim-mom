@@ -1,26 +1,25 @@
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
-import Home from 'pages/Home/Home';
-
-import { useDispatch } from 'react-redux';
-
-import { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, lazy } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
-import PageNotFound from './PageNotFound/PageNotFound';
-
 import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
 import { getIsRefreshing } from 'redux/auth/auth-selectors';
 import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
-import Calculator from 'pages/Calculator/Calculator';
-import Diary from 'pages/Diary/Diary';
+import Loader from './Loader/Loader';
+// import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Home from 'pages/Home';
+import Calculator from 'pages/Calculator';
+import Diary from 'pages/Diary';
+import PageNotFound from './PageNotFound/PageNotFound';
+
+const Login = lazy(() => import('pages/Login'));
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -34,51 +33,49 @@ export const App = () => {
   const isRefreshing = useSelector(getIsRefreshing);
 
   return isRefreshing ? (
-    <b>Refresing user...</b>
+    <Loader />
   ) : (
     <>
       <ThemeSwitching>
         {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
-        <Suspense>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route
-                path="registration"
-                element={
-                  <PublicRoute restricted>
-                    <Register />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <PublicRoute restricted>
-                    <Login />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="calculator"
-                element={
-                  <PrivateRoute>
-                    <Calculator />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="diary"
-                element={
-                  <PrivateRoute>
-                    <Diary />
-                  </PrivateRoute>
-                }
-              />
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="/registration"
+              element={
+                <PublicRoute restricted>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/calculator"
+              element={
+                <PrivateRoute>
+                  <Calculator />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/diary"
+              element={
+                <PrivateRoute>
+                  <Diary />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
       </ThemeSwitching>
     </>
   );

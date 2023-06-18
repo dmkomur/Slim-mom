@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
+import { useWidth } from 'hooks/useWidth';
+import { toggleModal } from 'redux/modal/modal-reducer';
 
-
-function DiaryAddProductForm({ valueDate }) {
+function DiaryAddProductForm({ valueDate, openMobileForm }) {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
   const [weight, setWeight] = useState('');
@@ -15,6 +16,7 @@ function DiaryAddProductForm({ valueDate }) {
   const suggestionsListRef = useRef(null);
   let selectedDate = useMemo(() => ({ date: valueDate }), [valueDate]);
   const searchTimeoutRef = useRef(null);
+  const width = useWidth();
 
   useEffect(() => {
     dispatch(dayInfo(selectedDate));
@@ -75,17 +77,32 @@ function DiaryAddProductForm({ valueDate }) {
     setSuggestedProducts([]);
   };
 
-  // const handleProductNameChange = debounce(async e => {
-  //   const query = e.target.value;
-  //   if (query === '') {
-  //     setProductName('');
-  //     setSuggestedProducts([]);
-  //     return;
-  //   }
-  //   setProductName(query);
-  //   const suggestions = await productSearch(query);
-  //   setSuggestedProducts(suggestions);
-  // }, 300);
+  const onSubmitMobile = e => {
+    e.preventDefault();
+
+    if (!productName && !weight) {
+      return;
+    }
+
+    const body = {
+      date: valueDate,
+      productId,
+      weight,
+    };
+    console.log(body);
+    dispatch(postProduct(body))
+      .then(() => {
+        dispatch(dayInfo(selectedDate));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    setProductName('');
+    setWeight('');
+    setSuggestedProducts([]);
+    dispatch(toggleModal(false));
+    // setOpenMobileForm(false);
+  };
 
   const handleProductNameChange = e => {
     const query = e.target.value;
@@ -111,7 +128,6 @@ function DiaryAddProductForm({ valueDate }) {
     setProductName(product.title.ua);
     setIdProduct(product._id);
     setSuggestedProducts([]);
-    console.log(product);
   };
 
   const handleGramsChange = e => {
@@ -120,39 +136,86 @@ function DiaryAddProductForm({ valueDate }) {
     setWeight(numericValue);
   };
 
+  const handleAddForm = () => {
+    dispatch(toggleModal(true));
+    // setOpenMobileForm(true);
+    console.log(openMobileForm);
+  };
+
   return (
-    <div>
-      <css.Form action="" onSubmit={onSubmit}>
-        <css.InputProdName
-          type="text"
-          placeholder="Enter product name"
-          value={productName}
-          onChange={handleProductNameChange}
-          ref={inputRef}
-        />
-        {suggestedProducts && suggestedProducts.length > 0 && (
-          <css.SuggestionsList ref={suggestionsListRef}>
-            {suggestedProducts.map(product => (
-              <css.SuggestionItem
-                key={product._id}
-                onClick={() => handleProductSelect(product)}
-              >
-                {product.title.ua}
-              </css.SuggestionItem>
-            ))}
-          </css.SuggestionsList>
-        )}
-        <css.InputGrams
-          type="text"
-          placeholder="Grams"
-          value={weight}
-          onChange={handleGramsChange}
-        />
-        <css.Button type="submit">
-          <css.Plus />
-        </css.Button>
-      </css.Form>
-    </div>
+    <>
+      {openMobileForm ? (
+        <>
+          <css.Form action="" onSubmit={onSubmitMobile}>
+            <css.InputProdName
+              type="text"
+              placeholder="Enter product name"
+              value={productName}
+              onChange={handleProductNameChange}
+              ref={inputRef}
+            />
+            {suggestedProducts && suggestedProducts.length > 0 && (
+              <css.SuggestionsList ref={suggestionsListRef}>
+                {suggestedProducts.map(product => (
+                  <css.SuggestionItem
+                    key={product._id}
+                    onClick={() => handleProductSelect(product)}
+                  >
+                    {product.title.ua}
+                  </css.SuggestionItem>
+                ))}
+              </css.SuggestionsList>
+            )}
+            <css.InputGrams
+              type="text"
+              placeholder="Grams"
+              value={weight}
+              onChange={handleGramsChange}
+            />
+            <css.Button type="submit">Add</css.Button>
+          </css.Form>
+        </>
+      ) : (
+        <div>
+          {width < 768 ? (
+            <css.Button type="button" onClick={handleAddForm}>
+              <css.Plus />
+            </css.Button>
+          ) : (
+            <css.Form action="" onSubmit={onSubmit}>
+              <css.InputProdName
+                type="text"
+                placeholder="Enter product name"
+                value={productName}
+                onChange={handleProductNameChange}
+                ref={inputRef}
+              />
+              {suggestedProducts && suggestedProducts.length > 0 && (
+                <css.SuggestionsList ref={suggestionsListRef}>
+                  {suggestedProducts.map(product => (
+                    <css.SuggestionItem
+                      key={product._id}
+                      onClick={() => handleProductSelect(product)}
+                    >
+                      {product.title.ua}
+                    </css.SuggestionItem>
+                  ))}
+                </css.SuggestionsList>
+              )}
+              <css.InputGrams
+                type="text"
+                placeholder="Grams"
+                value={weight}
+                onChange={handleGramsChange}
+              />
+              <css.Button type="submit">
+                <css.Plus />
+              </css.Button>
+            </css.Form>
+          )}
+        </div>
+      )}
+    </>
   );
 }
 

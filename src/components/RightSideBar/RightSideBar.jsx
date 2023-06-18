@@ -16,12 +16,13 @@ import { getDaySummary } from 'redux/day/day-selectors';
 import { getNotAllowedProducts } from 'redux/auth/auth-selectors';
 import { nanoid } from 'nanoid';
 
-export const RightSideBar = () => {
+const RightSideBar = () => {
   const daySummary = useSelector(getDaySummary);
   const notAllowedProducts = useSelector(getNotAllowedProducts);
-  const normalizedSelectedDate = new Date(daySummary?.date)
-    .toLocaleString()
-    .slice(0, 10);
+
+  const normalizedSelectedDate = new Date(daySummary?.date || new Date())
+    .toISOString()
+    .split('T')[0];
 
   return (
     <Box>
@@ -82,3 +83,5 @@ export const RightSideBar = () => {
     </Box>
   );
 };
+
+export default RightSideBar;
