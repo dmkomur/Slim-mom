@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dayInfo, postProduct } from '../../redux/day/day-operations';
 import productSearch from '../../utils/productsSearch';
 import * as css from './DiaryAddProductForm.styled.js';
@@ -17,6 +17,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
   let selectedDate = useMemo(() => ({ date: valueDate }), [valueDate]);
   const searchTimeoutRef = useRef(null);
   const width = useWidth();
+  const lang = useSelector(state => state.auth.lang);
 
   useEffect(() => {
     dispatch(dayInfo(selectedDate));
@@ -149,7 +150,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
           <css.Form action="" onSubmit={onSubmitMobile}>
             <css.InputProdName
               type="text"
-              placeholder="Enter product name"
+              placeholder={lang.placeholderProductName}
               value={productName}
               onChange={handleProductNameChange}
               ref={inputRef}
@@ -168,7 +169,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
             )}
             <css.InputGrams
               type="text"
-              placeholder="Grams"
+              placeholder={lang.placeholderProductWeight}
               value={weight}
               onChange={handleGramsChange}
             />
@@ -185,7 +186,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
             <css.Form action="" onSubmit={onSubmit}>
               <css.InputProdName
                 type="text"
-                placeholder="Enter product name"
+                placeholder={lang.placeholderProductName}
                 value={productName}
                 onChange={handleProductNameChange}
                 ref={inputRef}
@@ -204,7 +205,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
               )}
               <css.InputGrams
                 type="text"
-                placeholder="Grams"
+                placeholder={lang.placeholderProductWeight}
                 value={weight}
                 onChange={handleGramsChange}
               />
