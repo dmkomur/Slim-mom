@@ -29,10 +29,10 @@ function Navigation() {
             <NavigationLogin>
               <NavigationList>
                 <NavigationItem>
-                  <NavItem to="login">Sign In</NavItem>
+                  <NavItem to="/login">Sign In</NavItem>
                 </NavigationItem>
                 <NavigationItem>
-                  <NavItem to="registration">Sign Up</NavItem>
+                  <NavItem to="/registration">Sign Up</NavItem>
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeSwitcher />
@@ -49,10 +49,10 @@ function Navigation() {
             <NavigationListDiary>
               <NavigationList>
                 <NavigationItem>
-                  <NavItem to="diary">Diary</NavItem>
+                  <NavItem to="/diary">Diary</NavItem>
                 </NavigationItem>
                 <NavigationItem>
-                  <NavItem to="calculator">Calculator</NavItem>
+                  <NavItem to="/calculator">Calculator</NavItem>
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeSwitcher />

@@ -116,10 +116,10 @@ function Header() {
                 <LanguageBar />
               </NavigationItem>
               <NavigationItem>
-                <NavItem to="diary">Diary</NavItem>
+                <NavItem to="/diary">Diary</NavItem>
               </NavigationItem>
               <NavigationItem>
-                <NavItem to="calculator">Calculator</NavItem>
+                <NavItem to="/calculator">Calculator</NavItem>
               </NavigationItem>
             </NavigationList>
           </Wrapper>
