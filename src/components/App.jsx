@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -12,13 +12,12 @@ import { useAuth } from 'hooks';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Loader from './Loader/Loader';
-
-const Login = lazy(() => import('../pages/Login/Login'));
-const Register = lazy(() => import('../pages/Register/Register'));
-const Home = lazy(() => import('pages/Home/Home'));
-const Calculator = lazy(() => import('pages/Calculator/Calculator'));
-const Diary = lazy(() => import('pages/Diary/Diary'));
-const PageNotFound = lazy(() => import('./PageNotFound/PageNotFound'));
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Home from 'pages/Home';
+import Calculator from 'pages/Calculator';
+import Diary from 'pages/Diary';
+import PageNotFound from './PageNotFound/PageNotFound';
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
