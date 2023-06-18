@@ -49,7 +49,7 @@ const { tablet } = breakpoints;
 
 export const TogleSwitch = styled.div`
   position: relative;
-  width: 40px;
+  width: 36px;
   height: 20px;
   margin-bottom: 5px;
   @media screen and (min-width: ${tablet}) {
@@ -73,7 +73,7 @@ export const StyledInput = styled.input`
     background-color: ${({ theme }) => theme.colors.button};
   }
   &:checked ~ span::before {
-    transform: translateX(20px);
+    transform: translateX(16px);
     background-color: ${({ theme }) => theme.colors.borderActive};
     box-shadow: none;
   }
@@ -93,7 +93,7 @@ export const StyledThemeSpan = styled.span`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    box-shadow: inset 5px -2px 0px 0px ${({ theme }) => theme.colors.button};
+    box-shadow: inset 6px -1px 0px 0px ${({ theme }) => theme.colors.button};
     background-color: ${({ theme }) => theme.colors.borderActive};
     transition: 0.3s;
   }

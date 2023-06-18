@@ -26,7 +26,7 @@ export const logIn = createAsyncThunk(
     try {
       const user = await instance.post('/auth/login', body);
       setToken(user.data.accessToken);
-      toast.success(`Hello ${user.data.user.username}`);
+      toast.success(`Hello, ${user.data.user.username}`);
       return user.data;
     } catch (error) {
       toast.warn(
