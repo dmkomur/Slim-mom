@@ -21,18 +21,12 @@ export const ThemeSwitching = ({ children }) => {
     }
   }, [dispatch]);
 
-
-
   const HandleThemeChoose = () => {
     return selectedTheme === 'dark' ? dark : light;
   };
-  return (
-    <ThemeProvider theme={HandleThemeChoose}>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={HandleThemeChoose}>{children}</ThemeProvider>;
 };
 
 ThemeSwitching.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.element.isRequired,
 };
