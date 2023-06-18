@@ -34,49 +34,46 @@ export const App = () => {
 
   return (
     <>
-      <ThemeSwitching>
-        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route
-                path="/registration"
-                element={
-                  <PublicRoute restricted>
-                    <Register />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <PublicRoute restricted>
-                    <Login />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/calculator"
-                element={
-                  <PrivateRoute>
-                    <Calculator />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="/diary"
-                element={
-                  <PrivateRoute>
-                    <Diary />
-                  </PrivateRoute>
-                }
-              />
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ThemeSwitching>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="/registration"
+              element={
+                <PublicRoute restricted>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/calculator"
+              element={
+                <PrivateRoute>
+                  <Calculator />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/diary"
+              element={
+                <PrivateRoute>
+                  <Diary />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 };
