@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
 import {
   StyledInputAuth,
@@ -36,6 +36,7 @@ let schema = yup.object({
 
 function Login() {
   const dispatch = useDispatch();
+  const lang = useSelector(state => state.auth.lang);
   const startValue = {
     email: '',
     password: '',
@@ -49,7 +50,7 @@ function Login() {
     <>
       <GlobalTablet />
       <AuthWrapComponent>
-        <StyledHeaderAuth>Sign in</StyledHeaderAuth>
+        <StyledHeaderAuth>{lang.login}</StyledHeaderAuth>
         <Formik
           onSubmit={handleSubmit}
           validationSchema={schema}
@@ -58,7 +59,7 @@ function Login() {
           <StyledFormAuth>
             <StyledWrapInputAuth>
               <StyledInputAuth type="email" name="email" placeholder=" " />
-              <StyledLabelAuth>Email *</StyledLabelAuth>
+              <StyledLabelAuth>{lang.emailPlaceholder}</StyledLabelAuth>
               <ErrorMessage name="email">
                 {m => (
                   <StyledErrorAuth>
@@ -74,7 +75,7 @@ function Login() {
                 name="password"
                 placeholder=" "
               />
-              <StyledLabelAuth>Password *</StyledLabelAuth>
+              <StyledLabelAuth>{lang.passwordPlaceholder}</StyledLabelAuth>
               <ErrorMessage name="password">
                 {m => (
                   <StyledErrorAuth>
@@ -85,7 +86,9 @@ function Login() {
               </ErrorMessage>
             </StyledWrapInputAuth>
             <StyledWrapAuthBtn>
-              <StyledBtnAuthAccent type="submit">Sign in</StyledBtnAuthAccent>
+              <StyledBtnAuthAccent type="submit">
+                {lang.login}
+              </StyledBtnAuthAccent>
               {/* <StyledLinkAuth to="/registration">Register</StyledLinkAuth> */}
             </StyledWrapAuthBtn>
           </StyledFormAuth>
