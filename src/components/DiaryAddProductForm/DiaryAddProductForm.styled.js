@@ -18,6 +18,10 @@ export const Form = styled.form`
   @media (min-width: ${breakpoints.tablet}) {
     width: 505px;
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+  
   }
 `;
 
@@ -50,6 +54,7 @@ export const InputProdName = styled.input`
     width: 240px;
     margin-right: 28px;
     font-weight: 700;
+    margin-bottom: 0;
   }
   @media (min-width: ${breakpoints.desktop}) {
     margin-right: 48px;
@@ -115,6 +120,7 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
   }
 `;
 
@@ -148,13 +154,20 @@ export const SuggestionsList = styled.ul`
   border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
-
+  color: #000;
   position: absolute;
   width: auto;
   min-width: 100%;
   max-width: 240px;
   z-index: 10;
-  top: 100%;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    top: 30%;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    top: 100%;
+  }
+
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f0f1f3;

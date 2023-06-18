@@ -44,7 +44,7 @@ export const viewDate = styled.div`
 `;
 export const wrapCalendar = styled.div`
   @media (min-width: ${breakpoints.mobile}) {
-    margin: 32px 0 40px 0;
+    margin: 0 0 40px 0;
     display: flex;
     position: relative;
   }
