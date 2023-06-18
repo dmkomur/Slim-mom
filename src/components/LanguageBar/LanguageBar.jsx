@@ -26,7 +26,7 @@ const List = styled.ul`
   top: 20px;
   padding: 5px;
   background-color: #c9b8b8;
-  color: ${({ theme }) => theme.colors.inputText};
+  color: ${({ theme }) => theme.colors.firstText};
   font-size: 14px;
   text-transform: none;
   /* box-shadow: 0 0 5px #9b9faa; */
