@@ -47,7 +47,6 @@ function Login() {
   };
   return (
     <>
-
       <GlobalTablet />
       <AuthWrapComponent>
         <StyledHeaderAuth>Sign in</StyledHeaderAuth>

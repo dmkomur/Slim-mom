@@ -1,11 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import { CommonContainer } from './Layout.styled';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import Header from '../Header/Header';
-import Loader from '../Loader/Loader';
+
+
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { getTheme } from 'redux/theme/theme-selectors';
+
+// import Loader from '../Loader/Loader';
+
 
 export const Layout = () => {
   const currentTheme = useSelector(getTheme);
@@ -26,9 +30,10 @@ export const Layout = () => {
             pauseOnHover
             theme={currentTheme}
           />
-          <Suspense fallback={<Loader />}>
+
+          {/* <Suspense fallback={<Loader />}> */}
             <Outlet />
-          </Suspense>
+          {/* </Suspense> */}
         </main>
       </CommonContainer>
     </>

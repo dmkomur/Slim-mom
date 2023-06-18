@@ -61,7 +61,7 @@ export const dark = {
       'linear-gradient(180deg, rgba(54,54,58,1) 68%, rgba(74,74,77,1) 68%)',
     background: '#36363A',
     backroundSecond: '#5F5F5F',
-    backroundBurger: '#679DE3',
+    backroundBurger: '#4672AA',
     backgroundMobile: '#737373',
     backgroundModal: 'rgba( 188, 188, 188, 0.12)',
 

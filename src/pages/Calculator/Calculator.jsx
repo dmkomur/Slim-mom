@@ -1,11 +1,11 @@
-import { useEffect, Suspense } from 'react';
+import { useEffect } from 'react';
 import { Box } from './Calculator.styled';
 import { useDispatch } from 'react-redux';
 import { dayInfo } from 'redux/day/day-operations';
 import { useWidth } from 'hooks/useWidth';
 import { useSelector } from 'react-redux';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 import CalculatorCalorieForm from 'components/CalculatorСalorieForm/CalculatorСalorieForm';
 import RightSideBar from 'components/RightSideBar/RightSideBar';
 import Recommendations from 'components/Modal/Recommendations/Recommendations';
@@ -32,7 +32,7 @@ function Calculator() {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
+    // <Suspense fallback={<Loader />}>
       <Box>
         {isModalOpen && width <= 768 ? (
           <Recommendations />
@@ -49,7 +49,7 @@ function Calculator() {
           </>
         )}
       </Box>
-    </Suspense>
+    // </Suspense>
   );
 }
 export default Calculator;
