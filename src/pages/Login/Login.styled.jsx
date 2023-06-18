@@ -17,8 +17,8 @@ export const StyledInputAuth = styled(Field)`
   &:not(:placeholder-shown) + span,
   &:focus + span {
     top: 0;
+    /* transform: translateY(-20px); */
     color: ${({ theme }) => theme.colors.borderActive};
-    font-size: 12px;
   }
   @media screen and (min-width: ${breakpoints.tablet}) {
     width: 240px;
