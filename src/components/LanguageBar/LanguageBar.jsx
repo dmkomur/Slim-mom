@@ -7,10 +7,10 @@ import styled from 'styled-components';
 const Container = styled.div`
   position: relative;
   @media screen and (min-width: 768px) {
-  .container {
-    margin-left: 10px;
+    .container {
+      margin-left: 10px;
+    }
   }
-}
 `;
 const Button = styled.button`
   border: none;
@@ -24,26 +24,40 @@ const List = styled.ul`
   position: absolute;
   left: 24px;
   top: 20px;
-  padding: 3px;
-  font-size: 10px;
+  padding: 5px;
+  background-color: #c9b8b8;
+  color: ${({ theme }) => theme.colors.inputText};
+  font-size: 14px;
   text-transform: none;
-  box-shadow: 0 0 5px #9b9faa;
+  /* box-shadow: 0 0 5px #9b9faa; */
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    padding: 5px;
+  }
 `;
 const ListItem = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.background};
+  padding: 5px;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    padding: 10px;
+  }
 
   &:not(:last-child) {
-    margin-bottom: 3px;
+    margin-bottom: 5px;
   }
 
-  &:hover {
-    background-color: #fc842d;
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.buttonHover};
   }
 `;
-
 
 const LanguageBar = ({ big }) => {
   const lang = useSelector(state => state.auth.lang);
@@ -88,15 +102,11 @@ const LanguageBar = ({ big }) => {
 
   return (
     <Container>
-      <Button
-        name="btn"
-        type="button"
-        onClick={showSelection}
-      >
+      <Button name="btn" type="button" onClick={showSelection}>
         <IconStyled
           icon={currentLang}
-          width={big ? 48 : 24}
-          height={big ? 32 : 16}
+          width={big ? 48 : 32}
+          height={big ? 32 : 21}
         />
       </Button>
       {isShow && (
