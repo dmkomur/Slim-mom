@@ -15,6 +15,10 @@ export const StyledInputAuth = styled(Field)`
     outline: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.borderActive};
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
   &:not(:placeholder-shown) + span,
   &:focus + span {
     top: 0;

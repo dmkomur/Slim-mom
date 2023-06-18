@@ -15,6 +15,11 @@ const Container = styled.div`
 const Button = styled.button`
   border: none;
   background-color: transparent;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+  }
 `;
 const IconStyled = styled(Icon)`
   pointer-events: none;

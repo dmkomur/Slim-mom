@@ -22,6 +22,7 @@ import {
   StyledLogoMob,
   NavElemnt,
   StyledNavLinkSupport,
+  StyledWrapper,
   // StyledUse,
 } from './Header.styled';
 import logoImgLight from 'images/header/logo-img-light.png';
@@ -98,23 +99,22 @@ function Header() {
         <Navigation />
         {/* </StyledNavigation> */}
 
-        {isUserLogin && (
-          <div>
-            {isOpen ? (
-              <ButtonClose onClick={openHandler}>
-                <StyledSvgClose>
-                  <use href={sprite + '#icon-close'}></use>
-                </StyledSvgClose>
-              </ButtonClose>
-            ) : (
-              <ButtonBurger onClick={openHandler}>
-                <StyledSvgBurger>
-                  <use href={sprite + '#icon-burger'}></use>
-                </StyledSvgBurger>
-              </ButtonBurger>
-            )}
-          </div>
-        )}
+        <StyledWrapper>
+          {isOpen ? (
+            <ButtonClose onClick={openHandler}>
+              <StyledSvgClose>
+                <use href={sprite + '#icon-close'}></use>
+              </StyledSvgClose>
+            </ButtonClose>
+          ) : (
+            <ButtonBurger onClick={openHandler}>
+              <StyledSvgBurger>
+                <use href={sprite + '#icon-burger'}></use>
+              </StyledSvgBurger>
+            </ButtonBurger>
+          )}
+        </StyledWrapper>
+
         {isOpen && (
           <Wrapper>
             <NavigationList>
@@ -124,16 +124,21 @@ function Header() {
               <NavigationItem>
                 <LanguageBar />
               </NavigationItem>
-              <NavigationItem>
-                <NavItem to="/diary" onClick={openHandler}>
-                  {lang.diary}
-                </NavItem>
-              </NavigationItem>
-              <NavigationItem>
-                <NavItem to="/calculator" onClick={openHandler}>
-                  {lang.calculator}
-                </NavItem>
-              </NavigationItem>
+              {isUserLogin && (
+                <>
+                  {' '}
+                  <NavigationItem>
+                    <NavItem to="/diary" onClick={openHandler}>
+                      {lang.diary}
+                    </NavItem>
+                  </NavigationItem>
+                  <NavigationItem>
+                    <NavItem to="/calculator" onClick={openHandler}>
+                      {lang.calculator}
+                    </NavItem>
+                  </NavigationItem>
+                </>
+              )}
             </NavigationList>
           </Wrapper>
         )}

@@ -33,22 +33,22 @@ function Calculator() {
 
   return (
     // <Suspense fallback={<Loader />}>
-      <Box>
-        {isModalOpen && width <= 768 ? (
-          <Recommendations />
-        ) : (
-          <>
-            <div
-              style={{
-                flexGrow: 1,
-              }}
-            >
-              <CalculatorCalorieForm />
-            </div>
-            <RightSideBar />
-          </>
-        )}
-      </Box>
+    <Box>
+      {isModalOpen && width <= 768 ? (
+        <Recommendations />
+      ) : (
+        <>
+          <div
+            style={{
+              flexGrow: 0.7,
+            }}
+          >
+            <CalculatorCalorieForm />
+          </div>
+          <RightSideBar />
+        </>
+      )}
+    </Box>
     // </Suspense>
   );
 }

@@ -50,12 +50,12 @@ const { tablet } = breakpoints;
 export const TogleSwitch = styled.div`
   margin: 0 auto;
   position: relative;
-  width: 36px;
+  width: 40px;
   height: 20px;
   margin-bottom: 5px;
   @media screen and (min-width: ${tablet}) {
     margin-bottom: 0px;
-    margin-right: 45px;
+    /* margin-right: 45px; */
   }
 `;
 export const StyledTogleLable = styled.label`

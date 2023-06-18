@@ -15,6 +15,7 @@ import {
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
 import LanguageBar from 'components/LanguageBar/LanguageBar';
 import { ThemeTogle } from 'pages/Login/ThemeTogle';
+import { StyledWrapper } from './Navigation.styled';
 
 function Navigation() {
   const isUserLogin = useSelector(getIsLoggedIn);
@@ -26,7 +27,6 @@ function Navigation() {
       <nav>
         {!isUserLogin ? (
           <>
-            {' '}
             <NavigationLogin>
               <NavigationList>
                 <NavigationItem>
@@ -36,10 +36,15 @@ function Navigation() {
                   <NavItem to="registration">{lang.register}</NavItem>
                 </NavigationItem>
                 <NavigationItem>
-                  <ThemeTogle />
-                  <LanguageBar />
+                  <StyledWrapper>
+                    <ThemeTogle />
+                  </StyledWrapper>
                 </NavigationItem>
-                {/* <NavigationItem></NavigationItem> */}
+                <NavigationItem>
+                  <StyledWrapper>
+                    <LanguageBar />
+                  </StyledWrapper>
+                </NavigationItem>
               </NavigationList>
             </NavigationLogin>
             {isModalOpen ? <UserInfo /> : <></>}
@@ -56,9 +61,10 @@ function Navigation() {
                 </NavigationItem>
                 <NavigationItem>
                   <ThemeTogle />
+                </NavigationItem>
+                <NavigationItem>
                   <LanguageBar />
                 </NavigationItem>
-                {/* <NavigationItem></NavigationItem> */}
               </NavigationList>
             </NavigationListDiary>
             {

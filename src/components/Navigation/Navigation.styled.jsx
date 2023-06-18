@@ -8,9 +8,13 @@ export const NavigationList = styled.ul`
   display: flex;
   gap: 15px;
   align-items: center;
-
+  /* justify-content: center; */
+  @media screen and (max-width: 767px) {
+    margin-right: -16px;
+  }
   @media screen and (min-width: ${tablet}) {
     gap: 45px;
+    /* flex-direction: row-reverse; */
   }
 `;
 
@@ -39,7 +43,7 @@ export const NavigationItem = styled.li`
   @media screen and (min-width: ${tablet}) {
     &:last-child {
       display: flex;
-      wrap: nowrap;
+      flex-wrap: nowrap;
       align-items: center;
     }
   } /* &:hover,
@@ -90,6 +94,15 @@ export const StyledDiv = styled.div`
   }
   @media screen and (min-width: ${desktop}) {
     flex-grow: 1;
+  }
+`;
+
+export const StyledWrapper = styled.div`
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
   }
 `;
 
