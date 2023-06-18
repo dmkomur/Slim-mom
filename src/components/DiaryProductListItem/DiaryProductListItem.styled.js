@@ -44,6 +44,15 @@ export const PName = styled.p`
 export const Close = styled(IoClose)`
   width: 25px;
   height: auto;
+  fill: ${({ theme }) => theme.colors.firstText};
+  stroke: ${({ theme }) => theme.colors.firstText};
+  &:hover,
+  &:focus {
+    transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.2);
+
+    fill: ${({ theme }) => theme.colors.buttonHover};
+  }
 `;
 
 export const PGrame = styled.p`
