@@ -1,28 +1,26 @@
-import { useDispatch } from 'react-redux';
-import { Suspense, useEffect, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
 import 'react-toastify/dist/ReactToastify.css';
-// import { getIsRefreshing } from 'redux/auth/auth-selectors';
-// import { ThemeSwitching } from './styles/ThemeSwitching';
-// import { useAuth } from 'hooks';
-// import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
-// import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
+import { getIsRefreshing } from 'redux/auth/auth-selectors';
+import { ThemeSwitching } from './styles/ThemeSwitching';
+import { useAuth } from 'hooks';
+import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
+import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Loader from './Loader/Loader';
-// import Login from 'pages/Login';
+import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Home from 'pages/Home';
 import Calculator from 'pages/Calculator';
 import Diary from 'pages/Diary';
 import PageNotFound from './PageNotFound/PageNotFound';
 
-const Login = lazy(() => import('pages/Login'));
-
 export const App = () => {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser())
@@ -30,11 +28,14 @@ export const App = () => {
       .then(() => dispatch(getUser()));
   }, [dispatch]);
 
-  // const isRefreshing = useSelector(getIsRefreshing);
+  const isRefreshing = useSelector(getIsRefreshing);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <>
-      <Suspense fallback={<Loader />}>
+      <ThemeSwitching>
+        {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -73,7 +74,8 @@ export const App = () => {
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
-      </Suspense>
+        {/* </Suspense> */}
+      </ThemeSwitching>
     </>
   );
 };
