@@ -22,7 +22,7 @@ export const Nav = styled.div`
   left: -20px;
   right: 0;
   width: 100vw;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.borderInput};
+  border-bottom: 2px solid #e0e0e0;
   @media screen and (min-width: ${tablet}) {
     left: -32px;
   }
@@ -87,16 +87,14 @@ export const StyledSlimMom = styled.div`
   }
 `;
 
-export const LogoSlim = styled.svg`
-  width: 47.2px;
+export const LogoSlim = styled.img`
+  max-width: 47.2px;
   height: 16px;
-  fill: ${({ theme }) => theme.colors.firstText};
 `;
 
-export const LogoMom = styled.svg`
-  width: 52.51px;
+export const LogoMom = styled.img`
+  max-width: 52.51px;
   height: 15.41px;
-  fill: ${({ theme }) => theme.colors.button};
 `;
 
 export const StyledLogoMob = styled.div`
@@ -127,7 +125,7 @@ export const NavElemnt = styled.div`
     display: block;
     width: 0px;
     height: 32px;
-    border-right: 2px solid ${({ theme }) => theme.colors.borderInput}0;
+    border-right: 2px solid #e0e0e0;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -179,7 +177,7 @@ export const NavigationItem = styled.li`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.secondText};
+  color: #9b9faa;
   /* &:hover,
   &:focus {
     color: #ffffff;
@@ -203,16 +201,13 @@ export const NavItem = styled(NavLink)`
   text-transform: uppercase;
   cursor: pointer;
 
-  color: ${({ theme }) => theme.colors.secondText};
-
+  color: #9b9faa;
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.colors.button};
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ffffff;
   }
-  &.active {
-    color: ${({ theme }) => theme.colors.button};
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:active {
+    color: #ffffff;
   }
   @media screen and (min-width: ${desktop}) {
     display: none;
@@ -239,27 +234,15 @@ export const ButtonBurger = styled.button`
 export const StyledSvgBurger = styled.svg`
   width: 18px;
   height: 12px;
-  fill: ${({ theme }) => theme.colors.firstText};
-  stroke: ${({ theme }) => theme.colors.firstText};
-  &:hover,
-  &:focus {
-    fill: ${({ theme }) => theme.colors.button};
-    stroke: ${({ theme }) => theme.colors.button};
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  fill: rgba(33, 33, 33, 1);
+  stroke: rgba(33, 33, 33, 1);
 `;
 
 export const StyledSvgClose = styled.svg`
   width: 12px;
   height: 12px;
-  fill: ${({ theme }) => theme.colors.firstText};
-  stroke: ${({ theme }) => theme.colors.firstText};
-  &:hover,
-  &:focus {
-    fill: ${({ theme }) => theme.colors.button};
-    stroke: ${({ theme }) => theme.colors.button};
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  fill: rgba(33, 33, 33, 1);
+  stroke: rgba(33, 33, 33, 1);
 `;
 
 export const StyledUserInfo = styled.div`

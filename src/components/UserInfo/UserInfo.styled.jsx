@@ -15,7 +15,7 @@ export const StyledUserInfo = styled.div`
   bottom: -56px;
   width: 100vw;
   height: 40px;
-  background-color: ${({ theme }) => theme.colors.backgroundMobile};
+  background-color: #eff1f3;
   @media screen and (min-width: ${tablet}) {
     position: static;
     margin-right: 48px;
@@ -27,7 +27,7 @@ export const StyledUserInfo = styled.div`
 export const NavUserInfo = styled.div`
   width: 0px;
   height: 32px;
-  border: 1px solid ${({ theme }) => theme.colors.borderInput};
+  border: 1px solid #e0e0e0;
 `;
 
 export const Button = styled.button`
@@ -39,13 +39,13 @@ export const Button = styled.button`
   letter-spacing: 0.04em;
   padding: 0;
 
-  color: ${({ theme }) => theme.colors.secondText};
+  color: #9b9faa;
+
   border: none;
   background-color: transparent;
   &:hover,
   &:focus {
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    color: ${({ theme }) => theme.colors.button};
+    color: #212121;
   }
 `;
 
@@ -57,12 +57,10 @@ export const StyledTitle = styled.p`
   line-height: 17px;
   letter-spacing: 0.04em;
   text-transform: capitalize;
-
-  color: ${({ theme }) => theme.colors.secondText};
+  color: #9b9faa;
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.colors.button};
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: #212121;
   }
 `;
 
@@ -71,7 +69,7 @@ export const ButtonBack = styled.button`
   left: 20px;
   border: none;
   background-color: transparent;
-  stroke: ${({ theme }) => theme.colors.firstText};
+  stroke: #000000;
   padding: 0;
   cursor: pointer;
   @media screen and (min-width: ${tablet}) {

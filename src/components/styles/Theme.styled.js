@@ -10,7 +10,7 @@ export const light = {
     buttonText: '#FFFFFF',
     buttonTextHover: '#E0E0E0',
     button: '#FC842D',
-    buttonHover: '#F75F2A',
+    buttonHover: '#CA6922',
     shadowButton: 'rgba(252, 132, 45, 0.5)',
     shadowButtonHover: 'rgba(202,105,34,0.75)',
 
@@ -38,16 +38,17 @@ export const dark = {
   name: 'dark-theme',
   colors: {
     switcherOn: '#FFFFFF',
+
     firstText: '#DDDDDD',
-    secondText: 'rgba(236,236,236,0.5)',
+    secondText: '#ECECEC',
 
     buttonBackground: '#36363A',
-    buttonText: 'rgba(255,255,255,0.8)',
+    buttonText: '#202025',
     buttonTextHover: '#3B3B3B',
     button: '#FF6B00',
-    buttonHover: '#EE4A10',
+    buttonHover: '#CB5600',
     shadowButton: 'rgba(255,107,0,0.75)',
-    shadowButtonHover: 'rgba(203,86,0,0.3)',
+    shadowButtonHover: 'rgba(203,86,0,0.75)',
 
     inputText: '#202025',
     borderInput: 'rgba(236,236,236,0.3)',

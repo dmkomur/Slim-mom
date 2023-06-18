@@ -24,32 +24,23 @@ import {
   StyledNavLinkSupport,
   // StyledUse,
 } from './Header.styled';
-import logoImgLight from 'images/header/logo-img-light.png';
-import logoImgDark from 'images/header/logo-img-dark.png';
+import logoImg from 'images/header/logo-img.svg';
+import logoSlim from 'images/header/logo-slim.svg';
+import logoMom from 'images/header/logo-mom.svg';
 import sprite from 'images/header/symbol-defs.svg';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 import LanguageBar from 'components/LanguageBar/LanguageBar';
-import { getTheme } from 'redux/theme/theme-selectors';
 // import { BsDisplay } from 'react-icons/bs';
 
 function Header() {
   const [isOpen, setOpen] = useState(false);
   const isUserLogin = useSelector(getIsLoggedIn);
-  const selectedTheme = useSelector(getTheme);
-
   const openHandler = () => {
     setOpen(!isOpen);
   };
-
-  function chooseImg() {
-    if (selectedTheme === 'dark') {
-      return logoImgLight;
-    } else {
-      return logoImgDark;
-    }
-  }
 
   return (
     <>
@@ -57,29 +48,21 @@ function Header() {
         <Nav />
         <StyledLogo>
           <StyledNavLinkSupport to="/calculator">
-            <LogoImg src={chooseImg()} alt="logo" />
+            <LogoImg src={logoImg} alt="logo" />
             <StyledSlimMom>
-              <LogoSlim>
-                <use href={sprite + '#icon-slim'}></use>
-              </LogoSlim>
-              <LogoMom>
-                <use href={sprite + '#icon-mom'}></use>
-              </LogoMom>
+              <LogoSlim src={logoSlim} alt="logo" />
+              <LogoMom src={logoMom} alt="logo" />
             </StyledSlimMom>
           </StyledNavLinkSupport>
         </StyledLogo>
         <StyledLogoMob>
           <StyledNavLinkSupport to="/calculator">
             {' '}
-            <LogoImg src={chooseImg()} alt="logo" />
+            <LogoImg src={logoImg} alt="logo" />
             {isUserLogin && (
               <StyledSlimMom>
-                <LogoSlim>
-                  <use href={sprite + '#icon-slim'}></use>
-                </LogoSlim>
-                <LogoMom>
-                  <use href={sprite + '#icon-mom'}></use>
-                </LogoMom>
+                <LogoSlim src={logoSlim} alt="logo" />
+                <LogoMom src={logoMom} alt="logo" />
               </StyledSlimMom>
             )}
           </StyledNavLinkSupport>
@@ -117,6 +100,8 @@ function Header() {
               </NavigationItem>
               <NavigationItem>
                 <NavItem to="/diary">Diary</NavItem>
+
+                <NavLink to="diary">Diary</NavLink>
               </NavigationItem>
               <NavigationItem>
                 <NavItem to="/calculator">Calculator</NavItem>
