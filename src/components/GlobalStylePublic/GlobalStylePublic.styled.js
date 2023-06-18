@@ -124,8 +124,8 @@ body{
       url(${LiniaDesktop2x}) type("image/png") 2x);
 
     background-repeat: no-repeat;
-    background-size: 746px 846px, 370px 370px, 700px 500px, 602px 816px;
-    background-position: right 15em top 0em, top 35em right 0em , top -5em right -15em, right 0em top 3em ;
+    background-size: 760px 760px, 360px 360px, 700px 500px, 602px 816px;
+    background-position: right 15em bottom 6em, right 3em bottom 3em, right -15em bottom 30em, right 0em bottom 0em;
   }
 
 }`;
