@@ -7,10 +7,10 @@ import { PrivateRoute } from './PrivateRoute';
 import { Layout } from './Layout/Layout';
 import 'react-toastify/dist/ReactToastify.css';
 // import { getIsRefreshing } from 'redux/auth/auth-selectors';
-import { ThemeSwitching } from './styles/ThemeSwitching';
-import { useAuth } from 'hooks';
-import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
-import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
+// import { ThemeSwitching } from './styles/ThemeSwitching';
+// import { useAuth } from 'hooks';
+// import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
+// import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Loader from './Loader/Loader';
 // import Login from 'pages/Login';
 import Register from 'pages/Register';
@@ -22,7 +22,7 @@ import PageNotFound from './PageNotFound/PageNotFound';
 const Login = lazy(() => import('pages/Login'));
 
 export const App = () => {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser())
