@@ -29,10 +29,10 @@ import logoImgDark from 'images/header/logo-img-dark.png';
 import sprite from 'images/header/symbol-defs.svg';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ThemeSwitcher } from 'components/styles/ThemeSwitcher';
 import LanguageBar from 'components/LanguageBar/LanguageBar';
 import { getTheme } from 'redux/theme/theme-selectors';
 import { useAuth } from 'hooks';
+import { ThemeTogle } from 'pages/Login/ThemeTogle';
 // import { BsDisplay } from 'react-icons/bs';
 
 function Header() {
@@ -118,7 +118,7 @@ function Header() {
           <Wrapper>
             <NavigationList>
               <NavigationItem>
-                <ThemeSwitcher />
+                <ThemeTogle />
               </NavigationItem>
               <NavigationItem>
                 <LanguageBar />

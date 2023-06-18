@@ -148,7 +148,7 @@ export const Wrapper = styled.div`
   left: -20px;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(38, 64, 97, 1);
+  background-color: ${({ theme }) => theme.colors.backroundBurger};
   z-index: 1;
   @media screen and (min-width: ${tablet}) {
     left: -32px;
@@ -160,6 +160,9 @@ export const Wrapper = styled.div`
 
 export const NavigationList = styled.ul`
   margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: ${tablet}) {
     margin: 100px auto;
@@ -176,7 +179,6 @@ export const NavigationItem = styled.li`
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
-  text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.secondText};

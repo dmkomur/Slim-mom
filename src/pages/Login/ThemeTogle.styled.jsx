@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import { breakpoints } from 'components/styles/breakpoints';
+const { tablet, desktop } = breakpoints;
 // export const TogleSwitch = styled.div`
 //   position: relative;
 //   width: 200px;
@@ -49,6 +50,12 @@ import styled from 'styled-components';
 export const TogleSwitch = styled.div`
   position: relative;
   width: 40px;
+  height: 20px;
+  margin-bottom: 5px;
+  @media screen and (min-width: ${tablet}) {
+    margin-bottom: 0px;
+    margin-right: 45px;
+  }
 `;
 export const StyledTogleLable = styled.label`
   position: absolute;

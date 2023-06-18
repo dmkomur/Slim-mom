@@ -17,7 +17,6 @@ import * as yup from 'yup';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoMdAlert } from 'react-icons/io';
 import GlobalTablet from 'components/GlobalStylePublic/GlobalTablet';
-import { ThemeTogle } from './ThemeTogle';
 
 let schema = yup.object({
   password: yup
@@ -48,7 +47,6 @@ function Login() {
   };
   return (
     <>
-
       <GlobalTablet />
       <AuthWrapComponent>
         <StyledHeaderAuth>Sign in</StyledHeaderAuth>
@@ -92,7 +90,6 @@ function Login() {
             </StyledWrapAuthBtn>
           </StyledFormAuth>
         </Formik>
-        <ThemeTogle />
       </AuthWrapComponent>
     </>
   );
