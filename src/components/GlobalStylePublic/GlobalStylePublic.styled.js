@@ -92,7 +92,7 @@ body{
 
     background-repeat: no-repeat;
         background-size: 608px 496px, 370px 370px, 750px 550px,602px 760px;
-        background-position: left -2em bottom 1em, right -1em bottom 13em, right -16em bottom -7em, right -2em bottom -12em;
+        background-position: right 12em bottom 0em, right -1em bottom 13em, right -16em bottom -7em, right -2em bottom -12em;
    } 
 
 
@@ -125,7 +125,7 @@ body{
 
     background-repeat: no-repeat;
     background-size: 760px 760px, 360px 360px, 700px 500px, 602px 816px;
-    background-position: right 15em bottom 6em, right 3em bottom 3em, right -15em bottom 30em, right 0em bottom 0em;
+    background-position: right 16em bottom 5em, right 3em bottom 0em, right -15em bottom 30em, right 0em bottom 0em;
   }
 
 }`;
