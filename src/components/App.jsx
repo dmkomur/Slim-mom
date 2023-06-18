@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, Suspense, lazy } from 'react';
+import { useEffect, Suspense } from 'react';
 import { getUser, refreshUser } from 'redux/auth/auth-operations';
 import { Route, Routes } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute';
@@ -18,8 +18,10 @@ import Home from 'pages/Home';
 import Calculator from 'pages/Calculator';
 import Diary from 'pages/Diary';
 import PageNotFound from './PageNotFound/PageNotFound';
+import loadable from '@loadable/component';
 
-const Login = lazy(() => import('../pages/Login'));
+// const Login = lazy(() => import('pages/Login'));
+const Login = loadable(() => import('pages/Login'), { fallback: <Loader /> });
 
 export const App = () => {
   const { isLoggedIn } = useAuth();
@@ -38,14 +40,6 @@ export const App = () => {
     <>
       <ThemeSwitching>
         {isLoggedIn ? <GlobalStylesPrivate /> : <GlobalStylePublic />}
-        {/* <Suspense fallback={<Loader />}> <div>Navlinks</div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/registration">Register</NavLink>
-        <div>links</div>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/registration">Register</Link> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
