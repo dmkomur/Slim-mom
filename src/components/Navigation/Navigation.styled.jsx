@@ -35,7 +35,7 @@ export const NavigationItem = styled.li`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
   /* &:hover,
   &:focus {
     color: #ffffff;
@@ -54,13 +54,15 @@ export const NavItem = styled(NavLink)`
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: #9b9faa;
+  color: ${({ theme }) => theme.colors.secondText};
   &:hover,
   &:focus {
-    color: #212121;
+    color: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  &:active {
-    color: #212121;
+  &.active {
+    color: ${({ theme }) => theme.colors.button};
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
