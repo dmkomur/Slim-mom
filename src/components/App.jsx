@@ -61,7 +61,7 @@ export const App = () => {
               path="/login"
               element={
                 <PublicRoute restricted>
-                  <Suspense fallback={<Loader />}>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <Login />
                   </Suspense>
                 </PublicRoute>
