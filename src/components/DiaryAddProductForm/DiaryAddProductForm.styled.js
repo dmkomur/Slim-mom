@@ -8,8 +8,12 @@ export const Form = styled.form`
 
   position: relative;
   @media (min-width: ${breakpoints.mobile}) {
-    width: 280px;
+    width: 100%;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
   }
   @media (min-width: ${breakpoints.tablet}) {
     width: 505px;
@@ -29,13 +33,17 @@ export const InputProdName = styled.input`
   font-weight: 700;
   line-height: 120%;
   letter-spacing: 0.04em;
-  color: #000;
+  color: ${({ theme }) => theme.colors.firstText};
   background: transparent;
 
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.firstText};
+  }
+
   @media (min-width: ${breakpoints.mobile}) {
-    width: 150px;
-    margin-right: 15px;
-    font-weight: 400;
+    width: 280px;
+
+    margin-bottom: 32px;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -45,10 +53,6 @@ export const InputProdName = styled.input`
   }
   @media (min-width: ${breakpoints.desktop}) {
     margin-right: 48px;
-  }
-
-  ::placeholder {
-    color: #9b9faa;
   }
 `;
 
@@ -65,13 +69,17 @@ export const InputGrams = styled.input`
   line-height: 120%;
   text-align: right;
   letter-spacing: 0.04em;
-  color: #000;
+  color: ${({ theme }) => theme.colors.firstText};
   background: transparent;
 
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.firstText};
+  }
+
   @media (min-width: ${breakpoints.mobile}) {
-    width: 50px;
-    margin-right: 15px;
-    font-weight: 400;
+    width: 280px;
+
+    text-align: left;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -81,10 +89,6 @@ export const InputGrams = styled.input`
   }
   @media (min-width: ${breakpoints.desktop}) {
     margin-right: 60px;
-  }
-
-  ::placeholder {
-    color: #9b9faa;
   }
 `;
 
@@ -96,9 +100,38 @@ export const Button = styled.button`
   color: #fff;
   border: 0;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  &:hover {
+    box-shadow: 0 0 20px rgb(247, 95, 42);
+    background: rgb(247, 95, 42);
+  }
+
+  @media (min-width: ${breakpoints.mobile}) {
+    display: block;
+    margin: 60px auto 0;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const ButtonMob = styled.button`
+  width: 176px;
+  height: 44px;
+  border: 0;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 60px;
+  &:hover {
+    box-shadow: 0 0 20px rgb(247, 95, 42);
+    background: rgb(247, 95, 42);
+  }
 `;
 
 export const Plus = styled(BiPlus)`
@@ -125,7 +158,6 @@ export const SuggestionsList = styled.ul`
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f0f1f3;
-  
   }
 
   &::-webkit-scrollbar-thumb {

@@ -50,7 +50,7 @@ export const wrapCalendar = styled.div`
   }
 
   @media (min-width: ${breakpoints.tablet}) {
-    margin: 147px 0 60px 0;
+    margin: 0px 0 60px 0;
   }
 `;
 
@@ -58,13 +58,24 @@ export const Flex = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    padding-top: 81px;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding-top: 100px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding-top: 145px;
+  }
 `;
 
 export const LeftBlock = styled.div`
   @media (min-width: ${breakpoints.mobile}) {
     width: 100%;
     max-width: 286px;
-    margin-top: 50px;
+   
   }
 
   @media (min-width: ${breakpoints.tablet}) {

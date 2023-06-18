@@ -65,6 +65,7 @@ export function DiaryDateCalendar() {
               {isModalOpen ? (
                 <DiaryAddProductForm
                   valueDate={exportDate(value)}
+                  isModalOpen={isModalOpen}
                   openMobileForm={openMobileForm}
                   setOpenMobileForm={setOpenMobileForm}
                 />

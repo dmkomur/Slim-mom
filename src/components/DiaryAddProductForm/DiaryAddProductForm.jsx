@@ -6,7 +6,7 @@ import * as css from './DiaryAddProductForm.styled.js';
 import { useWidth } from 'hooks/useWidth';
 import { toggleModal } from 'redux/modal/modal-reducer';
 
-function DiaryAddProductForm({ valueDate, openMobileForm }) {
+function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
   const [weight, setWeight] = useState('');
@@ -144,7 +144,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm }) {
 
   return (
     <>
-      {openMobileForm ? (
+      {isModalOpen ? (
         <>
           <css.Form action="" onSubmit={onSubmitMobile}>
             <css.InputProdName
@@ -172,7 +172,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm }) {
               value={weight}
               onChange={handleGramsChange}
             />
-            <css.Button type="submit">Add</css.Button>
+            <css.ButtonMob type="submit">Add</css.ButtonMob>
           </css.Form>
         </>
       ) : (
