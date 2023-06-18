@@ -19,7 +19,8 @@ export const List = styled.ul`
   }
 
   @media (min-width: ${breakpoints.mobile}) {
-    height: 250px;
+    max-height: 250px;
+    height: 100%;
   }
   @media (min-width: ${breakpoints.tablet}) {
     height: 250px;
@@ -34,7 +35,7 @@ export const DivStyle = styled.div`
   overflow: hidden;
   position: relative;
 
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -43,11 +44,12 @@ export const DivStyle = styled.div`
     height: 20%;
     background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
     pointer-events: none;
-  }
+  } */
 
   @media (min-width: ${breakpoints.mobile}) {
     width: 286px;
-    height: 250px;
+    max-height: 250px;
+    height: 100%
   }
   @media (min-width: ${breakpoints.tablet}) {
     height: 250px;

@@ -20,7 +20,7 @@ export const PName = styled.p`
 
   line-height: 120%;
   letter-spacing: 0.04em;
-  color: #212121;
+  color: ${({ theme }) => theme.colors.firstText};
 
   border-bottom: 1px solid #e0e0e0;
 
@@ -50,7 +50,7 @@ export const PGrame = styled.p`
   padding-bottom: 20px;
   line-height: 120%;
   letter-spacing: 0.04em;
-  color: #212121;
+  color: ${({ theme }) => theme.colors.firstText};
   text-align: right;
   border-bottom: 1px solid #e0e0e0;
 
@@ -76,7 +76,7 @@ export const PKcal = styled.p`
   font-size: 14px;
 
   letter-spacing: 0.04em;
-  color: #212121;
+  color: ${({ theme }) => theme.colors.firstText};
   text-align: right;
   border-bottom: 1px solid #e0e0e0;
 
