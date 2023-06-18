@@ -1,11 +1,11 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy } from 'react';
 import { Box } from './Calculator.styled';
 import { useDispatch } from 'react-redux';
 import { dayInfo } from 'redux/day/day-operations';
 import { useWidth } from 'hooks/useWidth';
 import { useSelector } from 'react-redux';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 
 const CalculatorCalorieForm = lazy(() =>
   import('components/CalculatorСalorieForm/CalculatorСalorieForm')
