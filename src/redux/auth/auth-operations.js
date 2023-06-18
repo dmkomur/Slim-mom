@@ -1,13 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance, setToken, clearToken } from 'config';
+import { toast } from 'react-toastify';
 
 export const register = createAsyncThunk(
   'auth/register',
   async (body, { rejectWithValue }) => {
     try {
       const user = await instance.post('/auth/register', body);
+      // toast(`Welcome ${user.data.username}`);
       return user.data;
     } catch (error) {
+      toast.warn(
+        error.response.status === 409
+          ? 'Provided email already exists'
+          : 'Bad request'
+      );
       return rejectWithValue(error.message);
     }
   }
@@ -19,8 +26,14 @@ export const logIn = createAsyncThunk(
     try {
       const user = await instance.post('/auth/login', body);
       setToken(user.data.accessToken);
+      toast.success(`Hello ${user.data.user.username}`);
       return user.data;
     } catch (error) {
+      toast.warn(
+        error.response.status === 403
+          ? "Email doesn'\t exist or password is wrong"
+          : 'Bad request'
+      );
       return rejectWithValue(error.message);
     }
   }
