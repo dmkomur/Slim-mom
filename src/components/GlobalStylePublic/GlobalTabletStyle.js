@@ -84,7 +84,7 @@ body{
 
     background-repeat: no-repeat;
         background-size: 740px 786px, 450px 450px, 740px 600px, 600px 750px;
-        background-position: left -2em bottom 16em, right -8em bottom 12em, right -16em bottom -8em, right -2em bottom -13em;
+        background-position: right 0em bottom 18em, right -8em bottom 12em, right -16em bottom -8em, right -2em bottom -13em;
    } 
 
   @media screen and (min-width: 1280px) {
@@ -116,7 +116,7 @@ body{
 
     background-repeat: no-repeat;
     background-size: 746px 846px, 370px 370px, 700px 500px, 602px 816px;
-    background-position: right 15em bottom 6em, right 3em bottom 3em, right -15em bottom 30em, right 0em bottom 0em;
+    background-position: right 17em bottom 0em, right 3em bottom 0em, right -15em bottom 30em, right 0em bottom 0em;
   }
 }
 `;
