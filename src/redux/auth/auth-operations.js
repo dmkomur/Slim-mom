@@ -70,7 +70,6 @@ export const refreshUser = createAsyncThunk(
       setToken(refresh.data.newAccessToken);
       // const user = await instance.get('/user');
       // const payload = { refresh, user };
-      // console.log(payload);
       return refresh.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

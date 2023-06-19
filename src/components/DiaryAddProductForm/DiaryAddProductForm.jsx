@@ -65,7 +65,6 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
       productId,
       weight,
     };
-    console.log(body);
     dispatch(postProduct(body))
       .then(() => {
         dispatch(dayInfo(selectedDate));
@@ -90,7 +89,6 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
       productId,
       weight,
     };
-    console.log(body);
     dispatch(postProduct(body))
       .then(() => {
         dispatch(dayInfo(selectedDate));
@@ -140,7 +138,6 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
   const handleAddForm = () => {
     dispatch(toggleModal(true));
     // setOpenMobileForm(true);
-    console.log(openMobileForm);
   };
 
   return (
@@ -173,7 +170,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
               value={weight}
               onChange={handleGramsChange}
             />
-            <css.ButtonMob type="submit">Add</css.ButtonMob>
+            <css.ButtonMob type="submit">{lang.add}</css.ButtonMob>
           </css.Form>
         </>
       ) : (

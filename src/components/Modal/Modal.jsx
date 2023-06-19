@@ -19,7 +19,6 @@ function Modal() {
 
   useEffect(() => {
     const handleKeyDown = e => {
-      console.log(e);
       if (e.key === 'Escape') {
         dispatch(toggleModal(!isModalOpen));
       }

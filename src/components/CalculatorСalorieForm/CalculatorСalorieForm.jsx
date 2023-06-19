@@ -63,7 +63,6 @@ function CalculatorCalorieForm() {
       desiredWeight: values.desiredWeight,
       bloodType: Number(values.bloodType),
     };
-    console.log(values);
     !isLoggedIn
       ? dispatch(dailyRate(body))
           .unwrap()

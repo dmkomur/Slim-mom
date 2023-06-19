@@ -6,7 +6,6 @@ import { GlobalStylePublic } from './GlobalStylePublic.styled';
 
 const GlobalTablet = () => {
   const width = useWidth();
-console.log(width);
   return width >= 768 && width <= 1280 ? (
     <GlobalTabletStyle />
   ) : (
