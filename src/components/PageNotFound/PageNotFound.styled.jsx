@@ -6,10 +6,14 @@ const { mobile, tablet, desktop } = breakpoints;
 export const PageNotFd = styled.div`
   text-align: center;
   color: red;
-  height: 700px;
-  padding-top: 200px;
+  /* height: 700px; */
+  /* padding-top: 200px; */
   font-weight: 700;
   text-shadow: 0 -0.4px 0.4px #ffffff, 0.4px 0.4px 0.4px #00000031;
+
+  @media screen and (min-width: ${desktop}) {
+    flex-basis: 60%;
+  }
 `;
 
 export const StyledHeader = styled.ul`

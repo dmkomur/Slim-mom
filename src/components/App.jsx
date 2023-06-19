@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getIsRefreshing } from 'redux/auth/auth-selectors';
 import { ThemeSwitching } from './styles/ThemeSwitching';
 import { useAuth } from 'hooks';
+import { dayInfo } from 'redux/day/day-operations';
 import { GlobalStylesPrivate } from './styles/GlobalStylePrivate.styled';
 import { GlobalStylePublic } from './GlobalStylePublic/GlobalStylePublic.styled';
 import Loader from './Loader/Loader';
@@ -22,11 +23,13 @@ import PageNotFound from './PageNotFound/PageNotFound';
 export const App = () => {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
+  const normalizedSelectedDate = new Date().toISOString().split('T')[0];
   useEffect(() => {
     dispatch(refreshUser())
       .unwrap()
-      .then(() => dispatch(getUser()));
-  }, [dispatch]);
+      .then(() => dispatch(getUser()))
+      .then(() => dispatch(dayInfo({ date: normalizedSelectedDate })));
+  }, [dispatch, normalizedSelectedDate]);
 
   const isRefreshing = useSelector(getIsRefreshing);
 
