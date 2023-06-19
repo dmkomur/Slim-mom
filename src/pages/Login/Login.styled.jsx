@@ -141,8 +141,8 @@ export const StyledErrorAuth = styled.div`
 `;
 
 export const AuthWrapComponent = styled.div`
-  padding-top: 40px;
-  @media screen and (min-width: ${breakpoints.tablet}) {
+  /* padding-top: 40px; */
+  /* @media screen and (min-width: ${breakpoints.tablet}) {
     padding-top: 150px;
-  }
+  } */
 `;
