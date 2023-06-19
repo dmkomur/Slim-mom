@@ -58,7 +58,7 @@ body{
   font-size: 14px;
   letter-spacing: 0.04em;  
   line-height: 1.21; 
-  height: 100vh;
+  min-height: 100vh;
     width: 100vw;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: ${({ theme }) => theme.colors.background};

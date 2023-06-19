@@ -25,7 +25,6 @@ import LiniaDesktopAvif2x from 'img/linia@2x.avif';
 import LiniaDesktopWebp1x from 'img/linia.webp';
 import LiniaDesktopWebp2x from 'img/linia@2x-min.webp';
 
-
 import LeafTablet1x from 'img/leaf-tablet@1x-min.png';
 import LeafTablet2x from 'img/leaf-tablet@2x-min.png';
 import LeafTabletAvif1x from 'img/leaf-tablet@1x-min.avif';
@@ -53,7 +52,7 @@ import LiniaTabletWebp2x from 'img/linia-tablet@2x.webp';
 
 export const GlobalTabletStyle = createGlobalStyle`
 body{
-   height: 100vh;
+   min-height: 100vh;
     width: 100vw;   
   @media screen and (min-width: 768px) {
     background-image: 

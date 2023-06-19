@@ -148,7 +148,7 @@ export const Wrapper = styled.div`
   top: 60px;
   left: -20px;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.backroundBurger};
   z-index: 1;
   @media screen and (min-width: ${tablet}) {

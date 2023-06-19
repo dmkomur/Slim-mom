@@ -23,7 +23,7 @@ body {
   letter-spacing: 0.04em;
   line-height: 1.21;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   @media screen and (max-width: 767px){
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background: ${({ theme }) => theme.colors.background};}

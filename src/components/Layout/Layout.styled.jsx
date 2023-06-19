@@ -35,7 +35,7 @@ export const CommonContainer = styled.div`
 export const Wrapper = styled.div`
   padding-top: 81px;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    height: calc(100vh - 85px);
+    min-height: calc(100vh - 85px);
     display: flex;
     flex-direction: column;
   }

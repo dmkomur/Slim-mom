@@ -8,7 +8,7 @@ export const Overlay = styled.div`
   position: fixed;
   inset: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   /* background: rgba(33, 33, 33, 0.12); */
   background: ${({ theme }) => theme.colors.backgroundModal};
   @media screen and (max-width: 767px) {
