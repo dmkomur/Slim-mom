@@ -31,3 +31,11 @@ export const CommonContainer = styled.div`
     padding: 80px 16px;
   }
 `;
+
+export const Wrapper = styled.div`
+  padding-top: 81px;
+  @media screen and (min-width: 1280px) {
+    padding-top: 140px;
+    display: flex;
+  }
+`;

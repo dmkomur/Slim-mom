@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { getIsModalOpen } from 'redux/modal/modal-selectors';
 // import Loader from 'components/Loader/Loader';
 import CalculatorCalorieForm from 'components/CalculatorСalorieForm/CalculatorСalorieForm';
-import RightSideBar from 'components/RightSideBar/RightSideBar';
+// import RightSideBar from 'components/RightSideBar/RightSideBar';
 import Recommendations from 'components/Modal/Recommendations/Recommendations';
 // const CalculatorCalorieForm = lazy(() =>
 //   import('components/CalculatorСalorieForm/CalculatorСalorieForm')
@@ -45,7 +45,7 @@ function Calculator() {
           >
             <CalculatorCalorieForm />
           </div>
-          <RightSideBar />
+          {/* <RightSideBar /> */}
         </>
       )}
     </Box>

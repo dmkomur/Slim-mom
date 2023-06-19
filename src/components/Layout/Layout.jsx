@@ -1,18 +1,19 @@
 import { Outlet } from 'react-router-dom';
-import { CommonContainer } from './Layout.styled';
+import { CommonContainer, Wrapper } from './Layout.styled';
 // import { Suspense } from 'react';
 import Header from '../Header/Header';
-
 
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { getTheme } from 'redux/theme/theme-selectors';
+import { getIsLoggedIn } from 'redux/auth/auth-selectors';
+import RightSideBar from 'components/RightSideBar/RightSideBar';
 
 // import Loader from '../Loader/Loader';
 
-
 export const Layout = () => {
   const currentTheme = useSelector(getTheme);
+  const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <>
       <CommonContainer>
@@ -30,10 +31,14 @@ export const Layout = () => {
             pauseOnHover
             theme={currentTheme}
           />
-
-          {/* <Suspense fallback={<Loader />}> */}
+          {isLoggedIn ? (
+            <Wrapper>
+              <Outlet />
+              <RightSideBar />
+            </Wrapper>
+          ) : (
             <Outlet />
-          {/* </Suspense> */}
+          )}
         </main>
       </CommonContainer>
     </>

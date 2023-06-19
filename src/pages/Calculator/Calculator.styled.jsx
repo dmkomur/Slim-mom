@@ -6,9 +6,9 @@ const { desktop } = breakpoints;
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 81px;
+  /* padding-top: 81px; */
   @media screen and (min-width: ${desktop}) {
     flex-direction: row;
-    padding-top: 145px;
+    flex-basis: 60%;
   }
 `;

@@ -120,7 +120,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
     searchTimeoutRef.current = setTimeout(async () => {
       const suggestions = await productSearch(query);
       setSuggestedProducts(suggestions);
-    }, 1500);
+    }, 500);
   };
 
   const handleProductSelect = product => {

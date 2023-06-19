@@ -60,14 +60,15 @@ export const Flex = styled.div`
   flex-wrap: wrap;
 
   @media (min-width: ${breakpoints.mobile}) {
-    padding-top: 81px;
+    /* padding-top: 81px; */
   }
 
   @media (min-width: ${breakpoints.tablet}) {
-    padding-top: 100px;
+    margin-bottom: -80px;
   }
   @media (min-width: ${breakpoints.desktop}) {
-    padding-top: 145px;
+    margin-bottom: 0px;
+    flex-basis: 60%;
   }
 `;
 
@@ -75,7 +76,6 @@ export const LeftBlock = styled.div`
   @media (min-width: ${breakpoints.mobile}) {
     width: 100%;
     max-width: 286px;
-   
   }
 
   @media (min-width: ${breakpoints.tablet}) {
