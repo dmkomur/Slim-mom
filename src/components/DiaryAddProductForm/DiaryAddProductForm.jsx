@@ -56,7 +56,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
   const onSubmit = e => {
     e.preventDefault();
 
-    if (!productName && !weight) {
+    if (!productName || !weight) {
       return;
     }
 
@@ -80,7 +80,7 @@ function DiaryAddProductForm({ valueDate, openMobileForm, isModalOpen }) {
   const onSubmitMobile = e => {
     e.preventDefault();
 
-    if (!productName && !weight) {
+    if (!productName || !weight) {
       return;
     }
 
