@@ -37,7 +37,9 @@ export const Layout = () => {
               <RightSideBar />
             </Wrapper>
           ) : (
-            <Outlet />
+            <Wrapper>
+              <Outlet />
+            </Wrapper>
           )}
         </main>
       </CommonContainer>
