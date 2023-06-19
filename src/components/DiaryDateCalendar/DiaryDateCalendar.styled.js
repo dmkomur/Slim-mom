@@ -65,10 +65,10 @@ export const Flex = styled.div`
 
   @media (min-width: ${breakpoints.tablet}) {
     margin-bottom: -80px;
+    flex-basis: 60%;
   }
   @media (min-width: ${breakpoints.desktop}) {
     margin-bottom: 0px;
-    flex-basis: 60%;
   }
 `;
 
