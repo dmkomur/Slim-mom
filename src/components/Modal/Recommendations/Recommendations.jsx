@@ -30,7 +30,7 @@ function Recommendations() {
 
   const handleStartLoseWeight = () => {
     dispatch(toggleModal(!isModalOpen));
-    return isLoggedIn ? navigate('/diary') : navigate('/login');
+    return isLoggedIn ? navigate('/diary') : navigate('/registration');
   };
 
   return (
